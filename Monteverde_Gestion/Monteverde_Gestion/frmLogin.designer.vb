@@ -39,7 +39,7 @@ Partial Class frmLogin
         '
         Me.lblMainTittle.AutoSize = True
         Me.lblMainTittle.Font = New System.Drawing.Font("Tahoma", 24.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblMainTittle.ForeColor = System.Drawing.Color.Gray
+        Me.lblMainTittle.ForeColor = System.Drawing.SystemColors.GrayText
         Me.lblMainTittle.Location = New System.Drawing.Point(35, 19)
         Me.lblMainTittle.Name = "lblMainTittle"
         Me.lblMainTittle.Size = New System.Drawing.Size(502, 39)
@@ -109,6 +109,7 @@ Partial Class frmLogin
         '
         Me.lblEmail.AutoSize = True
         Me.lblEmail.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEmail.ForeColor = System.Drawing.SystemColors.ControlLight
         Me.lblEmail.Location = New System.Drawing.Point(253, 163)
         Me.lblEmail.Name = "lblEmail"
         Me.lblEmail.Size = New System.Drawing.Size(128, 16)
@@ -119,6 +120,7 @@ Partial Class frmLogin
         '
         Me.lblPassword.AutoSize = True
         Me.lblPassword.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblPassword.ForeColor = System.Drawing.SystemColors.ControlLight
         Me.lblPassword.Location = New System.Drawing.Point(253, 229)
         Me.lblPassword.Name = "lblPassword"
         Me.lblPassword.Size = New System.Drawing.Size(83, 16)
@@ -131,7 +133,7 @@ Partial Class frmLogin
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.FromArgb(CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer), CType(CType(64, Byte), Integer))
-        Me.ClientSize = New System.Drawing.Size(784, 562)
+        Me.ClientSize = New System.Drawing.Size(784, 561)
         Me.Controls.Add(Me.lblPassword)
         Me.Controls.Add(Me.lblEmail)
         Me.Controls.Add(Me.pbLogo)

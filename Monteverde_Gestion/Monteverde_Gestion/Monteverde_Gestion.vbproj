@@ -76,10 +76,22 @@
     <Compile Include="frmLogin.vb">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmMainWindow.Designer.vb">
-      <DependentUpon>frmMainWindow.vb</DependentUpon>
+    <Compile Include="frmMainAdmin.Designer.vb">
+      <DependentUpon>frmMainAdmin.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmMainWindow.vb">
+    <Compile Include="frmMainAdmin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMainParentAdmin.Designer.vb">
+      <DependentUpon>frmMainParentAdmin.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMainParentAdmin.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMainUser.Designer.vb">
+      <DependentUpon>frmMainUser.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmMainUser.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="My Project\AssemblyInfo.vb" />
@@ -101,6 +113,15 @@
   <ItemGroup>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMainAdmin.resx">
+      <DependentUpon>frmMainAdmin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMainParentAdmin.resx">
+      <DependentUpon>frmMainParentAdmin.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMainUser.resx">
+      <DependentUpon>frmMainUser.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="My Project\Resources.resx">
       <Generator>VbMyResourcesResXFileCodeGenerator</Generator>

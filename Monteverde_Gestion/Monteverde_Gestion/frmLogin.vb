@@ -28,7 +28,6 @@ Public Class frmLogin
             MsgBox("Bienvenido!!! " & vbCrLf & txtEmail.Text)
             Me.Hide()
             connection.Close()
-            frmMainWindow.Show()
 
         Else
 
@@ -66,6 +65,31 @@ Public Class frmLogin
 
     End Function
 
+    Public Sub Get_User_Type(ByVal idRole As Integer)
+
+        Select Case idRole
+
+            Case 1
+
+                MsgBox("1")
+                frmMainParentAdmin.Show()
+
+            Case 2
+
+                MsgBox("2")
+                frmMainAdmin.Show()
+
+            Case 3
+
+                MsgBox("3")
+                frmMainUser.Show()
+
+
+        End Select
+
+
+    End Sub
+
 
     Private Sub lnkLogOn_LinkClicked(sender As System.Object, e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles lnkSignIn.LinkClicked
 
@@ -80,7 +104,10 @@ Public Class frmLogin
     
 
     Private Sub btnLogIn_Click(sender As Object, e As EventArgs) Handles btnLogIn.Click
+
         Login()
+        Get_User_Type(Id_Role_Request())
+
 
     End Sub
 End Class

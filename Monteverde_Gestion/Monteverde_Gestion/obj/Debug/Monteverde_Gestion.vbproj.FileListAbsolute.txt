@@ -8,3 +8,6 @@ C:\Users\Jorge Soler\Desktop\Monteverde\Monteverde_Gestion\Monteverde_Gestion\bi
 C:\Users\Jorge Soler\Desktop\Monteverde\Monteverde_Gestion\Monteverde_Gestion\obj\Debug\Monteverde_Gestion.exe
 C:\Users\Jorge Soler\Desktop\Monteverde\Monteverde_Gestion\Monteverde_Gestion\obj\Debug\Monteverde_Gestion.xml
 C:\Users\Jorge Soler\Desktop\Monteverde\Monteverde_Gestion\Monteverde_Gestion\obj\Debug\Monteverde_Gestion.pdb
+C:\Users\Jorge Soler\Desktop\Monteverde\Monteverde_Gestion\Monteverde_Gestion\obj\Debug\Monteverde_Gestion.frmMainAdmin.resources
+C:\Users\Jorge Soler\Desktop\Monteverde\Monteverde_Gestion\Monteverde_Gestion\obj\Debug\Monteverde_Gestion.frmMainParentAdmin.resources
+C:\Users\Jorge Soler\Desktop\Monteverde\Monteverde_Gestion\Monteverde_Gestion\obj\Debug\Monteverde_Gestion.frmMainUser.resources
