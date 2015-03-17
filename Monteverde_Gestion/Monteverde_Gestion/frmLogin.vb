@@ -2,7 +2,7 @@
 
 Public Class frmLogin
 
-    Dim strConexion As String = "Data Source=SOLERPC\MONTEVERDE;Initial Catalog=Clessidra;Integrated Security=True"
+    Dim strConexion As String = "Data Source=SOLERPC\MONTEVERDE;Initial Catalog=Monteverdedb;Integrated Security=True"
 
     Dim connection As New SqlConnection(strConexion)
 
@@ -11,11 +11,11 @@ Public Class frmLogin
 
     End Sub
 
-    Public Sub Login()
+    Public Sub Logins()
 
         'Dim cmdLogin As New SqlCommand("select * from dbo.User", connection)
 
-        Dim cmdLogin = New SqlCommand("SELECT user_name, password FROM [User] WHERE user_name= '" & txtEmail.Text & "'" & " and password= '" & txtPassword.Text & "'", connection)
+        Dim cmdLogin = New SqlCommand("SELECT UserEmail, Password FROM Usersdb WHERE UserEmail= '" & txtEmail.Text & "'" & " and Password= '" & txtPassword.Text & "'", connection)
 
         Dim reader As SqlDataReader
 
@@ -28,6 +28,8 @@ Public Class frmLogin
             MsgBox("Bienvenido!!! " & vbCrLf & txtEmail.Text)
             Me.Hide()
             connection.Close()
+            Get_User_Type(Id_Role_Request())
+
 
         Else
 
@@ -44,7 +46,7 @@ Public Class frmLogin
 
         Dim idRole As Integer
 
-        Dim cmdIdRole = New SqlCommand("SELECT id_role FROM [User] WHERE user_name= '" & txtEmail.Text & "'", connection)
+        Dim cmdIdRole = New SqlCommand("SELECT UserType FROM Usersdb WHERE UserEmail= '" & txtEmail.Text & "'", connection)
 
         Dim reader As SqlDataReader
 
@@ -53,7 +55,7 @@ Public Class frmLogin
         reader = cmdIdRole.ExecuteReader()
 
         If reader.Read Then
-            idRole = CInt(reader.Item("id_role"))
+            idRole = CInt(reader.Item("UserType"))
 
         End If
 
@@ -71,17 +73,17 @@ Public Class frmLogin
 
             Case 1
 
-                MsgBox("1")
+
                 frmMainParentAdmin.Show()
 
             Case 2
 
-                MsgBox("2")
+
                 frmMainAdmin.Show()
 
             Case 3
 
-                MsgBox("3")
+
                 frmMainUser.Show()
 
 
@@ -105,9 +107,7 @@ Public Class frmLogin
 
     Private Sub btnLogIn_Click(sender As Object, e As EventArgs) Handles btnLogIn.Click
 
-        Login()
-        Get_User_Type(Id_Role_Request())
-
+        Logins()
 
     End Sub
 End Class

@@ -23,49 +23,18 @@ Partial Class frmMainUser
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmMainUser))
-        Me.TabControl1 = New System.Windows.Forms.TabControl()
-        Me.TabPage2 = New System.Windows.Forms.TabPage()
-        Me.TabPage3 = New System.Windows.Forms.TabPage()
         Me.lblUserEmail = New System.Windows.Forms.Label()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnSignOut = New System.Windows.Forms.Button()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.pbLogo = New System.Windows.Forms.PictureBox()
-        Me.TabControl1.SuspendLayout()
+        Me.TabControl1 = New System.Windows.Forms.TabControl()
+        Me.tbpUserInfo = New System.Windows.Forms.TabPage()
+        Me.tbpProyects = New System.Windows.Forms.TabPage()
+        Me.tbpCalendar = New System.Windows.Forms.TabPage()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.pbLogo, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.TabControl1.SuspendLayout()
         Me.SuspendLayout()
-        '
-        'TabControl1
-        '
-        Me.TabControl1.Appearance = System.Windows.Forms.TabAppearance.Buttons
-        Me.TabControl1.Controls.Add(Me.TabPage2)
-        Me.TabControl1.Controls.Add(Me.TabPage3)
-        Me.TabControl1.Location = New System.Drawing.Point(12, 122)
-        Me.TabControl1.Multiline = True
-        Me.TabControl1.Name = "TabControl1"
-        Me.TabControl1.SelectedIndex = 0
-        Me.TabControl1.Size = New System.Drawing.Size(760, 427)
-        Me.TabControl1.TabIndex = 1
-        '
-        'TabPage2
-        '
-        Me.TabPage2.Location = New System.Drawing.Point(4, 25)
-        Me.TabPage2.Name = "TabPage2"
-        Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage2.Size = New System.Drawing.Size(752, 398)
-        Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "TabPage2"
-        Me.TabPage2.UseVisualStyleBackColor = True
-        '
-        'TabPage3
-        '
-        Me.TabPage3.Location = New System.Drawing.Point(4, 25)
-        Me.TabPage3.Name = "TabPage3"
-        Me.TabPage3.Padding = New System.Windows.Forms.Padding(3)
-        Me.TabPage3.Size = New System.Drawing.Size(752, 398)
-        Me.TabPage3.TabIndex = 2
-        Me.TabPage3.Text = "TabPage3"
-        Me.TabPage3.UseVisualStyleBackColor = True
         '
         'lblUserEmail
         '
@@ -76,14 +45,14 @@ Partial Class frmMainUser
         Me.lblUserEmail.TabIndex = 15
         Me.lblUserEmail.Text = "UserName"
         '
-        'Button1
+        'btnSignOut
         '
-        Me.Button1.Location = New System.Drawing.Point(657, 104)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(115, 34)
-        Me.Button1.TabIndex = 14
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnSignOut.Location = New System.Drawing.Point(657, 104)
+        Me.btnSignOut.Name = "btnSignOut"
+        Me.btnSignOut.Size = New System.Drawing.Size(115, 34)
+        Me.btnSignOut.TabIndex = 14
+        Me.btnSignOut.Text = "Cerrar Sesión"
+        Me.btnSignOut.UseVisualStyleBackColor = True
         '
         'PictureBox1
         '
@@ -103,30 +72,74 @@ Partial Class frmMainUser
         Me.pbLogo.TabIndex = 12
         Me.pbLogo.TabStop = False
         '
+        'TabControl1
+        '
+        Me.TabControl1.Appearance = System.Windows.Forms.TabAppearance.Buttons
+        Me.TabControl1.Controls.Add(Me.tbpUserInfo)
+        Me.TabControl1.Controls.Add(Me.tbpProyects)
+        Me.TabControl1.Controls.Add(Me.tbpCalendar)
+        Me.TabControl1.Location = New System.Drawing.Point(12, 122)
+        Me.TabControl1.Multiline = True
+        Me.TabControl1.Name = "TabControl1"
+        Me.TabControl1.SelectedIndex = 0
+        Me.TabControl1.Size = New System.Drawing.Size(760, 427)
+        Me.TabControl1.TabIndex = 16
+        '
+        'tbpUserInfo
+        '
+        Me.tbpUserInfo.Location = New System.Drawing.Point(4, 25)
+        Me.tbpUserInfo.Name = "tbpUserInfo"
+        Me.tbpUserInfo.Padding = New System.Windows.Forms.Padding(3)
+        Me.tbpUserInfo.Size = New System.Drawing.Size(752, 398)
+        Me.tbpUserInfo.TabIndex = 0
+        Me.tbpUserInfo.Text = "Perfil de usuario"
+        Me.tbpUserInfo.UseVisualStyleBackColor = True
+        '
+        'tbpProyects
+        '
+        Me.tbpProyects.Location = New System.Drawing.Point(4, 25)
+        Me.tbpProyects.Name = "tbpProyects"
+        Me.tbpProyects.Padding = New System.Windows.Forms.Padding(3)
+        Me.tbpProyects.Size = New System.Drawing.Size(752, 398)
+        Me.tbpProyects.TabIndex = 2
+        Me.tbpProyects.Text = "Proyectos"
+        Me.tbpProyects.UseVisualStyleBackColor = True
+        '
+        'tbpCalendar
+        '
+        Me.tbpCalendar.Location = New System.Drawing.Point(4, 25)
+        Me.tbpCalendar.Name = "tbpCalendar"
+        Me.tbpCalendar.Padding = New System.Windows.Forms.Padding(3)
+        Me.tbpCalendar.Size = New System.Drawing.Size(752, 398)
+        Me.tbpCalendar.TabIndex = 3
+        Me.tbpCalendar.Text = "Calendario"
+        Me.tbpCalendar.UseVisualStyleBackColor = True
+        '
         'frmMainUser
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(784, 561)
+        Me.Controls.Add(Me.btnSignOut)
+        Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.lblUserEmail)
-        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.PictureBox1)
         Me.Controls.Add(Me.pbLogo)
-        Me.Controls.Add(Me.TabControl1)
         Me.Name = "frmMainUser"
         Me.Text = "frmMainUser"
-        Me.TabControl1.ResumeLayout(False)
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.pbLogo, System.ComponentModel.ISupportInitialize).EndInit()
+        Me.TabControl1.ResumeLayout(False)
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
     End Sub
-    Friend WithEvents TabControl1 As System.Windows.Forms.TabControl
-    Friend WithEvents TabPage2 As System.Windows.Forms.TabPage
-    Friend WithEvents TabPage3 As System.Windows.Forms.TabPage
     Friend WithEvents lblUserEmail As System.Windows.Forms.Label
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents btnSignOut As System.Windows.Forms.Button
     Friend WithEvents PictureBox1 As System.Windows.Forms.PictureBox
     Friend WithEvents pbLogo As System.Windows.Forms.PictureBox
+    Friend WithEvents TabControl1 As System.Windows.Forms.TabControl
+    Friend WithEvents tbpUserInfo As System.Windows.Forms.TabPage
+    Friend WithEvents tbpProyects As System.Windows.Forms.TabPage
+    Friend WithEvents tbpCalendar As System.Windows.Forms.TabPage
 End Class
