@@ -46,6 +46,7 @@ Partial Class frmMainParentAdmin
         Me.lblUserEmail = New System.Windows.Forms.Label()
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.pbLogo = New System.Windows.Forms.PictureBox()
+        Me.lblRole = New System.Windows.Forms.Label()
         Me.TabControl1.SuspendLayout()
         Me.tbpUsers.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -157,7 +158,7 @@ Partial Class frmMainParentAdmin
         Me.lblUserSelectedFromUserGridView.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblUserSelectedFromUserGridView.Location = New System.Drawing.Point(181, 216)
         Me.lblUserSelectedFromUserGridView.Name = "lblUserSelectedFromUserGridView"
-        Me.lblUserSelectedFromUserGridView.Size = New System.Drawing.Size(63, 16)
+        Me.lblUserSelectedFromUserGridView.Size = New System.Drawing.Size(62, 16)
         Me.lblUserSelectedFromUserGridView.TabIndex = 8
         Me.lblUserSelectedFromUserGridView.Text = "Usuario"
         '
@@ -263,7 +264,7 @@ Partial Class frmMainParentAdmin
         'lblUserEmail
         '
         Me.lblUserEmail.AutoSize = True
-        Me.lblUserEmail.Location = New System.Drawing.Point(133, 85)
+        Me.lblUserEmail.Location = New System.Drawing.Point(133, 64)
         Me.lblUserEmail.Name = "lblUserEmail"
         Me.lblUserEmail.Size = New System.Drawing.Size(57, 13)
         Me.lblUserEmail.TabIndex = 20
@@ -287,11 +288,21 @@ Partial Class frmMainParentAdmin
         Me.pbLogo.TabIndex = 17
         Me.pbLogo.TabStop = False
         '
+        'lblRole
+        '
+        Me.lblRole.AutoSize = True
+        Me.lblRole.Location = New System.Drawing.Point(133, 86)
+        Me.lblRole.Name = "lblRole"
+        Me.lblRole.Size = New System.Drawing.Size(70, 13)
+        Me.lblRole.TabIndex = 22
+        Me.lblRole.Text = "Administrador"
+        '
         'frmMainParentAdmin
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(784, 561)
+        Me.Controls.Add(Me.lblRole)
         Me.Controls.Add(Me.btnSignOut)
         Me.Controls.Add(Me.TabControl1)
         Me.Controls.Add(Me.lblUserEmail)
@@ -334,4 +345,5 @@ Partial Class frmMainParentAdmin
     Friend WithEvents Button2 As System.Windows.Forms.Button
     Friend WithEvents btnAddUser As System.Windows.Forms.Button
     Friend WithEvents btnUpdateUserGriedView As System.Windows.Forms.Button
+    Friend WithEvents lblRole As System.Windows.Forms.Label
 End Class

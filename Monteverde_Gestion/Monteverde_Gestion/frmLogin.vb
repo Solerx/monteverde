@@ -73,16 +73,13 @@ Public Class frmLogin
 
             Case 1
 
-
                 frmMainParentAdmin.Show()
 
             Case 2
 
-
                 frmMainAdmin.Show()
 
             Case 3
-
 
                 frmMainUser.Show()
 

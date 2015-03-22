@@ -12,6 +12,9 @@ Public Class frmMainParentAdmin
 
     Dim dataTableProyects As New DataTable
 
+    Dim row As Integer
+
+
 
     Private Sub frmMainParentAdmin1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -74,6 +77,7 @@ Public Class frmMainParentAdmin
     Public Function List_Of_Users() As List(Of User)
 
         'From table Usersdb, obtain all the rows.
+        connection.Close()
         Dim cmdSelectUser As New SqlCommand("select * FROM Usersdb", connection)
         connection.Open()
 
@@ -109,7 +113,7 @@ Public Class frmMainParentAdmin
 
     End Function
 
-    Public Function Ask_Course_Inputs() As User
+    Public Function Ask_User_Inputs() As User
 
         Dim userName As String
         Dim userEmail As String
@@ -130,10 +134,10 @@ Public Class frmMainParentAdmin
         newUser.user_Email = userEmail
         newUser.user_Password = password
         newUser.user_UserType = userType
-        
+
 
         'return course
-        Ask_Course_Inputs = newUser
+        Ask_User_Inputs = newUser
 
 
     End Function
@@ -163,29 +167,61 @@ Public Class frmMainParentAdmin
 
     End Sub
 
-    Public Sub Delete_Row()
+    Public Sub Modify(ByVal course As User)
 
+        Dim cmdUpdate As New SqlCommand
+        Dim id As String, name As String, userEmail As String, userType As String
+        id = InputBox("Ingrese el id: ")
+        name = InputBox("Ingrese el nombre: ")
+        userEmail = InputBox("Ingrese el nivel: ")
+        userType = CInt(InputBox("Ingrese tipo de usuario: "))
+        
 
-        dgvUsers.AllowUserToDeleteRows = True
+        Dim identifier As Integer = dgvUsers.Item(0, row).Value
 
+        cmdUpdate = New SqlCommand("update Usersdb set " & _
+                               "Id = @id, " & _
+                               "name = @name, " & _
+                               "course_level = @level, " & _
+                               "credits = @credits, " & _
+                               "capacity = @capacity, " & _
+                               "professor = @professor " & _
+                               "where Id = " & identifier, connection)
 
-        Dim adapter = New SqlDataAdapter("SELECT Id, category_name FROM Usersdb", connection)
+        With cmdUpdate
+
+            .Parameters.AddWithValue("@Id", id)
+            .Parameters.AddWithValue("@UserName", name)
+            .Parameters.AddWithValue("@UserEmail", userEmail)
+            .Parameters.AddWithValue("@UserType", userType)
+        
+        End With
+
         connection.Open()
-
-        Dim builder As New SqlCommandBuilder(adap)
-        adapter.DeleteCommand = builder.GetDeleteCommand()
-
-        dataTableUsers = New DataTable()
-        adap.Fill(dataTableUsers)
-
-        dgvUsers.DataSource = dataTableUsers
-
-        Try
-            dgvUsers.Rows.RemoveAt(dgvUsers.SelectedRows(0).Index)
-        Catch ex As Exception
-            MessageBox.Show("Error removing row")
-        End Try
+        cmdUpdate.ExecuteNonQuery()
+        Fill_Data_Grid_View()
         connection.Close()
+        MessageBox.Show("Usuario modificado con éxito!")
+
+
+    End Sub
+
+    Public Sub Delete()
+
+        Dim cmdUpdate As New SqlCommand
+        Dim identifier As Integer = dgvUsers.Item(0, row).Value()
+
+        'cmdUpdate = New SqlCommand("Delete from Usersdb " & _
+        '"where Id = " & identifier, connection)
+        MessageBox.Show("Usuario!" & identifier)
+
+        connection.Open()
+        'cmdUpdate.ExecuteNonQuery()
+        Fill_Data_Grid_View()
+        connection.Close()
+        MessageBox.Show("Usuario eliminado con éxito!" & identifier)
+
+
     End Sub
 
 
@@ -217,7 +253,7 @@ Public Class frmMainParentAdmin
 
     Private Sub btnAddUser_Click(sender As Object, e As EventArgs) Handles btnAddUser.Click
 
-        Insert(Ask_Course_Inputs())
+        Insert(Ask_User_Inputs())
 
     End Sub
 
@@ -227,7 +263,7 @@ Public Class frmMainParentAdmin
 
     
     Private Sub btnRemoveUserFromDataBase_Click(sender As Object, e As EventArgs) Handles btnRemoveUserFromDataBase.Click
-        Delete_Row()
+        Delete()
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
