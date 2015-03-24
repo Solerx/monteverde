@@ -9,15 +9,13 @@ Public Class frmLogin
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        Login()
-
     End Sub
 
-    Public Sub Login()
+    Public Sub Logins()
 
         'Dim cmdLogin As New SqlCommand("select * from dbo.User", connection)
 
-        Dim cmdLogin = New SqlCommand("SELECT UserEmail, Password, IsActive FROM Usersdb WHERE UserEmail= '" & txtEmail.Text & "'" & " and Password= '" & txtPassword.Text & "'", connection)
+        Dim cmdLogin = New SqlCommand("SELECT UserEmail, Password FROM Usersdb WHERE UserEmail= '" & txtEmail.Text & "'" & " and Password= '" & txtPassword.Text & "'", connection)
 
         Dim reader As SqlDataReader
 
@@ -27,23 +25,15 @@ Public Class frmLogin
 
         If reader.HasRows Then
 
-            If reader.GetBoolean(3) = True Then
-
-                MsgBox("Welcome!!! " & vbCrLf & txtEmail.Text)
-                Me.Hide()
-                connection.Close()
-                Get_User_Type(Id_Role_Request())
-
-            Else
-
-                MsgBox("The user. " & txtEmail.Text & " is not active anymore." & vbCrLf & "Please contact an administrator.")
-
-            End If
+            MsgBox("Bienvenido!!! " & vbCrLf & txtEmail.Text)
+            Me.Hide()
+            connection.Close()
+            Get_User_Type(Id_Role_Request())
 
 
         Else
 
-            MsgBox("Email or password invalid!")
+            MsgBox("Usuario y/o contraseña invalidos.")
 
         End If
 
@@ -81,24 +71,28 @@ Public Class frmLogin
 
     Public Function Get_User_Type(ByVal idRole As String) As String
 
+        Dim userRole As String = ""
 
         Select Case idRole
 
-            Case "Parent Administrator"
+            Case "user"
 
                 frmMainParentAdmin.Show()
 
+                userRole = "Parent Administrator"
+                Get_User_Type = userRole
 
-
-            Case "Administrator"
-
-                frmMainParentAdmin.Show()
-
-
-            Case "User"
+            Case "parent-administrator"
 
                 frmMainParentAdmin.Show()
+                userRole = "Parent Administrator"
+                Get_User_Type = userRole
 
+            Case "administration"
+
+                frmMainParentAdmin.Show()
+                userRole = "Parent Administrator"
+                Get_User_Type = userRole
 
         End Select
 
