@@ -42,11 +42,13 @@ Public Class frmLogin
 
     End Sub
 
-    Public Function Id_Role_Request() As Integer
+    Public Function Id_Role_Request() As String
 
-        Dim idRole As Integer
+        Dim idRole As String = ""
 
         Dim cmdIdRole = New SqlCommand("SELECT UserType FROM Usersdb WHERE UserEmail= '" & txtEmail.Text & "'", connection)
+
+        'SELECT role_name FROM Role, Usersdb WHERE Role.id_role=Usersdb.id_role and Usersdb.email="estean.sm@..."
 
         Dim reader As SqlDataReader
 
@@ -55,7 +57,7 @@ Public Class frmLogin
         reader = cmdIdRole.ExecuteReader()
 
         If reader.Read Then
-            idRole = CInt(reader.Item("UserType"))
+            idRole = (reader.GetString(0))
 
         End If
 
@@ -63,31 +65,40 @@ Public Class frmLogin
 
         connection.Close()
 
-        Return idRole
+        Id_Role_Request = idRole
 
     End Function
 
-    Public Sub Get_User_Type(ByVal idRole As Integer)
+    Public Function Get_User_Type(ByVal idRole As String) As String
+
+        Dim userRole As String = ""
 
         Select Case idRole
 
-            Case 1
+            Case "user"
 
                 frmMainParentAdmin.Show()
 
-            Case 2
+                userRole = "Parent Administrator"
+                Get_User_Type = userRole
 
-                frmMainAdmin.Show()
+            Case "parent-administrator"
 
-            Case 3
+                frmMainParentAdmin.Show()
+                userRole = "Parent Administrator"
+                Get_User_Type = userRole
 
-                frmMainUser.Show()
+            Case "administration"
 
+                frmMainParentAdmin.Show()
+                userRole = "Parent Administrator"
+                Get_User_Type = userRole
 
         End Select
 
 
-    End Sub
+        Get_User_Type = userRole
+    End Function
 
 
     Private Sub lnkLogOn_LinkClicked(sender As System.Object, e As System.Windows.Forms.LinkLabelLinkClickedEventArgs) Handles lnkSignIn.LinkClicked
@@ -100,11 +111,12 @@ Public Class frmLogin
 
     End Sub
 
-    
+
 
     Private Sub btnLogIn_Click(sender As Object, e As EventArgs) Handles btnLogIn.Click
 
         Logins()
 
     End Sub
+
 End Class

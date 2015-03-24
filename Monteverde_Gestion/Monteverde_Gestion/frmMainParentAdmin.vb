@@ -63,7 +63,6 @@ Public Class frmMainParentAdmin
             row("Dias de vacaciones") = userGridView(i).user_VacationDays
             row("Ultimo ingreso") = userGridView(i).user_LastLogin
 
-
             dataTableUsers.Rows.Add(row)
 
         Next
@@ -96,7 +95,6 @@ Public Class frmMainParentAdmin
                 user.user_VacationDays = reader.IsDBNull(6)
                 user.user_Name = reader.GetString(1)
                 user.user_Email = reader.GetString(2)
-
 
                 userList.Add(user)
 
@@ -211,12 +209,12 @@ Public Class frmMainParentAdmin
         Dim cmdUpdate As New SqlCommand
         Dim identifier As Integer = dgvUsers.Item(0, row).Value()
 
-        'cmdUpdate = New SqlCommand("Delete from Usersdb " & _
-        '"where Id = " & identifier, connection)
+        cmdUpdate = New SqlCommand("Delete from Usersdb " & _
+        "where Id = " & identifier, connection)
         MessageBox.Show("Usuario!" & identifier)
 
         connection.Open()
-        'cmdUpdate.ExecuteNonQuery()
+        cmdUpdate.ExecuteNonQuery()
         Fill_Data_Grid_View()
         connection.Close()
         MessageBox.Show("Usuario eliminado con éxito!" & identifier)
@@ -251,23 +249,37 @@ Public Class frmMainParentAdmin
 
     End Sub
 
-    Private Sub btnAddUser_Click(sender As Object, e As EventArgs) Handles btnAddUser.Click
+    Private Sub dgvCourses_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvUsers.CellClick
+
+        row = dgvUsers.CurrentRow.Index
+
+    End Sub
+
+    Private Sub btnAddUser_Click(sender As Object, e As EventArgs)
 
         Insert(Ask_User_Inputs())
 
     End Sub
 
-    Private Sub btnUpdateUserGriedView_Click(sender As Object, e As EventArgs) Handles btnUpdateUserGriedView.Click
+    Private Sub btnUpdateUserGriedView_Click(sender As Object, e As EventArgs)
         Fill_Data_Grid_View()
     End Sub
 
     
-    Private Sub btnRemoveUserFromDataBase_Click(sender As Object, e As EventArgs) Handles btnRemoveUserFromDataBase.Click
+    Private Sub btnRemoveUserFromDataBase_Click(sender As Object, e As EventArgs)
         Delete()
     End Sub
 
-    Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
+    Private Sub btnEditUser_Click(sender As Object, e As EventArgs) Handles btnEditUser.Click
         Update_Row()
     End Sub
+
+
+    Private Sub UserToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UserToolStripMenuItem.Click
+        UsersForm.Show()
+
+    End Sub
+
+  
 End Class
 
