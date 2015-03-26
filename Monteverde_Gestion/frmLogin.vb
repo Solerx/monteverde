@@ -36,7 +36,7 @@ Public Class frmLogin
 
             If isActive = True Then
 
-                MsgBox("Loged in as: " & vbCrLf & txtEmail.Text)
+                MsgBox("You logged in as: " & vbCrLf & txtEmail.Text)
                 Me.Hide()
                 connection.Close()
                 frmHome.Show()

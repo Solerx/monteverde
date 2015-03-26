@@ -31,6 +31,8 @@ Public Class frmUserManagement
         lblRegisteredDate.Hide()
         lblUserRole.Hide()
         lblUserStatus.Hide()
+        lblEditingUser.Hide()
+        lblUserId.Hide()
 
         txtUserName.Hide()
         txtUserEmail.Hide()
@@ -42,6 +44,20 @@ Public Class frmUserManagement
         txtUserStatus.Hide()
 
         btnSave.Hide()
+        btnAdd.Hide()
+
+    End Sub
+
+    Public Sub Reset_Spaces()
+
+        txtUserName.ResetText()
+        txtUserEmail.ResetText()
+        txtUserPassword.ResetText()
+        txtUserWorkedHours.ResetText()
+        txtUserHolidays.ResetText()
+        txtUserRegisteredDate.ResetText()
+        txtUserRole.ResetText()
+        txtUserStatus.ResetText()
 
     End Sub
 
@@ -65,8 +81,6 @@ Public Class frmUserManagement
         txtUserRole.Show()
         txtUserStatus.Show()
 
-        btnSave.Show()
-
 
     End Sub
 
@@ -77,21 +91,12 @@ Public Class frmUserManagement
         Dim password As String = " "
         Dim workedHours As Integer
         Dim holidays As Integer
-        Dim registeredDate As Date
+        Dim registeredDate As DateTime
         Dim userRole As Integer
         Dim isActive As Boolean
 
         Dim newUser As New User
 
-
-        'If txtUserName.Text = vbNullString Or txtUserEmail.Text = vbNullString Or txtUserPassword.Text = vbNullString Or txtUserWorkedHours.Text = vbNullString Or txtUserHolidays.Text = vbNullString Or txtUserRegisteredDate.Text = vbNullString Or txtUserRole.Text = vbNullString Or txtUserStatus.Text = vbNullString Then
-
-        'MsgBox("You can't leave any space blank.")
-        'Dim reset = New frmUserManagement
-        'reset.Show()
-        'Me.Close()
-
-        ' Else
 
         userName = txtUserName.Text
         userEmail = txtUserEmail.Text
@@ -100,7 +105,7 @@ Public Class frmUserManagement
         holidays = CInt(txtUserHolidays.Text)
         registeredDate = CDate(txtUserRegisteredDate.Text)
         userRole = CInt(txtUserRole.Text)
-        isActive = CInt(txtUserStatus.Text)
+        isActive = CBool(txtUserStatus.Text)
 
 
         'Here we create the object
@@ -113,40 +118,126 @@ Public Class frmUserManagement
         newUser.user_user_role = userRole
         newUser.user_is_active = isActive
 
-        User_Inputs = newUser
-
-        'End If
-
-
-
         'return the user
-
+        User_Inputs = newUser
 
     End Function
 
+    Public Sub Fill_Inputs(ByVal user As User)
+
+        lblUserId.Text = user.user_user_id
+        txtUserName.Text = user.user_name
+        txtUserEmail.Text = user.user_email
+        txtUserPassword.Text = user.user_password
+        txtUserWorkedHours.Text = user.user_worked_hours
+        txtUserHolidays.Text = user.user_holidays
+        txtUserRegisteredDate.Text = user.user_registered_date
+        txtUserRole.Text = user.user_user_role
+        txtUserStatus.Text = user.user_is_active
+
+    End Sub
+
     Private Sub btnAddUser_Click(sender As Object, e As EventArgs) Handles btnAddUser.Click
 
+        Hide_All()
+        Reset_Spaces()
         Show_All()
+
+
+    End Sub
+
+    Private Sub dgvUsers_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvUsers.CellClick
+
+        row = dgvUsers.CurrentRow.Index
 
     End Sub
 
     Private Sub btnEditUser_Click(sender As Object, e As EventArgs) Handles btnEditUser.Click
 
+        Show_All()
+        Fill_Inputs(userdataInstance.Get_User_From_Table(dgvUsers.Item(0, row).Value))
+        lblEditingUser.Show()
+        lblUserId.Show()
+        btnSave.Show()
+
+
     End Sub
 
     Private Sub btnRemoveUser_Click(sender As Object, e As EventArgs) Handles btnRemoveUser.Click
+
+        Hide_All()
+
+        Dim alert = MsgBox("Are you sure you want remove user ID: " & dgvUsers.Item(0, row).Value() & ", " & dgvUsers.Item(1, row).Value() & "?", MsgBoxStyle.YesNo, "Removing!")
+
+        If alert = MsgBoxResult.Yes Then
+
+            userdataInstance.Delete(row, dgvUsers.Item(0, row).Value())
+            Update_Table()
+
+        End If
+        
 
     End Sub
 
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
 
-        userdataInstance.Insert(User_Inputs)
-        Update_Table()
+
+        If txtUserName.Text = vbNullString Or txtUserEmail.Text = vbNullString Or txtUserPassword.Text = vbNullString Or txtUserWorkedHours.Text = vbNullString Or txtUserHolidays.Text = vbNullString Or txtUserRegisteredDate.Text = vbNullString Or txtUserRole.Text = vbNullString Or txtUserStatus.Text = vbNullString Then
+
+            MsgBox("You can't leave any space blank.")
+
+        Else
+
+            Dim alert = MsgBox("Are you sure you want to save changes?", MsgBoxStyle.YesNo, "Saving!")
+
+            If alert = MsgBoxResult.Yes Then
+
+                userdataInstance.Edit(User_Inputs, dgvUsers.Item(0, row).Value())
+                Update_Table()
+                Reset_Spaces()
+
+            Else
+
+                Reset_Spaces()
+
+            End If
+
+        End If
+       
 
     End Sub
 
     Private Sub btnBack_Click(sender As Object, e As EventArgs) Handles btnBack.Click
+
         Me.Close()
         frmHome.Show()
+
+    End Sub
+
+    Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
+
+        If txtUserName.Text = vbNullString Or txtUserEmail.Text = vbNullString Or txtUserPassword.Text = vbNullString Or txtUserWorkedHours.Text = vbNullString Or txtUserHolidays.Text = vbNullString Or txtUserRegisteredDate.Text = vbNullString Or txtUserRole.Text = vbNullString Or txtUserStatus.Text = vbNullString Then
+
+            MsgBox("You can't leave any space blank.")
+
+        Else
+
+            Dim alert = MsgBox("Are you sure you want to save changes?", MsgBoxStyle.YesNo, "Saving!")
+
+            If alert = MsgBoxResult.Yes Then
+
+                userdataInstance.Insert(User_Inputs)
+                Update_Table()
+                Reset_Spaces()
+
+
+            Else
+
+                Reset_Spaces()
+
+            End If
+
+        End If
+
     End Sub
 End Class

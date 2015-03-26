@@ -63,6 +63,32 @@ Public Class Userdata
 
     End Function
 
+    Public Function Get_User_From_Table(ByVal id As Integer) As User
+
+        connection.Close()
+        Dim cmdSelectUser As New SqlCommand("SELECT Id,name,email,password,worked_hours,holidays,registered_date,user_role,is_active FROM Usersdb WHERE Id = " & id, connection)
+        connection.Open()
+        Dim reader As SqlDataReader = cmdSelectUser.ExecuteReader()
+
+        Dim user As New User
+
+        reader.Read()
+        user = New User
+
+        user.user_user_id = reader.GetInt32(0)
+        user.user_name = reader.GetString(1)
+        user.user_email = reader.GetString(2)
+        user.user_password = reader.GetString(3)
+        user.user_worked_hours = reader.GetInt32(4)
+        user.user_holidays = reader.GetInt32(5)
+        user.user_registered_date = reader.GetDateTime(6)
+        user.user_user_role = reader.GetInt32(7)
+        user.user_is_active = reader.GetBoolean(8)
+
+        Get_User_From_Table = user
+
+    End Function
+
 
 
     Public Function List_Of_Users() As List(Of User)
@@ -115,16 +141,6 @@ Public Class Userdata
         cmdInsert = New SqlCommand("insert into Usersdb(name,email,password,worked_hours,holidays,registered_date,user_role,is_active)" & _
                                    "values(@name,@email,@password,@worked_hours,@holidays,@registered_date,@user_role,@is_active)", connection)
 
-        'If user.user_name = vbNullString Or user.user_email = vbNullString Or user.user_password = vbNullString Or user.user_worked_hours = vbNullString Or user.user_holidays = vbNullString Or user.user_registered_date = vbNullString Or user.user_user_role = vbNullString Or user.user_is_active = vbNullString Then
-
-        'MsgBox("You can't leave any space blank.")
-        'Dim reset = New frmUserManagement
-        ' frmUserManagement.Close()
-        ' reset.Show()
-
-        ' Else
-
-
         With cmdInsert
 
             .Parameters.AddWithValue("@name", user.user_name)
@@ -146,70 +162,62 @@ Public Class Userdata
 
         MsgBox("User added successfully.")
 
-        'End If
-
     End Sub
 
-    Public Sub Modify(ByVal course As User)
+    Public Sub Edit(ByVal User As User, ByVal id As Integer)
+
+        connection.Close()
 
         Dim cmdUpdate As New SqlCommand
-        Dim id As String, name As String, userEmail As String, userType As String
-        id = InputBox("Ingrese el id: ")
-        name = InputBox("Ingrese el nombre: ")
-        userEmail = InputBox("Ingrese el nivel: ")
-        userType = CInt(InputBox("Ingrese tipo de usuario: "))
-        Dim identifier As Integer
 
-
-        'Dim identifier As Integer = dgvUsers.Item(0, row).Value
-
-        cmdUpdate = New SqlCommand("update Usersdb set " & _
-                               "Id = @id, " & _
+        cmdUpdate = New SqlCommand("UPDATE Usersdb SET " & _
                                "name = @name, " & _
-                               "course_level = @level, " & _
-                               "credits = @credits, " & _
-                               "capacity = @capacity, " & _
-                               "professor = @professor " & _
-                               "where Id = " & identifier, connection)
+                               "email = @email, " & _
+                               "password = @password, " & _
+                               "worked_hours = @worked_hours, " & _
+                               "holidays = @holidays " & _
+                               "registered_date = @registered_date " & _
+                               "user_role = @user_role " & _
+                               "is_active = @is_active " & _
+                               "where Id = " & id, connection)
 
         With cmdUpdate
 
-            .Parameters.AddWithValue("@Id", id)
-            .Parameters.AddWithValue("@UserName", name)
-            .Parameters.AddWithValue("@UserEmail", userEmail)
-            .Parameters.AddWithValue("@UserType", userType)
+            .Parameters.AddWithValue("@name", User.user_name)
+            .Parameters.AddWithValue("@email", User.user_email)
+            .Parameters.AddWithValue("@password", User.user_password)
+            .Parameters.AddWithValue("@worked_hours", User.user_worked_hours)
+            .Parameters.AddWithValue("@holidays", User.user_holidays)
+            .Parameters.AddWithValue("@registered_date", User.user_registered_date)
+            .Parameters.AddWithValue("@user_role", User.user_user_role)
+            .Parameters.AddWithValue("@is_active", User.user_is_active)
 
         End With
 
         connection.Open()
         cmdUpdate.ExecuteNonQuery()
-        Fill_Data_Grid_View()
         connection.Close()
-        MessageBox.Show("Usuario modificado con éxito!")
-
+        MsgBox("User edited successfully!")
 
     End Sub
 
-    Public Sub Delete()
+    Public Sub Delete(ByVal indexRow As Integer, ByVal id As Integer)
 
-        Dim identifier As Integer
         Dim cmdUpdate As New SqlCommand
-        'Dim identifier As Integer = dgvUsers.Item(0, row).Value()
 
-        'cmdUpdate = New SqlCommand("Delete from Usersdb " & _
-        '"where Id = " & identifier, connection)
-        MessageBox.Show("Usuario!" & identifier)
+        cmdUpdate = New SqlCommand("Delete from Usersdb " & _
+        "where Id = " & id, connection)
+
+
 
         connection.Open()
-        'cmdUpdate.ExecuteNonQuery()
+        cmdUpdate.ExecuteNonQuery()
         Fill_Data_Grid_View()
         connection.Close()
-        MessageBox.Show("Usuario eliminado con éxito!" & identifier)
+        MsgBox("User removed successfully!")
 
 
     End Sub
-
-
 
 
     Public Function GetIsActive(ByVal email As String) As Boolean
@@ -269,7 +277,6 @@ Public Class Userdata
 
         Dim idRole As String = ""
 
-        'Dim cmdIdRole = New SqlCommand("SELECT user_role FROM Usersdb WHERE email= '" & txtEmail.Text & "'", connection)
         Dim cmdIdRole = New SqlCommand("SELECT role_name FROM Role, Usersdb WHERE Role.id=Usersdb.user_role and Usersdb.email= '" & email & "'", connection)
         Dim reader As SqlDataReader
 
@@ -279,7 +286,7 @@ Public Class Userdata
 
         If reader.Read Then
 
-            'idRole = CInt(reader.Item("UserType"))
+
             idRole = (reader.GetString(0))
 
 
@@ -292,31 +299,5 @@ Public Class Userdata
         GetRole = idRole
 
     End Function
-
-    Public Sub Get_User_Type(ByVal idRole As String)
-
-        Select Case idRole
-
-            Case "Parent-Administrator"
-
-                frmHome.Show()
-                MsgBox("1" & idRole)
-
-            Case "Administrator"
-
-                frmHome.Show()
-                MsgBox("2" & idRole)
-
-            Case "User"
-
-                frmHome.Show()
-                MsgBox("3" & idRole)
-
-
-        End Select
-
-
-    End Sub
-
 
 End Class

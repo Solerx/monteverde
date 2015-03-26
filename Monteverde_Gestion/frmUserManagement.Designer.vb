@@ -44,6 +44,9 @@ Partial Class frmUserManagement
         Me.lblRegisteredDate = New System.Windows.Forms.Label()
         Me.txtUserRegisteredDate = New System.Windows.Forms.MaskedTextBox()
         Me.btnSave = New System.Windows.Forms.Button()
+        Me.lblEditingUser = New System.Windows.Forms.Label()
+        Me.lblUserId = New System.Windows.Forms.Label()
+        Me.btnAdd = New System.Windows.Forms.Button()
         CType(Me.dgvUsers, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -138,7 +141,7 @@ Partial Class frmUserManagement
         Me.txtUserName.BackColor = System.Drawing.Color.Maroon
         Me.txtUserName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtUserName.ForeColor = System.Drawing.Color.White
-        Me.txtUserName.Location = New System.Drawing.Point(13, 366)
+        Me.txtUserName.Location = New System.Drawing.Point(16, 366)
         Me.txtUserName.Name = "txtUserName"
         Me.txtUserName.Size = New System.Drawing.Size(265, 20)
         Me.txtUserName.TabIndex = 30
@@ -287,11 +290,9 @@ Partial Class frmUserManagement
         Me.txtUserRegisteredDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtUserRegisteredDate.ForeColor = System.Drawing.Color.White
         Me.txtUserRegisteredDate.Location = New System.Drawing.Point(624, 471)
-        Me.txtUserRegisteredDate.Mask = "00/00/0000"
         Me.txtUserRegisteredDate.Name = "txtUserRegisteredDate"
         Me.txtUserRegisteredDate.Size = New System.Drawing.Size(148, 20)
         Me.txtUserRegisteredDate.TabIndex = 44
-        Me.txtUserRegisteredDate.ValidatingType = GetType(Date)
         '
         'btnSave
         '
@@ -304,12 +305,52 @@ Partial Class frmUserManagement
         Me.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
         Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSave.ForeColor = System.Drawing.Color.Maroon
-        Me.btnSave.Location = New System.Drawing.Point(340, 504)
+        Me.btnSave.Location = New System.Drawing.Point(333, 504)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(149, 45)
         Me.btnSave.TabIndex = 46
         Me.btnSave.Text = "Save"
         Me.btnSave.UseVisualStyleBackColor = False
+        '
+        'lblEditingUser
+        '
+        Me.lblEditingUser.AutoSize = True
+        Me.lblEditingUser.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEditingUser.ForeColor = System.Drawing.Color.Maroon
+        Me.lblEditingUser.Location = New System.Drawing.Point(353, 304)
+        Me.lblEditingUser.Name = "lblEditingUser"
+        Me.lblEditingUser.Size = New System.Drawing.Size(100, 16)
+        Me.lblEditingUser.TabIndex = 47
+        Me.lblEditingUser.Text = "Editing User ID:"
+        '
+        'lblUserId
+        '
+        Me.lblUserId.AutoSize = True
+        Me.lblUserId.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblUserId.ForeColor = System.Drawing.Color.Maroon
+        Me.lblUserId.Location = New System.Drawing.Point(346, 320)
+        Me.lblUserId.Name = "lblUserId"
+        Me.lblUserId.Size = New System.Drawing.Size(188, 55)
+        Me.lblUserId.TabIndex = 48
+        Me.lblUserId.Text = "id_user"
+        '
+        'btnAdd
+        '
+        Me.btnAdd.BackColor = System.Drawing.Color.White
+        Me.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.Maroon
+        Me.btnAdd.FlatAppearance.BorderSize = 2
+        Me.btnAdd.FlatAppearance.CheckedBackColor = System.Drawing.Color.DimGray
+        Me.btnAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray
+        Me.btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
+        Me.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAdd.ForeColor = System.Drawing.Color.Maroon
+        Me.btnAdd.Location = New System.Drawing.Point(333, 504)
+        Me.btnAdd.Name = "btnAdd"
+        Me.btnAdd.Size = New System.Drawing.Size(149, 45)
+        Me.btnAdd.TabIndex = 49
+        Me.btnAdd.Text = "Add"
+        Me.btnAdd.UseVisualStyleBackColor = False
         '
         'frmUserManagement
         '
@@ -317,6 +358,9 @@ Partial Class frmUserManagement
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(784, 561)
+        Me.Controls.Add(Me.btnAdd)
+        Me.Controls.Add(Me.lblUserId)
+        Me.Controls.Add(Me.lblEditingUser)
         Me.Controls.Add(Me.btnSave)
         Me.Controls.Add(Me.lblRegisteredDate)
         Me.Controls.Add(Me.txtUserRegisteredDate)
@@ -368,4 +412,7 @@ Partial Class frmUserManagement
     Friend WithEvents lblRegisteredDate As System.Windows.Forms.Label
     Friend WithEvents txtUserRegisteredDate As System.Windows.Forms.MaskedTextBox
     Friend WithEvents btnSave As System.Windows.Forms.Button
+    Friend WithEvents lblEditingUser As System.Windows.Forms.Label
+    Friend WithEvents lblUserId As System.Windows.Forms.Label
+    Friend WithEvents btnAdd As System.Windows.Forms.Button
 End Class
