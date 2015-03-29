@@ -38,9 +38,9 @@ Partial Class frmLogin
         Me.lblMainTittle.ForeColor = System.Drawing.Color.Maroon
         Me.lblMainTittle.Location = New System.Drawing.Point(148, 68)
         Me.lblMainTittle.Name = "lblMainTittle"
-        Me.lblMainTittle.Size = New System.Drawing.Size(502, 39)
+        Me.lblMainTittle.Size = New System.Drawing.Size(518, 39)
         Me.lblMainTittle.TabIndex = 0
-        Me.lblMainTittle.Text = "Gestión de Proyectos, Monteverde"
+        Me.lblMainTittle.Text = "Proyect Management, Monterverde"
         '
         'txtEmail
         '

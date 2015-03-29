@@ -12,12 +12,14 @@ Public Class Userdata
 
     Dim row As Integer
 
+
+
     Public Function Create_Data_Table_User() As DataTable
 
         'Create Users table
         dataTableUsers = New DataTable
 
-        dataTableUsers.Columns.Add("Id")
+        dataTableUsers.Columns.Add("ID")
         dataTableUsers.Columns.Add("Name")
         dataTableUsers.Columns.Add("Email")
         dataTableUsers.Columns.Add("Password")
@@ -50,6 +52,7 @@ Public Class Userdata
             row("Email") = userGridView(i).user_email
             row("Password") = userGridView(i).user_password
             row("Role") = userGridView(i).user_user_role
+            'row("Role") = userGridView(i).user_user_role.role_role_name
             row("Worked Hours") = userGridView(i).user_worked_hours
             row("Holydays") = userGridView(i).user_holidays
             row("Sign-in Date") = userGridView(i).user_registered_date
@@ -66,7 +69,7 @@ Public Class Userdata
     Public Function Get_User_From_Table(ByVal id As Integer) As User
 
         connection.Close()
-        Dim cmdSelectUser As New SqlCommand("SELECT Id,name,email,password,worked_hours,holidays,registered_date,user_role,is_active FROM Usersdb WHERE Id = " & id, connection)
+        Dim cmdSelectUser As New SqlCommand("SELECT id_user,name,email,password,worked_hours,holidays,registered_date,is_active,user_role,role_name FROM Role,Usersdb WHERE Role.id_role=Usersdb.user_role and Usersdb.id_user = " & id, connection)
         connection.Open()
         Dim reader As SqlDataReader = cmdSelectUser.ExecuteReader()
 
@@ -82,8 +85,15 @@ Public Class Userdata
         user.user_worked_hours = reader.GetInt32(4)
         user.user_holidays = reader.GetInt32(5)
         user.user_registered_date = reader.GetDateTime(6)
-        user.user_user_role = reader.GetInt32(7)
-        user.user_is_active = reader.GetBoolean(8)
+        user.user_is_active = reader.GetBoolean(7)
+        user.user_user_idrole = reader.GetInt32(8)
+        MsgBox(reader.GetInt32(8))
+
+        user.user_user_role = reader.GetString(9)
+        'user.user_user_role.role_role_name = reader.GetString(8)
+       
+
+        reader.Close()
 
         Get_User_From_Table = user
 
@@ -95,13 +105,14 @@ Public Class Userdata
 
         'From table Usersdb, obtain all the rows.
         connection.Close()
-        Dim cmdSelectUser As New SqlCommand("select * FROM Usersdb", connection)
+        Dim cmdSelectUser As New SqlCommand("SELECT id_user,name,email,password,worked_hours,holidays,registered_date,is_active,role_name FROM Role,Usersdb WHERE Role.id_role=Usersdb.user_role", connection)
         connection.Open()
 
         Dim reader As SqlDataReader = cmdSelectUser.ExecuteReader()
         Dim userList As New List(Of User)
 
         Dim user As New User
+
 
         Do While reader.HasRows
 
@@ -115,8 +126,12 @@ Public Class Userdata
                 user.user_worked_hours = reader.GetInt32(4)
                 user.user_holidays = reader.GetInt32(5)
                 user.user_registered_date = reader.GetDateTime(6)
-                user.user_user_role = reader.GetInt32(7)
-                user.user_is_active = reader.GetBoolean(8)
+                user.user_user_role = reader.GetString(8)
+                'user.user_user_role.role_role_name = reader.GetString(8)
+                user.user_is_active = reader.GetBoolean(7)
+
+
+
 
                 userList.Add(user)
 
@@ -127,6 +142,7 @@ Public Class Userdata
 
         Loop
 
+        reader.Close()
         connection.Close()
         List_Of_Users = userList
 
@@ -136,10 +152,13 @@ Public Class Userdata
 
     Public Sub Insert(ByVal user As User)
 
+        connection.Close()
+
         Dim cmdInsert As New SqlCommand
 
         cmdInsert = New SqlCommand("insert into Usersdb(name,email,password,worked_hours,holidays,registered_date,user_role,is_active)" & _
                                    "values(@name,@email,@password,@worked_hours,@holidays,@registered_date,@user_role,@is_active)", connection)
+        connection.Open()
 
         With cmdInsert
 
@@ -149,24 +168,22 @@ Public Class Userdata
             .Parameters.AddWithValue("@worked_hours", user.user_worked_hours)
             .Parameters.AddWithValue("@holidays", user.user_holidays)
             .Parameters.AddWithValue("@registered_date", user.user_registered_date)
-            .Parameters.AddWithValue("@user_role", user.user_user_role)
+            .Parameters.AddWithValue("@user_role", user.user_user_idrole)
             .Parameters.AddWithValue("@is_active", user.user_is_active)
 
 
         End With
 
 
-        connection.Open()
+
         cmdInsert.ExecuteNonQuery()
-        connection.Close()
-
         MsgBox("User added successfully.")
-
+        connection.Close()
     End Sub
 
     Public Sub Edit(ByVal User As User, ByVal id As Integer)
 
-        connection.Close()
+
 
         Dim cmdUpdate As New SqlCommand
 
@@ -175,11 +192,12 @@ Public Class Userdata
                                "email = @email, " & _
                                "password = @password, " & _
                                "worked_hours = @worked_hours, " & _
-                               "holidays = @holidays " & _
-                               "registered_date = @registered_date " & _
-                               "user_role = @user_role " & _
+                               "holidays = @holidays, " & _
+                               "user_role = @user_role, " & _
                                "is_active = @is_active " & _
-                               "where Id = " & id, connection)
+                               "WHERE id_user = " & id, connection)
+        ' "registered_date = @registered_date " & _
+
 
         With cmdUpdate
 
@@ -188,13 +206,13 @@ Public Class Userdata
             .Parameters.AddWithValue("@password", User.user_password)
             .Parameters.AddWithValue("@worked_hours", User.user_worked_hours)
             .Parameters.AddWithValue("@holidays", User.user_holidays)
-            .Parameters.AddWithValue("@registered_date", User.user_registered_date)
-            .Parameters.AddWithValue("@user_role", User.user_user_role)
+            '.Parameters.AddWithValue("@registered_date", User.user_registered_date)
+            .Parameters.AddWithValue("@user_role", User.user_user_idrole)
             .Parameters.AddWithValue("@is_active", User.user_is_active)
 
         End With
 
-        connection.Open()
+
         cmdUpdate.ExecuteNonQuery()
         connection.Close()
         MsgBox("User edited successfully!")
@@ -206,9 +224,7 @@ Public Class Userdata
         Dim cmdUpdate As New SqlCommand
 
         cmdUpdate = New SqlCommand("Delete from Usersdb " & _
-        "where Id = " & id, connection)
-
-
+        "where id_user = " & id, connection)
 
         connection.Open()
         cmdUpdate.ExecuteNonQuery()
@@ -235,6 +251,7 @@ Public Class Userdata
         If reader.Read Then
 
             IsActive = reader.GetBoolean(0)
+            reader.Close()
 
 
         End If
@@ -262,6 +279,7 @@ Public Class Userdata
         If reader.Read Then
 
             userName = reader.GetString(0)
+            reader.Close()
 
         End If
 
@@ -273,11 +291,13 @@ Public Class Userdata
 
     End Function
 
-    Public Function GetRole(ByVal email As String) As String
+    Public Function GetRole(ByVal id_user As Integer) As Integer
+
+        connection.Close()
 
         Dim idRole As String = ""
 
-        Dim cmdIdRole = New SqlCommand("SELECT role_name FROM Role, Usersdb WHERE Role.id=Usersdb.user_role and Usersdb.email= '" & email & "'", connection)
+        Dim cmdIdRole = New SqlCommand("SELECT id_role FROM Role, Usersdb WHERE Role.id_role=Usersdb.user_role and Usersdb.id_user= '" & id_user & "'", connection)
         Dim reader As SqlDataReader
 
         connection.Open()
@@ -286,9 +306,8 @@ Public Class Userdata
 
         If reader.Read Then
 
-
-            idRole = (reader.GetString(0))
-
+            idRole = (reader.GetInt32(0))
+            reader.Close()
 
         End If
 

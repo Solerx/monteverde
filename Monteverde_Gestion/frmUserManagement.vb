@@ -8,14 +8,17 @@ Public Class frmUserManagement
 
     Dim userdataInstance As Userdata = New Userdata
 
+
     Private Sub frmUserManagement_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         Me.dgvUsers.DataSource = userdataInstance.Fill_Data_Grid_View()
         Hide_All()
+        Fill_Combobox()
+        Fill_ComboboxStatus()
 
     End Sub
 
-    Public Sub Update_Table()
+    Public Sub updateTable()
 
         Me.dgvUsers.DataSource = userdataInstance.Fill_Data_Grid_View()
 
@@ -33,6 +36,8 @@ Public Class frmUserManagement
         lblUserStatus.Hide()
         lblEditingUser.Hide()
         lblUserId.Hide()
+        cbxUserRole.Hide()
+        cbxUserStatus.Hide()
 
         txtUserName.Hide()
         txtUserEmail.Hide()
@@ -40,8 +45,7 @@ Public Class frmUserManagement
         txtUserWorkedHours.Hide()
         txtUserHolidays.Hide()
         txtUserRegisteredDate.Hide()
-        txtUserRole.Hide()
-        txtUserStatus.Hide()
+
 
         btnSave.Hide()
         btnAdd.Hide()
@@ -56,8 +60,9 @@ Public Class frmUserManagement
         txtUserWorkedHours.ResetText()
         txtUserHolidays.ResetText()
         txtUserRegisteredDate.ResetText()
-        txtUserRole.ResetText()
-        txtUserStatus.ResetText()
+        'cbxUserStatus.Refresh()
+        'cbxUserRole.Refresh()
+
 
     End Sub
 
@@ -71,6 +76,8 @@ Public Class frmUserManagement
         lblRegisteredDate.Show()
         lblUserRole.Show()
         lblUserStatus.Show()
+        cbxUserRole.Show()
+        cbxUserStatus.Show()
 
         txtUserName.Show()
         txtUserEmail.Show()
@@ -78,8 +85,7 @@ Public Class frmUserManagement
         txtUserWorkedHours.Show()
         txtUserHolidays.Show()
         txtUserRegisteredDate.Show()
-        txtUserRole.Show()
-        txtUserStatus.Show()
+
 
 
     End Sub
@@ -91,8 +97,8 @@ Public Class frmUserManagement
         Dim password As String = " "
         Dim workedHours As Integer
         Dim holidays As Integer
-        Dim registeredDate As DateTime
         Dim userRole As Integer
+        Dim memberSince As DateTime
         Dim isActive As Boolean
 
         Dim newUser As New User
@@ -103,9 +109,19 @@ Public Class frmUserManagement
         password = txtUserPassword.Text
         workedHours = CInt(txtUserWorkedHours.Text)
         holidays = CInt(txtUserHolidays.Text)
-        registeredDate = CDate(txtUserRegisteredDate.Text)
-        userRole = CInt(txtUserRole.Text)
-        isActive = CBool(txtUserStatus.Text)
+        memberSince = CDate(txtUserRegisteredDate.Text)
+        userRole = cbxUserRole.SelectedValue
+
+        If cbxUserStatus.SelectedIndex = 0 Then
+
+            isActive = True
+
+        Else
+
+            isActive = False
+
+        End If
+        'isActive = cbxUserStatus.SelectedText
 
 
         'Here we create the object
@@ -114,14 +130,45 @@ Public Class frmUserManagement
         newUser.user_password = password
         newUser.user_worked_hours = workedHours
         newUser.user_holidays = holidays
-        newUser.user_registered_date = registeredDate
-        newUser.user_user_role = userRole
+        newUser.user_user_idrole = userRole
+        newUser.user_registered_date = memberSince
         newUser.user_is_active = isActive
+        'newUser.user_user_role = userRole
+        'newUser.user_user_role.role_id_role = userRole
 
         'return the user
         User_Inputs = newUser
 
     End Function
+
+    Public Sub Fill_Combobox()
+
+        Dim role = New Dictionary(Of String, String)()
+
+        role("1") = "Parent-Administrator"
+        role("2") = "Administrator"
+        role("3") = "User"
+
+        cbxUserRole.DataSource = New BindingSource(role, Nothing)
+        cbxUserRole.DisplayMember = "Value"
+        cbxUserRole.ValueMember = "Key"
+        cbxUserRole.ForeColor = Color.White
+
+    End Sub
+
+    Public Sub Fill_ComboboxStatus()
+
+        Dim status = New Dictionary(Of String, String)()
+
+        status("1") = "Active"
+        status("2") = "Inactive"
+
+        cbxUserStatus.DataSource = New BindingSource(status, Nothing)
+        cbxUserStatus.DisplayMember = "Value"
+        cbxUserStatus.ValueMember = "Key"
+        cbxUserStatus.ForeColor = Color.White
+
+    End Sub
 
     Public Sub Fill_Inputs(ByVal user As User)
 
@@ -132,8 +179,26 @@ Public Class frmUserManagement
         txtUserWorkedHours.Text = user.user_worked_hours
         txtUserHolidays.Text = user.user_holidays
         txtUserRegisteredDate.Text = user.user_registered_date
-        txtUserRole.Text = user.user_user_role
-        txtUserStatus.Text = user.user_is_active
+
+        Select Case user.user_user_idrole
+            Case 1
+                cbxUserRole.SelectedIndex = 0
+            Case 2
+                cbxUserRole.SelectedIndex = 1
+            Case 3
+                cbxUserRole.SelectedIndex = 2
+        End Select
+        'cbxUserRole.SelectedValue = user.user_user_role.role_id_role
+
+        If user.user_is_active = True Then
+
+            cbxUserStatus.SelectedIndex = 0
+        Else
+
+            cbxUserStatus.SelectedIndex = 1
+
+        End If
+
 
     End Sub
 
@@ -141,6 +206,8 @@ Public Class frmUserManagement
 
         Hide_All()
         Reset_Spaces()
+        btnAdd.Show()
+        txtUserRegisteredDate.Enabled = True
         Show_All()
 
 
@@ -155,6 +222,7 @@ Public Class frmUserManagement
     Private Sub btnEditUser_Click(sender As Object, e As EventArgs) Handles btnEditUser.Click
 
         Show_All()
+        txtUserRegisteredDate.Enabled = False
         Fill_Inputs(userdataInstance.Get_User_From_Table(dgvUsers.Item(0, row).Value))
         lblEditingUser.Show()
         lblUserId.Show()
@@ -172,7 +240,7 @@ Public Class frmUserManagement
         If alert = MsgBoxResult.Yes Then
 
             userdataInstance.Delete(row, dgvUsers.Item(0, row).Value())
-            Update_Table()
+            updateTable()
 
         End If
         
@@ -182,7 +250,7 @@ Public Class frmUserManagement
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
 
 
-        If txtUserName.Text = vbNullString Or txtUserEmail.Text = vbNullString Or txtUserPassword.Text = vbNullString Or txtUserWorkedHours.Text = vbNullString Or txtUserHolidays.Text = vbNullString Or txtUserRegisteredDate.Text = vbNullString Or txtUserRole.Text = vbNullString Or txtUserStatus.Text = vbNullString Then
+        If txtUserName.Text = vbNullString Or txtUserEmail.Text = vbNullString Or txtUserPassword.Text = vbNullString Or txtUserWorkedHours.Text = vbNullString Or txtUserHolidays.Text = vbNullString Or txtUserRegisteredDate.Text = vbNullString Or cbxUserStatus.Text = vbNullString Or cbxUserRole.SelectedValue = vbNull Then
 
             MsgBox("You can't leave any space blank.")
 
@@ -193,7 +261,7 @@ Public Class frmUserManagement
             If alert = MsgBoxResult.Yes Then
 
                 userdataInstance.Edit(User_Inputs, dgvUsers.Item(0, row).Value())
-                Update_Table()
+                updateTable()
                 Reset_Spaces()
 
             Else
@@ -216,7 +284,7 @@ Public Class frmUserManagement
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
 
-        If txtUserName.Text = vbNullString Or txtUserEmail.Text = vbNullString Or txtUserPassword.Text = vbNullString Or txtUserWorkedHours.Text = vbNullString Or txtUserHolidays.Text = vbNullString Or txtUserRegisteredDate.Text = vbNullString Or txtUserRole.Text = vbNullString Or txtUserStatus.Text = vbNullString Then
+        If txtUserName.Text = vbNullString Or txtUserEmail.Text = vbNullString Or txtUserPassword.Text = vbNullString Or txtUserWorkedHours.Text = vbNullString Or txtUserHolidays.Text = vbNullString Or txtUserRegisteredDate.Text = vbNullString Or cbxUserRole.SelectedValue = vbNull Or cbxUserStatus.Text = vbNullString Then
 
             MsgBox("You can't leave any space blank.")
 
@@ -227,7 +295,7 @@ Public Class frmUserManagement
             If alert = MsgBoxResult.Yes Then
 
                 userdataInstance.Insert(User_Inputs)
-                Update_Table()
+                updateTable()
                 Reset_Spaces()
 
 
@@ -238,6 +306,13 @@ Public Class frmUserManagement
             End If
 
         End If
+
+    End Sub
+
+  
+    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        MsgBox("Value" & cbxUserRole.SelectedValue)
+        MsgBox("Index" & cbxUserRole.SelectedIndex)
 
     End Sub
 End Class

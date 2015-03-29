@@ -10,6 +10,8 @@ Public Class frmLogin
 
     Dim connection As New SqlConnection(strConexion)
 
+    Public globalUserId As Integer
+
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
     End Sub
@@ -18,7 +20,7 @@ Public Class frmLogin
 
         'Dim cmdLogin As New SqlCommand("select * from dbo.User", connection)
 
-        Dim cmdLogin = New SqlCommand("SELECT email, password, is_active FROM Usersdb WHERE email= '" & txtEmail.Text & "'" & " and password= '" & txtPassword.Text & "'", connection)
+        Dim cmdLogin = New SqlCommand("SELECT id_user ,name , email, password, is_active FROM Usersdb WHERE email= '" & txtEmail.Text & "'" & " and password= '" & txtPassword.Text & "'", connection)
 
         Dim isActive As Integer = True
 
@@ -30,12 +32,13 @@ Public Class frmLogin
 
         If reader.HasRows Then
 
-            connection.Close()
-
             isActive = userdataInstance.GetIsActive(txtEmail.Text)
 
             If isActive = True Then
 
+                reader.Read()
+                globalUserId = reader.GetInt32(0)
+                reader.Close()
                 MsgBox("You logged in as: " & vbCrLf & txtEmail.Text)
                 Me.Hide()
                 connection.Close()

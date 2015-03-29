@@ -26,21 +26,22 @@ Partial Class frmHome
         Me.pbLogo = New System.Windows.Forms.PictureBox()
         Me.lblUserRole = New System.Windows.Forms.Label()
         Me.lblUserName = New System.Windows.Forms.Label()
-        Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
-        Me.ManagementToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.UsersToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ProjectsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.CategoriesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ProfileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.msHome = New System.Windows.Forms.MenuStrip()
+        Me.msiManagement = New System.Windows.Forms.ToolStripMenuItem()
+        Me.msiManageUsers = New System.Windows.Forms.ToolStripMenuItem()
+        Me.msiManageProjects = New System.Windows.Forms.ToolStripMenuItem()
+        Me.msiManageWorkCategories = New System.Windows.Forms.ToolStripMenuItem()
+        Me.msiManageUserProjects = New System.Windows.Forms.ToolStripMenuItem()
         Me.TimeRegistrationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NewTimeRegistrationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ViewUsersRegistrationsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.msiViewUserRegs = New System.Windows.Forms.ToolStripMenuItem()
         Me.HolidaysToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HolidaysRequestToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.UsersHolidaysToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.msiUserHolidays = New System.Windows.Forms.ToolStripMenuItem()
         Me.lblUserEmail = New System.Windows.Forms.Label()
+        Me.msiManageProfile = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.pbLogo, System.ComponentModel.ISupportInitialize).BeginInit()
-        Me.MenuStrip1.SuspendLayout()
+        Me.msHome.SuspendLayout()
         Me.SuspendLayout()
         '
         'pbLogo
@@ -77,61 +78,61 @@ Partial Class frmHome
         Me.lblUserName.Text = "user_email"
         Me.lblUserName.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
-        'MenuStrip1
+        'msHome
         '
-        Me.MenuStrip1.BackColor = System.Drawing.Color.Maroon
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ManagementToolStripMenuItem, Me.TimeRegistrationToolStripMenuItem, Me.HolidaysToolStripMenuItem})
-        Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
-        Me.MenuStrip1.Name = "MenuStrip1"
-        Me.MenuStrip1.Size = New System.Drawing.Size(784, 24)
-        Me.MenuStrip1.TabIndex = 23
-        Me.MenuStrip1.Text = "MenuStrip1"
+        Me.msHome.BackColor = System.Drawing.Color.Maroon
+        Me.msHome.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.msiManagement, Me.TimeRegistrationToolStripMenuItem, Me.HolidaysToolStripMenuItem})
+        Me.msHome.Location = New System.Drawing.Point(0, 0)
+        Me.msHome.Name = "msHome"
+        Me.msHome.Size = New System.Drawing.Size(784, 24)
+        Me.msHome.TabIndex = 23
+        Me.msHome.Text = "MenuStrip1"
         '
-        'ManagementToolStripMenuItem
+        'msiManagement
         '
-        Me.ManagementToolStripMenuItem.BackColor = System.Drawing.Color.Maroon
-        Me.ManagementToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UsersToolStripMenuItem, Me.ProjectsToolStripMenuItem, Me.CategoriesToolStripMenuItem, Me.ProfileToolStripMenuItem})
-        Me.ManagementToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Control
-        Me.ManagementToolStripMenuItem.Name = "ManagementToolStripMenuItem"
-        Me.ManagementToolStripMenuItem.Size = New System.Drawing.Size(90, 20)
-        Me.ManagementToolStripMenuItem.Text = "Management"
+        Me.msiManagement.BackColor = System.Drawing.Color.Maroon
+        Me.msiManagement.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.msiManageUsers, Me.msiManageProjects, Me.msiManageWorkCategories, Me.msiManageUserProjects, Me.msiManageProfile})
+        Me.msiManagement.ForeColor = System.Drawing.SystemColors.Control
+        Me.msiManagement.Name = "msiManagement"
+        Me.msiManagement.Size = New System.Drawing.Size(90, 20)
+        Me.msiManagement.Text = "Management"
         '
-        'UsersToolStripMenuItem
+        'msiManageUsers
         '
-        Me.UsersToolStripMenuItem.BackColor = System.Drawing.Color.Maroon
-        Me.UsersToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Control
-        Me.UsersToolStripMenuItem.Name = "UsersToolStripMenuItem"
-        Me.UsersToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.UsersToolStripMenuItem.Text = "Users"
+        Me.msiManageUsers.BackColor = System.Drawing.Color.Maroon
+        Me.msiManageUsers.ForeColor = System.Drawing.SystemColors.Control
+        Me.msiManageUsers.Name = "msiManageUsers"
+        Me.msiManageUsers.Size = New System.Drawing.Size(194, 22)
+        Me.msiManageUsers.Text = "Users"
         '
-        'ProjectsToolStripMenuItem
+        'msiManageProjects
         '
-        Me.ProjectsToolStripMenuItem.BackColor = System.Drawing.Color.Maroon
-        Me.ProjectsToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Control
-        Me.ProjectsToolStripMenuItem.Name = "ProjectsToolStripMenuItem"
-        Me.ProjectsToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.ProjectsToolStripMenuItem.Text = "Projects"
+        Me.msiManageProjects.BackColor = System.Drawing.Color.Maroon
+        Me.msiManageProjects.ForeColor = System.Drawing.SystemColors.Control
+        Me.msiManageProjects.Name = "msiManageProjects"
+        Me.msiManageProjects.Size = New System.Drawing.Size(194, 22)
+        Me.msiManageProjects.Text = "Projects"
         '
-        'CategoriesToolStripMenuItem
+        'msiManageWorkCategories
         '
-        Me.CategoriesToolStripMenuItem.BackColor = System.Drawing.Color.Maroon
-        Me.CategoriesToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Control
-        Me.CategoriesToolStripMenuItem.Name = "CategoriesToolStripMenuItem"
-        Me.CategoriesToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.CategoriesToolStripMenuItem.Text = "Categories"
+        Me.msiManageWorkCategories.BackColor = System.Drawing.Color.Maroon
+        Me.msiManageWorkCategories.ForeColor = System.Drawing.SystemColors.Control
+        Me.msiManageWorkCategories.Name = "msiManageWorkCategories"
+        Me.msiManageWorkCategories.Size = New System.Drawing.Size(194, 22)
+        Me.msiManageWorkCategories.Text = "Work Categories"
         '
-        'ProfileToolStripMenuItem
+        'msiManageUserProjects
         '
-        Me.ProfileToolStripMenuItem.BackColor = System.Drawing.Color.Maroon
-        Me.ProfileToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Control
-        Me.ProfileToolStripMenuItem.Name = "ProfileToolStripMenuItem"
-        Me.ProfileToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.ProfileToolStripMenuItem.Text = "Profile"
+        Me.msiManageUserProjects.BackColor = System.Drawing.Color.Maroon
+        Me.msiManageUserProjects.ForeColor = System.Drawing.SystemColors.Control
+        Me.msiManageUserProjects.Name = "msiManageUserProjects"
+        Me.msiManageUserProjects.Size = New System.Drawing.Size(194, 22)
+        Me.msiManageUserProjects.Text = "Assing User to Projects"
         '
         'TimeRegistrationToolStripMenuItem
         '
         Me.TimeRegistrationToolStripMenuItem.BackColor = System.Drawing.Color.Maroon
-        Me.TimeRegistrationToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewTimeRegistrationToolStripMenuItem, Me.ViewUsersRegistrationsToolStripMenuItem})
+        Me.TimeRegistrationToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.NewTimeRegistrationToolStripMenuItem, Me.msiViewUserRegs})
         Me.TimeRegistrationToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Control
         Me.TimeRegistrationToolStripMenuItem.Name = "TimeRegistrationToolStripMenuItem"
         Me.TimeRegistrationToolStripMenuItem.Size = New System.Drawing.Size(112, 20)
@@ -145,18 +146,18 @@ Partial Class frmHome
         Me.NewTimeRegistrationToolStripMenuItem.Size = New System.Drawing.Size(201, 22)
         Me.NewTimeRegistrationToolStripMenuItem.Text = "New Time Registration"
         '
-        'ViewUsersRegistrationsToolStripMenuItem
+        'msiViewUserRegs
         '
-        Me.ViewUsersRegistrationsToolStripMenuItem.BackColor = System.Drawing.Color.Maroon
-        Me.ViewUsersRegistrationsToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Control
-        Me.ViewUsersRegistrationsToolStripMenuItem.Name = "ViewUsersRegistrationsToolStripMenuItem"
-        Me.ViewUsersRegistrationsToolStripMenuItem.Size = New System.Drawing.Size(201, 22)
-        Me.ViewUsersRegistrationsToolStripMenuItem.Text = "View Users Registrations"
+        Me.msiViewUserRegs.BackColor = System.Drawing.Color.Maroon
+        Me.msiViewUserRegs.ForeColor = System.Drawing.SystemColors.Control
+        Me.msiViewUserRegs.Name = "msiViewUserRegs"
+        Me.msiViewUserRegs.Size = New System.Drawing.Size(201, 22)
+        Me.msiViewUserRegs.Text = "View Users Registrations"
         '
         'HolidaysToolStripMenuItem
         '
         Me.HolidaysToolStripMenuItem.BackColor = System.Drawing.Color.Maroon
-        Me.HolidaysToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.HolidaysRequestToolStripMenuItem, Me.UsersHolidaysToolStripMenuItem})
+        Me.HolidaysToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.HolidaysRequestToolStripMenuItem, Me.msiUserHolidays})
         Me.HolidaysToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Control
         Me.HolidaysToolStripMenuItem.Name = "HolidaysToolStripMenuItem"
         Me.HolidaysToolStripMenuItem.Size = New System.Drawing.Size(65, 20)
@@ -170,13 +171,13 @@ Partial Class frmHome
         Me.HolidaysRequestToolStripMenuItem.Size = New System.Drawing.Size(165, 22)
         Me.HolidaysRequestToolStripMenuItem.Text = "Holidays Request"
         '
-        'UsersHolidaysToolStripMenuItem
+        'msiUserHolidays
         '
-        Me.UsersHolidaysToolStripMenuItem.BackColor = System.Drawing.Color.Maroon
-        Me.UsersHolidaysToolStripMenuItem.ForeColor = System.Drawing.SystemColors.Control
-        Me.UsersHolidaysToolStripMenuItem.Name = "UsersHolidaysToolStripMenuItem"
-        Me.UsersHolidaysToolStripMenuItem.Size = New System.Drawing.Size(165, 22)
-        Me.UsersHolidaysToolStripMenuItem.Text = "Users Holidays"
+        Me.msiUserHolidays.BackColor = System.Drawing.Color.Maroon
+        Me.msiUserHolidays.ForeColor = System.Drawing.SystemColors.Control
+        Me.msiUserHolidays.Name = "msiUserHolidays"
+        Me.msiUserHolidays.Size = New System.Drawing.Size(165, 22)
+        Me.msiUserHolidays.Text = "Users Holidays"
         '
         'lblUserEmail
         '
@@ -190,25 +191,33 @@ Partial Class frmHome
         Me.lblUserEmail.Text = "user_email"
         Me.lblUserEmail.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
+        'msiManageProfile
+        '
+        Me.msiManageProfile.BackColor = System.Drawing.Color.Maroon
+        Me.msiManageProfile.ForeColor = System.Drawing.Color.White
+        Me.msiManageProfile.Name = "msiManageProfile"
+        Me.msiManageProfile.Size = New System.Drawing.Size(194, 22)
+        Me.msiManageProfile.Text = "Profile"
+        '
         'frmHome
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.SystemColors.Control
+        Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(784, 561)
         Me.Controls.Add(Me.lblUserEmail)
         Me.Controls.Add(Me.lblUserName)
         Me.Controls.Add(Me.lblUserRole)
         Me.Controls.Add(Me.pbLogo)
-        Me.Controls.Add(Me.MenuStrip1)
+        Me.Controls.Add(Me.msHome)
         Me.Cursor = System.Windows.Forms.Cursors.Default
-        Me.MainMenuStrip = Me.MenuStrip1
+        Me.MainMenuStrip = Me.msHome
         Me.Name = "frmHome"
         Me.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Text = "Welcome!"
         CType(Me.pbLogo, System.ComponentModel.ISupportInitialize).EndInit()
-        Me.MenuStrip1.ResumeLayout(False)
-        Me.MenuStrip1.PerformLayout()
+        Me.msHome.ResumeLayout(False)
+        Me.msHome.PerformLayout()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -216,17 +225,18 @@ Partial Class frmHome
     Friend WithEvents pbLogo As System.Windows.Forms.PictureBox
     Friend WithEvents lblUserRole As System.Windows.Forms.Label
     Friend WithEvents lblUserName As System.Windows.Forms.Label
-    Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
-    Friend WithEvents ManagementToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents UsersToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ProjectsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents CategoriesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents msHome As System.Windows.Forms.MenuStrip
+    Friend WithEvents msiManagement As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents msiManageUsers As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents msiManageProjects As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents msiManageWorkCategories As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents TimeRegistrationToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents NewTimeRegistrationToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ViewUsersRegistrationsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents msiViewUserRegs As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents HolidaysToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents HolidaysRequestToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents UsersHolidaysToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ProfileToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents msiUserHolidays As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents lblUserEmail As System.Windows.Forms.Label
+    Friend WithEvents msiManageProfile As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents msiManageUserProjects As System.Windows.Forms.ToolStripMenuItem
 End Class

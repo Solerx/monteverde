@@ -34,9 +34,7 @@ Partial Class frmUserManagement
         Me.lblUserPassword = New System.Windows.Forms.Label()
         Me.txtUserPassword = New System.Windows.Forms.MaskedTextBox()
         Me.lblUserRole = New System.Windows.Forms.Label()
-        Me.txtUserRole = New System.Windows.Forms.MaskedTextBox()
         Me.lblUserStatus = New System.Windows.Forms.Label()
-        Me.txtUserStatus = New System.Windows.Forms.MaskedTextBox()
         Me.lblUserWorkedHours = New System.Windows.Forms.Label()
         Me.txtUserWorkedHours = New System.Windows.Forms.MaskedTextBox()
         Me.lblUserHolidays = New System.Windows.Forms.Label()
@@ -47,6 +45,9 @@ Partial Class frmUserManagement
         Me.lblEditingUser = New System.Windows.Forms.Label()
         Me.lblUserId = New System.Windows.Forms.Label()
         Me.btnAdd = New System.Windows.Forms.Button()
+        Me.cbxUserStatus = New System.Windows.Forms.ComboBox()
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.cbxUserRole = New System.Windows.Forms.ComboBox()
         CType(Me.dgvUsers, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -200,16 +201,6 @@ Partial Class frmUserManagement
         Me.lblUserRole.TabIndex = 37
         Me.lblUserRole.Text = "Role: "
         '
-        'txtUserRole
-        '
-        Me.txtUserRole.BackColor = System.Drawing.Color.Maroon
-        Me.txtUserRole.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtUserRole.ForeColor = System.Drawing.Color.White
-        Me.txtUserRole.Location = New System.Drawing.Point(321, 417)
-        Me.txtUserRole.Name = "txtUserRole"
-        Me.txtUserRole.Size = New System.Drawing.Size(265, 20)
-        Me.txtUserRole.TabIndex = 36
-        '
         'lblUserStatus
         '
         Me.lblUserStatus.AutoSize = True
@@ -221,22 +212,12 @@ Partial Class frmUserManagement
         Me.lblUserStatus.TabIndex = 39
         Me.lblUserStatus.Text = "Status: "
         '
-        'txtUserStatus
-        '
-        Me.txtUserStatus.BackColor = System.Drawing.Color.Maroon
-        Me.txtUserStatus.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtUserStatus.ForeColor = System.Drawing.Color.White
-        Me.txtUserStatus.Location = New System.Drawing.Point(321, 471)
-        Me.txtUserStatus.Name = "txtUserStatus"
-        Me.txtUserStatus.Size = New System.Drawing.Size(265, 20)
-        Me.txtUserStatus.TabIndex = 38
-        '
         'lblUserWorkedHours
         '
         Me.lblUserWorkedHours.AutoSize = True
         Me.lblUserWorkedHours.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblUserWorkedHours.ForeColor = System.Drawing.Color.Maroon
-        Me.lblUserWorkedHours.Location = New System.Drawing.Point(621, 347)
+        Me.lblUserWorkedHours.Location = New System.Drawing.Point(530, 348)
         Me.lblUserWorkedHours.Name = "lblUserWorkedHours"
         Me.lblUserWorkedHours.Size = New System.Drawing.Size(95, 16)
         Me.lblUserWorkedHours.TabIndex = 41
@@ -247,9 +228,9 @@ Partial Class frmUserManagement
         Me.txtUserWorkedHours.BackColor = System.Drawing.Color.Maroon
         Me.txtUserWorkedHours.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtUserWorkedHours.ForeColor = System.Drawing.Color.White
-        Me.txtUserWorkedHours.Location = New System.Drawing.Point(624, 366)
+        Me.txtUserWorkedHours.Location = New System.Drawing.Point(533, 367)
         Me.txtUserWorkedHours.Name = "txtUserWorkedHours"
-        Me.txtUserWorkedHours.Size = New System.Drawing.Size(148, 20)
+        Me.txtUserWorkedHours.Size = New System.Drawing.Size(239, 20)
         Me.txtUserWorkedHours.TabIndex = 40
         '
         'lblUserHolidays
@@ -257,7 +238,7 @@ Partial Class frmUserManagement
         Me.lblUserHolidays.AutoSize = True
         Me.lblUserHolidays.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblUserHolidays.ForeColor = System.Drawing.Color.Maroon
-        Me.lblUserHolidays.Location = New System.Drawing.Point(621, 398)
+        Me.lblUserHolidays.Location = New System.Drawing.Point(530, 399)
         Me.lblUserHolidays.Name = "lblUserHolidays"
         Me.lblUserHolidays.Size = New System.Drawing.Size(71, 16)
         Me.lblUserHolidays.TabIndex = 43
@@ -268,9 +249,9 @@ Partial Class frmUserManagement
         Me.txtUserHolidays.BackColor = System.Drawing.Color.Maroon
         Me.txtUserHolidays.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtUserHolidays.ForeColor = System.Drawing.Color.White
-        Me.txtUserHolidays.Location = New System.Drawing.Point(624, 417)
+        Me.txtUserHolidays.Location = New System.Drawing.Point(533, 418)
         Me.txtUserHolidays.Name = "txtUserHolidays"
-        Me.txtUserHolidays.Size = New System.Drawing.Size(148, 20)
+        Me.txtUserHolidays.Size = New System.Drawing.Size(239, 20)
         Me.txtUserHolidays.TabIndex = 42
         '
         'lblRegisteredDate
@@ -278,7 +259,7 @@ Partial Class frmUserManagement
         Me.lblRegisteredDate.AutoSize = True
         Me.lblRegisteredDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblRegisteredDate.ForeColor = System.Drawing.Color.Maroon
-        Me.lblRegisteredDate.Location = New System.Drawing.Point(621, 452)
+        Me.lblRegisteredDate.Location = New System.Drawing.Point(530, 453)
         Me.lblRegisteredDate.Name = "lblRegisteredDate"
         Me.lblRegisteredDate.Size = New System.Drawing.Size(78, 16)
         Me.lblRegisteredDate.TabIndex = 45
@@ -289,9 +270,9 @@ Partial Class frmUserManagement
         Me.txtUserRegisteredDate.BackColor = System.Drawing.Color.Maroon
         Me.txtUserRegisteredDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtUserRegisteredDate.ForeColor = System.Drawing.Color.White
-        Me.txtUserRegisteredDate.Location = New System.Drawing.Point(624, 471)
+        Me.txtUserRegisteredDate.Location = New System.Drawing.Point(533, 472)
         Me.txtUserRegisteredDate.Name = "txtUserRegisteredDate"
-        Me.txtUserRegisteredDate.Size = New System.Drawing.Size(148, 20)
+        Me.txtUserRegisteredDate.Size = New System.Drawing.Size(239, 20)
         Me.txtUserRegisteredDate.TabIndex = 44
         '
         'btnSave
@@ -317,7 +298,7 @@ Partial Class frmUserManagement
         Me.lblEditingUser.AutoSize = True
         Me.lblEditingUser.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblEditingUser.ForeColor = System.Drawing.Color.Maroon
-        Me.lblEditingUser.Location = New System.Drawing.Point(353, 304)
+        Me.lblEditingUser.Location = New System.Drawing.Point(318, 319)
         Me.lblEditingUser.Name = "lblEditingUser"
         Me.lblEditingUser.Size = New System.Drawing.Size(100, 16)
         Me.lblEditingUser.TabIndex = 47
@@ -328,7 +309,7 @@ Partial Class frmUserManagement
         Me.lblUserId.AutoSize = True
         Me.lblUserId.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblUserId.ForeColor = System.Drawing.Color.Maroon
-        Me.lblUserId.Location = New System.Drawing.Point(346, 320)
+        Me.lblUserId.Location = New System.Drawing.Point(311, 335)
         Me.lblUserId.Name = "lblUserId"
         Me.lblUserId.Size = New System.Drawing.Size(188, 55)
         Me.lblUserId.TabIndex = 48
@@ -352,12 +333,43 @@ Partial Class frmUserManagement
         Me.btnAdd.Text = "Add"
         Me.btnAdd.UseVisualStyleBackColor = False
         '
+        'cbxUserStatus
+        '
+        Me.cbxUserStatus.BackColor = System.Drawing.Color.Maroon
+        Me.cbxUserStatus.FormattingEnabled = True
+        Me.cbxUserStatus.Location = New System.Drawing.Point(321, 471)
+        Me.cbxUserStatus.Name = "cbxUserStatus"
+        Me.cbxUserStatus.Size = New System.Drawing.Size(178, 21)
+        Me.cbxUserStatus.TabIndex = 51
+        '
+        'Button1
+        '
+        Me.Button1.Location = New System.Drawing.Point(689, 525)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 52
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'cbxUserRole
+        '
+        Me.cbxUserRole.BackColor = System.Drawing.Color.Maroon
+        Me.cbxUserRole.ForeColor = System.Drawing.Color.White
+        Me.cbxUserRole.FormattingEnabled = True
+        Me.cbxUserRole.Location = New System.Drawing.Point(321, 416)
+        Me.cbxUserRole.Name = "cbxUserRole"
+        Me.cbxUserRole.Size = New System.Drawing.Size(178, 21)
+        Me.cbxUserRole.TabIndex = 53
+        '
         'frmUserManagement
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(784, 561)
+        Me.Controls.Add(Me.cbxUserRole)
+        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.cbxUserStatus)
         Me.Controls.Add(Me.btnAdd)
         Me.Controls.Add(Me.lblUserId)
         Me.Controls.Add(Me.lblEditingUser)
@@ -369,9 +381,7 @@ Partial Class frmUserManagement
         Me.Controls.Add(Me.lblUserWorkedHours)
         Me.Controls.Add(Me.txtUserWorkedHours)
         Me.Controls.Add(Me.lblUserStatus)
-        Me.Controls.Add(Me.txtUserStatus)
         Me.Controls.Add(Me.lblUserRole)
-        Me.Controls.Add(Me.txtUserRole)
         Me.Controls.Add(Me.lblUserPassword)
         Me.Controls.Add(Me.txtUserPassword)
         Me.Controls.Add(Me.lblUserEmail)
@@ -402,9 +412,7 @@ Partial Class frmUserManagement
     Friend WithEvents lblUserPassword As System.Windows.Forms.Label
     Friend WithEvents txtUserPassword As System.Windows.Forms.MaskedTextBox
     Friend WithEvents lblUserRole As System.Windows.Forms.Label
-    Friend WithEvents txtUserRole As System.Windows.Forms.MaskedTextBox
     Friend WithEvents lblUserStatus As System.Windows.Forms.Label
-    Friend WithEvents txtUserStatus As System.Windows.Forms.MaskedTextBox
     Friend WithEvents lblUserWorkedHours As System.Windows.Forms.Label
     Friend WithEvents txtUserWorkedHours As System.Windows.Forms.MaskedTextBox
     Friend WithEvents lblUserHolidays As System.Windows.Forms.Label
@@ -415,4 +423,7 @@ Partial Class frmUserManagement
     Friend WithEvents lblEditingUser As System.Windows.Forms.Label
     Friend WithEvents lblUserId As System.Windows.Forms.Label
     Friend WithEvents btnAdd As System.Windows.Forms.Button
+    Friend WithEvents cbxUserStatus As System.Windows.Forms.ComboBox
+    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents cbxUserRole As System.Windows.Forms.ComboBox
 End Class
