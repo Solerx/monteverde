@@ -8,8 +8,6 @@ Public Class Userdata
 
     Dim dataTableUsers As New DataTable
 
-    Dim dataTableProyects As New DataTable
-
     Dim row As Integer
 
 
@@ -87,8 +85,6 @@ Public Class Userdata
         user.user_registered_date = reader.GetDateTime(6)
         user.user_is_active = reader.GetBoolean(7)
         user.user_user_idrole = reader.GetInt32(8)
-        MsgBox(reader.GetInt32(8))
-
         user.user_user_role = reader.GetString(9)
         'user.user_user_role.role_role_name = reader.GetString(8)
        

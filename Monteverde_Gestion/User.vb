@@ -20,6 +20,8 @@
 
     Private is_active As Boolean
 
+
+
     Public Property user_is_active() As Boolean
         Get
             Return is_active

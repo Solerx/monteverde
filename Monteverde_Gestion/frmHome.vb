@@ -64,5 +64,11 @@ Public Class frmHome
 
     End Sub
 
+    Private Sub msiManageProjects_Click(sender As Object, e As EventArgs) Handles msiManageProjects.Click
+
+        Me.Close()
+        frmProjectManagement.Show()
+
+    End Sub
 End Class
 

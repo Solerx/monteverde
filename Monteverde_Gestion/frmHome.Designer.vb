@@ -32,6 +32,7 @@ Partial Class frmHome
         Me.msiManageProjects = New System.Windows.Forms.ToolStripMenuItem()
         Me.msiManageWorkCategories = New System.Windows.Forms.ToolStripMenuItem()
         Me.msiManageUserProjects = New System.Windows.Forms.ToolStripMenuItem()
+        Me.msiManageProfile = New System.Windows.Forms.ToolStripMenuItem()
         Me.TimeRegistrationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NewTimeRegistrationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.msiViewUserRegs = New System.Windows.Forms.ToolStripMenuItem()
@@ -39,7 +40,6 @@ Partial Class frmHome
         Me.HolidaysRequestToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.msiUserHolidays = New System.Windows.Forms.ToolStripMenuItem()
         Me.lblUserEmail = New System.Windows.Forms.Label()
-        Me.msiManageProfile = New System.Windows.Forms.ToolStripMenuItem()
         CType(Me.pbLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.msHome.SuspendLayout()
         Me.SuspendLayout()
@@ -129,6 +129,14 @@ Partial Class frmHome
         Me.msiManageUserProjects.Size = New System.Drawing.Size(194, 22)
         Me.msiManageUserProjects.Text = "Assing User to Projects"
         '
+        'msiManageProfile
+        '
+        Me.msiManageProfile.BackColor = System.Drawing.Color.Maroon
+        Me.msiManageProfile.ForeColor = System.Drawing.Color.White
+        Me.msiManageProfile.Name = "msiManageProfile"
+        Me.msiManageProfile.Size = New System.Drawing.Size(194, 22)
+        Me.msiManageProfile.Text = "Profile"
+        '
         'TimeRegistrationToolStripMenuItem
         '
         Me.TimeRegistrationToolStripMenuItem.BackColor = System.Drawing.Color.Maroon
@@ -190,14 +198,6 @@ Partial Class frmHome
         Me.lblUserEmail.TabIndex = 24
         Me.lblUserEmail.Text = "user_email"
         Me.lblUserEmail.TextAlign = System.Drawing.ContentAlignment.TopCenter
-        '
-        'msiManageProfile
-        '
-        Me.msiManageProfile.BackColor = System.Drawing.Color.Maroon
-        Me.msiManageProfile.ForeColor = System.Drawing.Color.White
-        Me.msiManageProfile.Name = "msiManageProfile"
-        Me.msiManageProfile.Size = New System.Drawing.Size(194, 22)
-        Me.msiManageProfile.Text = "Profile"
         '
         'frmHome
         '

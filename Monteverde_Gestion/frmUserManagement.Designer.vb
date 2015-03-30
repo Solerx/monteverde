@@ -46,7 +46,6 @@ Partial Class frmUserManagement
         Me.lblUserId = New System.Windows.Forms.Label()
         Me.btnAdd = New System.Windows.Forms.Button()
         Me.cbxUserStatus = New System.Windows.Forms.ComboBox()
-        Me.Button1 = New System.Windows.Forms.Button()
         Me.cbxUserRole = New System.Windows.Forms.ComboBox()
         CType(Me.dgvUsers, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -66,7 +65,7 @@ Partial Class frmUserManagement
         Me.btnEditUser.Name = "btnEditUser"
         Me.btnEditUser.Size = New System.Drawing.Size(121, 45)
         Me.btnEditUser.TabIndex = 26
-        Me.btnEditUser.Text = "Edit User"
+        Me.btnEditUser.Text = "Edit Selected User"
         Me.btnEditUser.UseVisualStyleBackColor = False
         '
         'btnRemoveUser
@@ -342,15 +341,6 @@ Partial Class frmUserManagement
         Me.cbxUserStatus.Size = New System.Drawing.Size(178, 21)
         Me.cbxUserStatus.TabIndex = 51
         '
-        'Button1
-        '
-        Me.Button1.Location = New System.Drawing.Point(689, 525)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(75, 23)
-        Me.Button1.TabIndex = 52
-        Me.Button1.Text = "Button1"
-        Me.Button1.UseVisualStyleBackColor = True
-        '
         'cbxUserRole
         '
         Me.cbxUserRole.BackColor = System.Drawing.Color.Maroon
@@ -368,7 +358,6 @@ Partial Class frmUserManagement
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(784, 561)
         Me.Controls.Add(Me.cbxUserRole)
-        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.cbxUserStatus)
         Me.Controls.Add(Me.btnAdd)
         Me.Controls.Add(Me.lblUserId)
@@ -424,6 +413,5 @@ Partial Class frmUserManagement
     Friend WithEvents lblUserId As System.Windows.Forms.Label
     Friend WithEvents btnAdd As System.Windows.Forms.Button
     Friend WithEvents cbxUserStatus As System.Windows.Forms.ComboBox
-    Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents cbxUserRole As System.Windows.Forms.ComboBox
 End Class

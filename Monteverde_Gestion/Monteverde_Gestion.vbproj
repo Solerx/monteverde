@@ -70,6 +70,13 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmProjectManagement.Designer.vb">
+      <DependentUpon>frmProjectManagement.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmProjectManagement.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Projectdata.vb" />
     <Compile Include="Role.vb" />
     <Compile Include="frmLogin.designer.vb">
       <DependentUpon>frmLogin.vb</DependentUpon>
@@ -109,7 +116,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="Proyect.vb" />
+    <Compile Include="Project.vb" />
     <Compile Include="User.vb" />
     <Compile Include="Userdata.vb" />
   </ItemGroup>
@@ -119,6 +126,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmHome.resx">
       <DependentUpon>frmHome.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProjectManagement.resx">
+      <DependentUpon>frmProjectManagement.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmUserManagement.resx">
       <DependentUpon>frmUserManagement.vb</DependentUpon>

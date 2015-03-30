@@ -8,17 +8,16 @@ Public Class frmUserManagement
 
     Dim userdataInstance As Userdata = New Userdata
 
-
     Private Sub frmUserManagement_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        Me.dgvUsers.DataSource = userdataInstance.Fill_Data_Grid_View()
+        updateUserTable()
         Hide_All()
         Fill_Combobox()
         Fill_ComboboxStatus()
 
     End Sub
 
-    Public Sub updateTable()
+    Public Sub updateUserTable()
 
         Me.dgvUsers.DataSource = userdataInstance.Fill_Data_Grid_View()
 
@@ -121,10 +120,7 @@ Public Class frmUserManagement
             isActive = False
 
         End If
-        'isActive = cbxUserStatus.SelectedText
 
-
-        'Here we create the object
         newUser.user_name = userName
         newUser.user_email = userEmail
         newUser.user_password = password
@@ -136,7 +132,6 @@ Public Class frmUserManagement
         'newUser.user_user_role = userRole
         'newUser.user_user_role.role_id_role = userRole
 
-        'return the user
         User_Inputs = newUser
 
     End Function
@@ -188,6 +183,7 @@ Public Class frmUserManagement
             Case 3
                 cbxUserRole.SelectedIndex = 2
         End Select
+
         'cbxUserRole.SelectedValue = user.user_user_role.role_id_role
 
         If user.user_is_active = True Then
@@ -240,7 +236,7 @@ Public Class frmUserManagement
         If alert = MsgBoxResult.Yes Then
 
             userdataInstance.Delete(row, dgvUsers.Item(0, row).Value())
-            updateTable()
+            updateUserTable()
 
         End If
         
@@ -261,7 +257,7 @@ Public Class frmUserManagement
             If alert = MsgBoxResult.Yes Then
 
                 userdataInstance.Edit(User_Inputs, dgvUsers.Item(0, row).Value())
-                updateTable()
+                updateUserTable()
                 Reset_Spaces()
 
             Else
@@ -295,7 +291,7 @@ Public Class frmUserManagement
             If alert = MsgBoxResult.Yes Then
 
                 userdataInstance.Insert(User_Inputs)
-                updateTable()
+                updateUserTable()
                 Reset_Spaces()
 
 
@@ -309,10 +305,4 @@ Public Class frmUserManagement
 
     End Sub
 
-  
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        MsgBox("Value" & cbxUserRole.SelectedValue)
-        MsgBox("Index" & cbxUserRole.SelectedIndex)
-
-    End Sub
 End Class
