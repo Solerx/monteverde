@@ -27,11 +27,11 @@ Partial Class frmProjectManagement
         Me.lblProjectId = New System.Windows.Forms.Label()
         Me.lblEditingUser = New System.Windows.Forms.Label()
         Me.btnSave = New System.Windows.Forms.Button()
-        Me.lblProyectStatus = New System.Windows.Forms.Label()
-        Me.lblProyectHours = New System.Windows.Forms.Label()
+        Me.lblProjectStatus = New System.Windows.Forms.Label()
+        Me.lblProjectHours = New System.Windows.Forms.Label()
         Me.txtProjectHours = New System.Windows.Forms.MaskedTextBox()
-        Me.lblProyectEnterprise = New System.Windows.Forms.Label()
-        Me.lblProyectName = New System.Windows.Forms.Label()
+        Me.lblProjectEnterprise = New System.Windows.Forms.Label()
+        Me.lblProjectName = New System.Windows.Forms.Label()
         Me.txtProjectEnterprise = New System.Windows.Forms.MaskedTextBox()
         Me.txtProjectName = New System.Windows.Forms.MaskedTextBox()
         Me.btnEditProject = New System.Windows.Forms.Button()
@@ -40,7 +40,7 @@ Partial Class frmProjectManagement
         Me.btnAddProject = New System.Windows.Forms.Button()
         Me.dgvProjects = New System.Windows.Forms.DataGridView()
         Me.txtProjectContactInfo = New System.Windows.Forms.MaskedTextBox()
-        Me.lblProyectInfo = New System.Windows.Forms.Label()
+        Me.lblProjectInfo = New System.Windows.Forms.Label()
         CType(Me.dgvProjects, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -64,7 +64,7 @@ Partial Class frmProjectManagement
         Me.btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
         Me.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAdd.ForeColor = System.Drawing.Color.Maroon
-        Me.btnAdd.Location = New System.Drawing.Point(242, 504)
+        Me.btnAdd.Location = New System.Drawing.Point(315, 504)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(149, 45)
         Me.btnAdd.TabIndex = 76
@@ -74,22 +74,22 @@ Partial Class frmProjectManagement
         'lblProjectId
         '
         Me.lblProjectId.AutoSize = True
-        Me.lblProjectId.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblProjectId.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblProjectId.ForeColor = System.Drawing.Color.Maroon
-        Me.lblProjectId.Location = New System.Drawing.Point(296, 304)
+        Me.lblProjectId.Location = New System.Drawing.Point(297, 306)
         Me.lblProjectId.Name = "lblProjectId"
-        Me.lblProjectId.Size = New System.Drawing.Size(142, 31)
+        Me.lblProjectId.Size = New System.Drawing.Size(130, 29)
         Me.lblProjectId.TabIndex = 75
         Me.lblProjectId.Text = "id_project"
         '
         'lblEditingUser
         '
         Me.lblEditingUser.AutoSize = True
-        Me.lblEditingUser.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblEditingUser.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblEditingUser.ForeColor = System.Drawing.Color.Maroon
         Me.lblEditingUser.Location = New System.Drawing.Point(299, 290)
         Me.lblEditingUser.Name = "lblEditingUser"
-        Me.lblEditingUser.Size = New System.Drawing.Size(113, 16)
+        Me.lblEditingUser.Size = New System.Drawing.Size(104, 15)
         Me.lblEditingUser.TabIndex = 74
         Me.lblEditingUser.Text = "Editing Project ID:"
         '
@@ -104,34 +104,34 @@ Partial Class frmProjectManagement
         Me.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
         Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSave.ForeColor = System.Drawing.Color.Maroon
-        Me.btnSave.Location = New System.Drawing.Point(397, 504)
+        Me.btnSave.Location = New System.Drawing.Point(315, 504)
         Me.btnSave.Name = "btnSave"
         Me.btnSave.Size = New System.Drawing.Size(149, 45)
         Me.btnSave.TabIndex = 73
         Me.btnSave.Text = "Save"
         Me.btnSave.UseVisualStyleBackColor = False
         '
-        'lblProyectStatus
+        'lblProjectStatus
         '
-        Me.lblProyectStatus.AutoSize = True
-        Me.lblProyectStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblProyectStatus.ForeColor = System.Drawing.Color.Maroon
-        Me.lblProyectStatus.Location = New System.Drawing.Point(591, 378)
-        Me.lblProyectStatus.Name = "lblProyectStatus"
-        Me.lblProyectStatus.Size = New System.Drawing.Size(51, 16)
-        Me.lblProyectStatus.TabIndex = 66
-        Me.lblProyectStatus.Text = "Status: "
+        Me.lblProjectStatus.AutoSize = True
+        Me.lblProjectStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblProjectStatus.ForeColor = System.Drawing.Color.Maroon
+        Me.lblProjectStatus.Location = New System.Drawing.Point(591, 378)
+        Me.lblProjectStatus.Name = "lblProjectStatus"
+        Me.lblProjectStatus.Size = New System.Drawing.Size(51, 16)
+        Me.lblProjectStatus.TabIndex = 66
+        Me.lblProjectStatus.Text = "Status: "
         '
-        'lblProyectHours
+        'lblProjectHours
         '
-        Me.lblProyectHours.AutoSize = True
-        Me.lblProyectHours.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblProyectHours.ForeColor = System.Drawing.Color.Maroon
-        Me.lblProyectHours.Location = New System.Drawing.Point(299, 379)
-        Me.lblProyectHours.Name = "lblProyectHours"
-        Me.lblProyectHours.Size = New System.Drawing.Size(108, 16)
-        Me.lblProyectHours.TabIndex = 64
-        Me.lblProyectHours.Text = "Hours to Assign: "
+        Me.lblProjectHours.AutoSize = True
+        Me.lblProjectHours.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblProjectHours.ForeColor = System.Drawing.Color.Maroon
+        Me.lblProjectHours.Location = New System.Drawing.Point(299, 379)
+        Me.lblProjectHours.Name = "lblProjectHours"
+        Me.lblProjectHours.Size = New System.Drawing.Size(108, 16)
+        Me.lblProjectHours.TabIndex = 64
+        Me.lblProjectHours.Text = "Hours to Assign: "
         '
         'txtProjectHours
         '
@@ -143,27 +143,27 @@ Partial Class frmProjectManagement
         Me.txtProjectHours.Size = New System.Drawing.Size(265, 20)
         Me.txtProjectHours.TabIndex = 63
         '
-        'lblProyectEnterprise
+        'lblProjectEnterprise
         '
-        Me.lblProyectEnterprise.AutoSize = True
-        Me.lblProyectEnterprise.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblProyectEnterprise.ForeColor = System.Drawing.Color.Maroon
-        Me.lblProyectEnterprise.Location = New System.Drawing.Point(10, 432)
-        Me.lblProyectEnterprise.Name = "lblProyectEnterprise"
-        Me.lblProyectEnterprise.Size = New System.Drawing.Size(121, 16)
-        Me.lblProyectEnterprise.TabIndex = 62
-        Me.lblProyectEnterprise.Text = "Enterprise: (Owner)"
+        Me.lblProjectEnterprise.AutoSize = True
+        Me.lblProjectEnterprise.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblProjectEnterprise.ForeColor = System.Drawing.Color.Maroon
+        Me.lblProjectEnterprise.Location = New System.Drawing.Point(10, 432)
+        Me.lblProjectEnterprise.Name = "lblProjectEnterprise"
+        Me.lblProjectEnterprise.Size = New System.Drawing.Size(121, 16)
+        Me.lblProjectEnterprise.TabIndex = 62
+        Me.lblProjectEnterprise.Text = "Enterprise: (Owner)"
         '
-        'lblProyectName
+        'lblProjectName
         '
-        Me.lblProyectName.AutoSize = True
-        Me.lblProyectName.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblProyectName.ForeColor = System.Drawing.Color.Maroon
-        Me.lblProyectName.Location = New System.Drawing.Point(10, 379)
-        Me.lblProyectName.Name = "lblProyectName"
-        Me.lblProyectName.Size = New System.Drawing.Size(96, 16)
-        Me.lblProyectName.TabIndex = 61
-        Me.lblProyectName.Text = "Project Name: "
+        Me.lblProjectName.AutoSize = True
+        Me.lblProjectName.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblProjectName.ForeColor = System.Drawing.Color.Maroon
+        Me.lblProjectName.Location = New System.Drawing.Point(10, 379)
+        Me.lblProjectName.Name = "lblProjectName"
+        Me.lblProjectName.Size = New System.Drawing.Size(96, 16)
+        Me.lblProjectName.TabIndex = 61
+        Me.lblProjectName.Text = "Project Name: "
         '
         'txtProjectEnterprise
         '
@@ -271,16 +271,16 @@ Partial Class frmProjectManagement
         Me.txtProjectContactInfo.Size = New System.Drawing.Size(265, 20)
         Me.txtProjectContactInfo.TabIndex = 63
         '
-        'lblProyectInfo
+        'lblProjectInfo
         '
-        Me.lblProyectInfo.AutoSize = True
-        Me.lblProyectInfo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblProyectInfo.ForeColor = System.Drawing.Color.Maroon
-        Me.lblProyectInfo.Location = New System.Drawing.Point(299, 432)
-        Me.lblProyectInfo.Name = "lblProyectInfo"
-        Me.lblProyectInfo.Size = New System.Drawing.Size(124, 16)
-        Me.lblProyectInfo.TabIndex = 64
-        Me.lblProyectInfo.Text = "Contact Information:"
+        Me.lblProjectInfo.AutoSize = True
+        Me.lblProjectInfo.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblProjectInfo.ForeColor = System.Drawing.Color.Maroon
+        Me.lblProjectInfo.Location = New System.Drawing.Point(299, 432)
+        Me.lblProjectInfo.Name = "lblProjectInfo"
+        Me.lblProjectInfo.Size = New System.Drawing.Size(124, 16)
+        Me.lblProjectInfo.TabIndex = 64
+        Me.lblProjectInfo.Text = "Contact Information:"
         '
         'frmProjectManagement
         '
@@ -293,13 +293,13 @@ Partial Class frmProjectManagement
         Me.Controls.Add(Me.lblProjectId)
         Me.Controls.Add(Me.lblEditingUser)
         Me.Controls.Add(Me.btnSave)
-        Me.Controls.Add(Me.lblProyectStatus)
-        Me.Controls.Add(Me.lblProyectInfo)
-        Me.Controls.Add(Me.lblProyectHours)
+        Me.Controls.Add(Me.lblProjectStatus)
+        Me.Controls.Add(Me.lblProjectInfo)
+        Me.Controls.Add(Me.lblProjectHours)
         Me.Controls.Add(Me.txtProjectContactInfo)
         Me.Controls.Add(Me.txtProjectHours)
-        Me.Controls.Add(Me.lblProyectEnterprise)
-        Me.Controls.Add(Me.lblProyectName)
+        Me.Controls.Add(Me.lblProjectEnterprise)
+        Me.Controls.Add(Me.lblProjectName)
         Me.Controls.Add(Me.txtProjectEnterprise)
         Me.Controls.Add(Me.txtProjectName)
         Me.Controls.Add(Me.btnEditProject)
@@ -319,11 +319,11 @@ Partial Class frmProjectManagement
     Friend WithEvents lblProjectId As System.Windows.Forms.Label
     Friend WithEvents lblEditingUser As System.Windows.Forms.Label
     Friend WithEvents btnSave As System.Windows.Forms.Button
-    Friend WithEvents lblProyectStatus As System.Windows.Forms.Label
-    Friend WithEvents lblProyectHours As System.Windows.Forms.Label
+    Friend WithEvents lblProjectStatus As System.Windows.Forms.Label
+    Friend WithEvents lblProjectHours As System.Windows.Forms.Label
     Friend WithEvents txtProjectHours As System.Windows.Forms.MaskedTextBox
-    Friend WithEvents lblProyectEnterprise As System.Windows.Forms.Label
-    Friend WithEvents lblProyectName As System.Windows.Forms.Label
+    Friend WithEvents lblProjectEnterprise As System.Windows.Forms.Label
+    Friend WithEvents lblProjectName As System.Windows.Forms.Label
     Friend WithEvents txtProjectEnterprise As System.Windows.Forms.MaskedTextBox
     Friend WithEvents txtProjectName As System.Windows.Forms.MaskedTextBox
     Friend WithEvents btnEditProject As System.Windows.Forms.Button
@@ -332,5 +332,5 @@ Partial Class frmProjectManagement
     Friend WithEvents btnAddProject As System.Windows.Forms.Button
     Friend WithEvents dgvProjects As System.Windows.Forms.DataGridView
     Friend WithEvents txtProjectContactInfo As System.Windows.Forms.MaskedTextBox
-    Friend WithEvents lblProyectInfo As System.Windows.Forms.Label
+    Friend WithEvents lblProjectInfo As System.Windows.Forms.Label
 End Class

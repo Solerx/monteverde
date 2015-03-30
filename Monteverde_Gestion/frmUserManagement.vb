@@ -235,7 +235,7 @@ Public Class frmUserManagement
 
         If alert = MsgBoxResult.Yes Then
 
-            userdataInstance.Delete(row, dgvUsers.Item(0, row).Value())
+            userdataInstance.delete(row, dgvUsers.Item(0, row).Value())
             updateUserTable()
 
         End If
@@ -267,7 +267,8 @@ Public Class frmUserManagement
             End If
 
         End If
-       
+
+        Hide_All()
 
     End Sub
 
@@ -286,14 +287,14 @@ Public Class frmUserManagement
 
         Else
 
-            Dim alert = MsgBox("Are you sure you want to save changes?", MsgBoxStyle.YesNo, "Saving!")
+            Dim alert = MsgBox("Are you sure you want to add this User?", MsgBoxStyle.YesNo, "Adding new User!")
 
             If alert = MsgBoxResult.Yes Then
 
                 userdataInstance.Insert(User_Inputs)
                 updateUserTable()
                 Reset_Spaces()
-
+                Hide_All()
 
             Else
 
@@ -302,6 +303,8 @@ Public Class frmUserManagement
             End If
 
         End If
+
+
 
     End Sub
 

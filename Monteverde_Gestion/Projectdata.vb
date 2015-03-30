@@ -26,7 +26,9 @@ Public Class Projectdata
 
     Public Function ListOfProjects() As List(Of Project)
 
-        Dim cmdSelectUser As New SqlCommand("SELECT id_project,project_name,enterprise_name,project_hours,is_active,contact_info FROM Projectsdb", connection)
+        connection.Close()
+
+        Dim cmdSelectUser As New SqlCommand("SELECT id_project,project_name,enterprise_name,project_hours,project_status,contact_info FROM Projectsdb", connection)
 
         connection.Open()
 
@@ -43,7 +45,7 @@ Public Class Projectdata
                 project.Project_Name = reader.GetString(1)
                 project.Project_Enterprise = reader.GetString(2)
                 project.Project_Hours = reader.GetInt32(3)
-                project.Project_Status = reader.GetBoolean(4)
+                project.Project_Status = reader.GetString(4)
                 project.Project_ContactInfo = reader.GetString(5)
 
                 projectList.Add(project)
@@ -65,6 +67,7 @@ Public Class Projectdata
         'Fill table created at Create_Data_Table_User() 
 
         dataTableProjects = CreateDataTableProjects()
+
         Dim projectGridView As List(Of Project)
 
         projectGridView = ListOfProjects()
@@ -89,13 +92,13 @@ Public Class Projectdata
 
     End Function
 
-    Public Sub Insert(ByVal project As Project)
+    Public Sub insertProject(ByVal project As Project)
 
         connection.Close()
 
         Dim cmdInsert As New SqlCommand
 
-        cmdInsert = New SqlCommand("insert into Usersdb(project_name,enterprise_name,project_hours,project_status,contact_info)" & _
+        cmdInsert = New SqlCommand("insert into Projectsdb(project_name,enterprise_name,project_hours,project_status,contact_info)" & _
                                    "values(@project_name,@enterprise_name,@project_hours,@project_status,@contact_info)", connection)
         connection.Open()
 
@@ -114,5 +117,79 @@ Public Class Projectdata
         MsgBox("User added successfully.")
         connection.Close()
     End Sub
+
+    Public Sub editProject(ByVal project As Project, ByVal id As Integer)
+
+        Dim cmdUpdate As New SqlCommand
+
+        cmdUpdate = New SqlCommand("UPDATE Projectsdb SET " & _
+                               "project_name = @project_name, " & _
+                               "enterprise_name = @enterprise_name, " & _
+                               "project_hours = @project_hours, " & _
+                               "project_status = @project_status, " & _
+                               "contact_info = @contact_info " & _
+                               "WHERE id_project = " & id, connection)
+
+        With cmdUpdate
+
+            .Parameters.AddWithValue("@project_name", project.Project_Name)
+            .Parameters.AddWithValue("@enterprise_name", project.Project_Enterprise)
+            .Parameters.AddWithValue("@project_hours", project.Project_Hours)
+            .Parameters.AddWithValue("@project_status", project.Project_Status)
+            .Parameters.AddWithValue("@contact_info", project.Project_ContactInfo)
+
+        End With
+
+        cmdUpdate.ExecuteNonQuery()
+        connection.Close()
+        MsgBox("Project edited successfully!")
+
+    End Sub
+
+    Public Sub deleteProject(ByVal indexRow As Integer, ByVal id As Integer)
+
+        connection.Close()
+
+        Dim cmdUpdate As New SqlCommand
+
+        cmdUpdate = New SqlCommand("Delete from Projectsdb " & _
+        "WHERE id_project = " & id, connection)
+
+        connection.Open()
+        cmdUpdate.ExecuteNonQuery()
+        Fill_Data_Grid_View()
+        connection.Close()
+        MsgBox("Project removed successfully!")
+
+
+    End Sub
+
+    Public Function getProyectById(ByVal id As Integer) As Project
+
+        connection.Close()
+
+        Dim cmdSelectUser As New SqlCommand("SELECT id_project,project_name,enterprise_name,project_hours,project_status,contact_info FROM Projectsdb WHERE id_project = " & id, connection)
+
+        connection.Open()
+
+        Dim reader As SqlDataReader = cmdSelectUser.ExecuteReader()
+
+        Dim project As New Project
+
+        reader.Read()
+
+        project = New Project
+        project.Project_Id = reader.GetInt32(0)
+        project.Project_Name = reader.GetString(1)
+        project.Project_Enterprise = reader.GetString(2)
+        project.Project_Hours = reader.GetInt32(3)
+        project.Project_Status = reader.GetString(4)
+        project.Project_ContactInfo = reader.GetString(5)
+
+        reader.Close()
+
+        getProyectById = project
+
+    End Function
 
 End Class

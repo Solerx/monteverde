@@ -9,7 +9,7 @@
 
     Private hours As Integer
 
-    Private status As Boolean
+    Private status As String
 
     Private contactInfo As String
 
@@ -23,11 +23,11 @@
     End Property
 
 
-    Public Property Project_Status() As Boolean
+    Public Property Project_Status() As String
         Get
             Return status
         End Get
-        Set(ByVal value As Boolean)
+        Set(ByVal value As String)
             status = value
         End Set
     End Property

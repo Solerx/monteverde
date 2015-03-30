@@ -35,6 +35,9 @@ Public Class Userdata
 
         'Fill table created at Create_Data_Table_User() 
 
+
+
+
         dataTableUsers = Create_Data_Table_User()
         Dim userGridView As List(Of User)
 
@@ -126,11 +129,7 @@ Public Class Userdata
                 'user.user_user_role.role_role_name = reader.GetString(8)
                 user.user_is_active = reader.GetBoolean(7)
 
-
-
-
                 userList.Add(user)
-
 
             Loop
 
@@ -170,8 +169,6 @@ Public Class Userdata
 
         End With
 
-
-
         cmdInsert.ExecuteNonQuery()
         MsgBox("User added successfully.")
         connection.Close()
@@ -194,7 +191,6 @@ Public Class Userdata
                                "WHERE id_user = " & id, connection)
         ' "registered_date = @registered_date " & _
 
-
         With cmdUpdate
 
             .Parameters.AddWithValue("@name", User.user_name)
@@ -215,7 +211,9 @@ Public Class Userdata
 
     End Sub
 
-    Public Sub Delete(ByVal indexRow As Integer, ByVal id As Integer)
+    Public Sub delete(ByVal indexRow As Integer, ByVal id As Integer)
+
+        connection.Close()
 
         Dim cmdUpdate As New SqlCommand
 
