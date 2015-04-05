@@ -70,5 +70,12 @@ Public Class frmHome
         frmProjectManagement.Show()
 
     End Sub
+
+    Private Sub msiManageWorkCategories_Click(sender As Object, e As EventArgs) Handles msiManageWorkCategories.Click
+
+        Me.Close()
+        frmWorkCategoryManagement.Show()
+
+    End Sub
 End Class
 

@@ -12,7 +12,7 @@
 
     Private registered_date As DateTime
 
-    Private user_role As String 'As Role
+    Private user_role As Role
 
     Private user_id As Integer
 
@@ -61,50 +61,14 @@
         End Set
     End Property
 
-    Public Property user_user_role() As String 'As Role
+    Public Property user_user_role() As Role
         Get
             Return user_role
         End Get
-        Set(ByVal value As String)
+        Set(ByVal value As Role)
             user_role = value
         End Set
     End Property
-
-    Public Property user_user_idrole() As Integer 'As Role
-        Get
-            Return user_idrole
-        End Get
-        Set(ByVal value As Integer)
-            user_idrole = value
-        End Set
-    End Property
-
-    'Public Property user_role_id_role() As Integer
-    '    Get
-    '        Return user_role.role_id_role
-    '    End Get
-    '    Set(ByVal value As Integer)
-    '        user_role.role_id_role = value
-    '    End Set
-    'End Property
-
-    'Public Property user_role_role_name() As String
-    '    Get
-    '        Return user_role.role_role_name
-    '    End Get
-    '    Set(ByVal value As String)
-    '        user_role.role_role_name = value
-    '    End Set
-    'End Property
-
-    'Public Property user_role_role_description() As String
-    '    Get
-    '        Return user_role.role_role_description
-    '    End Get
-    '    Set(ByVal value As String)
-    '        user_role.role_role_description = value
-    '    End Set
-    'End Property
 
     Public Property user_worked_hours() As Integer
         Get

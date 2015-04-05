@@ -383,7 +383,7 @@ Partial Class frmUserManagement
         Me.Controls.Add(Me.btnAddUser)
         Me.Controls.Add(Me.dgvUsers)
         Me.Name = "frmUserManagement"
-        Me.Text = "frmUserManagement"
+        Me.Text = "Users Management"
         CType(Me.dgvUsers, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()

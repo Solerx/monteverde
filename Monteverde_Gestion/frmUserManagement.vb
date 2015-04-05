@@ -99,7 +99,6 @@ Public Class frmUserManagement
         Dim userRole As Integer
         Dim memberSince As DateTime
         Dim isActive As Boolean
-
         Dim newUser As New User
 
 
@@ -126,11 +125,9 @@ Public Class frmUserManagement
         newUser.user_password = password
         newUser.user_worked_hours = workedHours
         newUser.user_holidays = holidays
-        newUser.user_user_idrole = userRole
+        newUser.user_user_role = userdataInstance.GetRoleByRoleName(userRole)
         newUser.user_registered_date = memberSince
         newUser.user_is_active = isActive
-        'newUser.user_user_role = userRole
-        'newUser.user_user_role.role_id_role = userRole
 
         User_Inputs = newUser
 
@@ -175,12 +172,13 @@ Public Class frmUserManagement
         txtUserHolidays.Text = user.user_holidays
         txtUserRegisteredDate.Text = user.user_registered_date
 
-        Select Case user.user_user_idrole
-            Case 1
+        Select Case user.user_user_role.role_role_name
+
+            Case "Parent-Administrator"
                 cbxUserRole.SelectedIndex = 0
-            Case 2
+            Case "Administrator"
                 cbxUserRole.SelectedIndex = 1
-            Case 3
+            Case "User"
                 cbxUserRole.SelectedIndex = 2
         End Select
 
@@ -246,7 +244,7 @@ Public Class frmUserManagement
     Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
 
 
-        If txtUserName.Text = vbNullString Or txtUserEmail.Text = vbNullString Or txtUserPassword.Text = vbNullString Or txtUserWorkedHours.Text = vbNullString Or txtUserHolidays.Text = vbNullString Or txtUserRegisteredDate.Text = vbNullString Or cbxUserStatus.Text = vbNullString Or cbxUserRole.SelectedValue = vbNull Then
+        If txtUserName.Text = vbNullString Or txtUserEmail.Text = vbNullString Or txtUserPassword.Text = vbNullString Or txtUserWorkedHours.Text = vbNullString Or txtUserHolidays.Text = vbNullString Or txtUserRegisteredDate.Text = vbNullString Or cbxUserStatus.Text = vbNullString Or cbxUserRole.Text = vbNullString Then
 
             MsgBox("You can't leave any space blank.")
 
@@ -281,7 +279,7 @@ Public Class frmUserManagement
 
     Private Sub btnAdd_Click(sender As Object, e As EventArgs) Handles btnAdd.Click
 
-        If txtUserName.Text = vbNullString Or txtUserEmail.Text = vbNullString Or txtUserPassword.Text = vbNullString Or txtUserWorkedHours.Text = vbNullString Or txtUserHolidays.Text = vbNullString Or txtUserRegisteredDate.Text = vbNullString Or cbxUserRole.SelectedValue = vbNull Or cbxUserStatus.Text = vbNullString Then
+        If txtUserName.Text = vbNullString Or txtUserEmail.Text = vbNullString Or txtUserPassword.Text = vbNullString Or txtUserWorkedHours.Text = vbNullString Or txtUserHolidays.Text = vbNullString Or txtUserRegisteredDate.Text = vbNullString Or cbxUserRole.Text = vbNullString Or cbxUserStatus.Text = vbNullString Then
 
             MsgBox("You can't leave any space blank.")
 

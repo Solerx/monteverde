@@ -186,7 +186,7 @@
 
         Else
 
-            Dim alert = MsgBox("Are you sure you want to add this User?", MsgBoxStyle.YesNo, "Editing Project!")
+            Dim alert = MsgBox("Are you sure you want to save this Project?", MsgBoxStyle.YesNo, "Editing Project!")
 
             If alert = MsgBoxResult.Yes Then
 

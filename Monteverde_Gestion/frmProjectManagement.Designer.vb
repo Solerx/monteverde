@@ -308,7 +308,7 @@ Partial Class frmProjectManagement
         Me.Controls.Add(Me.btnAddProject)
         Me.Controls.Add(Me.dgvProjects)
         Me.Name = "frmProjectManagement"
-        Me.Text = "frmProjectManagement"
+        Me.Text = "Projects Management"
         CType(Me.dgvProjects, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
