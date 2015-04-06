@@ -50,3 +50,4 @@ C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Mo
 C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Monteverde_Gestion.xml
 C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Monteverde_Gestion.pdb
 C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Monteverde_Gestion.frmWorkCategoryManagement.resources
+C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Monteverde_Gestion.frmProfile.resources

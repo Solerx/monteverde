@@ -19,7 +19,6 @@
         txtWCName.Hide()
         lblWCDescription.Hide()
         lblwcName.Hide()
-        lblWorkCategories.Hide()
         btnAdd.Hide()
         btnSave.Hide()
 
@@ -41,7 +40,7 @@
         txtWCName.ResetText()
         lblWCDescription.Show()
         lblwcName.Show()
-        lblWorkCategories.Show()
+
 
     End Sub
 

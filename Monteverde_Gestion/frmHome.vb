@@ -77,5 +77,17 @@ Public Class frmHome
         frmWorkCategoryManagement.Show()
 
     End Sub
+
+    Private Sub msiManageProfile_Click(sender As Object, e As EventArgs) Handles msiManageProfile.Click
+
+        Me.Close()
+        frmProfile.Show()
+
+    End Sub
+
+
+    Private Sub msiManageUserProjects_Click(sender As Object, e As EventArgs) Handles msiManageUserProjects.Click
+
+    End Sub
 End Class
 

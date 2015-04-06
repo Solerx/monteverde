@@ -261,6 +261,32 @@ Public Class Userdata
 
     End Sub
 
+    Public Sub EditProfile(ByVal User As User, ByVal id As Integer)
+
+        Dim cmdUpdate As New SqlCommand
+
+        cmdUpdate = New SqlCommand("UPDATE Usersdb SET " & _
+                               "name = @name, " & _
+                               "email = @email, " & _
+                               "password = @password " & _
+                               "WHERE id_user = " & id, connection)
+
+
+        With cmdUpdate
+
+            .Parameters.AddWithValue("@name", User.user_name)
+            .Parameters.AddWithValue("@email", User.user_email)
+            .Parameters.AddWithValue("@password", User.user_password)
+
+        End With
+
+
+        cmdUpdate.ExecuteNonQuery()
+        connection.Close()
+        MsgBox("User edited successfully!")
+
+    End Sub
+
     Public Sub delete(ByVal indexRow As Integer, ByVal id As Integer)
 
         connection.Close()
