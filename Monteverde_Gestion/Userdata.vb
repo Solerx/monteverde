@@ -36,10 +36,6 @@ Public Class Userdata
     Public Function Fill_Data_Grid_View() As DataTable
 
         'Fill table created at Create_Data_Table_User() 
-
-
-
-
         dataTableUsers = Create_Data_Table_User()
         Dim userGridView As List(Of User)
 
@@ -68,7 +64,7 @@ Public Class Userdata
 
     End Function
 
-    Public Function Get_User_From_Table(ByVal id As Integer) As User
+    Public Function GetUserFromTable(ByVal id As Integer) As User
 
         connection.Close()
         Dim cmdSelectUser As New SqlCommand("SELECT id_user,name,email,password,worked_hours,holidays,registered_date,is_active,user_role FROM Role,Usersdb WHERE Role.id_role=Usersdb.user_role and Usersdb.id_user = " & id, connection)
@@ -91,11 +87,11 @@ Public Class Userdata
         user.user_user_role = GetRoleByUser(reader.GetInt32(8))
 
 
-       
+
 
         reader.Close()
 
-        Get_User_From_Table = user
+        GetUserFromTable = user
 
     End Function
 

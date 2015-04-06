@@ -32,6 +32,8 @@ Partial Class frmHome
         Me.msiManageProjects = New System.Windows.Forms.ToolStripMenuItem()
         Me.msiManageWorkCategories = New System.Windows.Forms.ToolStripMenuItem()
         Me.msiManageUserProjects = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UserToProjectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ProjectToUserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.msiManageProfile = New System.Windows.Forms.ToolStripMenuItem()
         Me.TimeRegistrationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NewTimeRegistrationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -40,6 +42,7 @@ Partial Class frmHome
         Me.HolidaysRequestToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.msiUserHolidays = New System.Windows.Forms.ToolStripMenuItem()
         Me.lblUserEmail = New System.Windows.Forms.Label()
+        Me.btnLogOut = New System.Windows.Forms.Button()
         CType(Me.pbLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.msHome.SuspendLayout()
         Me.SuspendLayout()
@@ -124,10 +127,27 @@ Partial Class frmHome
         'msiManageUserProjects
         '
         Me.msiManageUserProjects.BackColor = System.Drawing.Color.Maroon
+        Me.msiManageUserProjects.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UserToProjectToolStripMenuItem, Me.ProjectToUserToolStripMenuItem})
         Me.msiManageUserProjects.ForeColor = System.Drawing.SystemColors.Control
         Me.msiManageUserProjects.Name = "msiManageUserProjects"
         Me.msiManageUserProjects.Size = New System.Drawing.Size(194, 22)
         Me.msiManageUserProjects.Text = "Assing User to Projects"
+        '
+        'UserToProjectToolStripMenuItem
+        '
+        Me.UserToProjectToolStripMenuItem.BackColor = System.Drawing.Color.Maroon
+        Me.UserToProjectToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.UserToProjectToolStripMenuItem.Name = "UserToProjectToolStripMenuItem"
+        Me.UserToProjectToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.UserToProjectToolStripMenuItem.Text = "User to Project"
+        '
+        'ProjectToUserToolStripMenuItem
+        '
+        Me.ProjectToUserToolStripMenuItem.BackColor = System.Drawing.Color.Maroon
+        Me.ProjectToUserToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.ProjectToUserToolStripMenuItem.Name = "ProjectToUserToolStripMenuItem"
+        Me.ProjectToUserToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.ProjectToUserToolStripMenuItem.Text = "Project to User"
         '
         'msiManageProfile
         '
@@ -199,12 +219,27 @@ Partial Class frmHome
         Me.lblUserEmail.Text = "user_email"
         Me.lblUserEmail.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
+        'btnLogOut
+        '
+        Me.btnLogOut.BackColor = System.Drawing.Color.White
+        Me.btnLogOut.FlatAppearance.BorderColor = System.Drawing.Color.Maroon
+        Me.btnLogOut.FlatAppearance.BorderSize = 2
+        Me.btnLogOut.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnLogOut.ForeColor = System.Drawing.Color.Maroon
+        Me.btnLogOut.Location = New System.Drawing.Point(683, 0)
+        Me.btnLogOut.Name = "btnLogOut"
+        Me.btnLogOut.Size = New System.Drawing.Size(89, 24)
+        Me.btnLogOut.TabIndex = 36
+        Me.btnLogOut.Text = "Log Out"
+        Me.btnLogOut.UseVisualStyleBackColor = False
+        '
         'frmHome
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(784, 561)
+        Me.Controls.Add(Me.btnLogOut)
         Me.Controls.Add(Me.lblUserEmail)
         Me.Controls.Add(Me.lblUserName)
         Me.Controls.Add(Me.lblUserRole)
@@ -239,4 +274,7 @@ Partial Class frmHome
     Friend WithEvents lblUserEmail As System.Windows.Forms.Label
     Friend WithEvents msiManageProfile As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents msiManageUserProjects As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents btnLogOut As System.Windows.Forms.Button
+    Friend WithEvents UserToProjectToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents ProjectToUserToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

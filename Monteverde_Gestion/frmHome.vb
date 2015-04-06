@@ -3,7 +3,6 @@
 Imports Monteverde_Gestion.Userdata
 
 
-
 Public Class frmHome
 
     Dim userdataInstance As Userdata = New Userdata
@@ -85,8 +84,24 @@ Public Class frmHome
 
     End Sub
 
+    Private Sub btnLogOut_Click(sender As Object, e As EventArgs) Handles btnLogOut.Click
 
-    Private Sub msiManageUserProjects_Click(sender As Object, e As EventArgs) Handles msiManageUserProjects.Click
+        Me.Close()
+        frmLogin.Show()
+
+    End Sub
+
+    Private Sub UserToProjectToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UserToProjectToolStripMenuItem.Click
+
+        Me.Close()
+        frmProjectsToUsers.Show()
+
+    End Sub
+
+    Private Sub ProjectToUserToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ProjectToUserToolStripMenuItem.Click
+
+        Me.Close()
+        frmUserToProjects.Show()
 
     End Sub
 End Class

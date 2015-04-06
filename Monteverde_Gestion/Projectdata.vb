@@ -10,7 +10,6 @@ Public Class Projectdata
 
     Public Function CreateDataTableProjects() As DataTable
 
-        'Create Users table
         dataTableProjects = New DataTable
 
         dataTableProjects.Columns.Add("ID")
@@ -92,7 +91,7 @@ Public Class Projectdata
 
     End Function
 
-    Public Sub insertProject(ByVal project As Project)
+    Public Sub InsertProject(ByVal project As Project)
 
         connection.Close()
 
@@ -146,7 +145,7 @@ Public Class Projectdata
 
     End Sub
 
-    Public Sub deleteProject(ByVal indexRow As Integer, ByVal id As Integer)
+    Public Sub DeleteProject(ByVal indexRow As Integer, ByVal id As Integer)
 
         connection.Close()
 

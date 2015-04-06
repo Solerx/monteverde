@@ -7,7 +7,7 @@
     Private Sub frmProjectManagement_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         hideAll()
-        updateTable()
+        UpdateTable()
         Fill_Combobox()
 
     End Sub
@@ -114,7 +114,7 @@
     End Sub
 
 
-    Public Sub updateTable()
+    Public Sub UpdateTable()
 
         Me.dgvProjects.DataSource = projectdataInstance.Fill_Data_Grid_View()
 
@@ -164,7 +164,7 @@
 
             If alert = MsgBoxResult.Yes Then
 
-                projectdataInstance.insertProject(Project_Inputs)
+                projectdataInstance.InsertProject(Project_Inputs)
                 updateTable()
                 resetInputs()
 
@@ -212,7 +212,7 @@
 
         If alert = MsgBoxResult.Yes Then
 
-            projectdataInstance.deleteProject(row, dgvProjects.Item(0, row).Value())
+            projectdataInstance.DeleteProject(row, dgvProjects.Item(0, row).Value())
             updateTable()
 
         End If

@@ -217,7 +217,7 @@ Public Class frmUserManagement
 
         Show_All()
         txtUserRegisteredDate.Enabled = False
-        Fill_Inputs(userdataInstance.Get_User_From_Table(dgvUsers.Item(0, row).Value))
+        Fill_Inputs(userdataInstance.GetUserFromTable(dgvUsers.Item(0, row).Value))
         lblEditingUser.Show()
         lblUserId.Show()
         btnSave.Show()

@@ -6,7 +6,7 @@
 
     Private Sub frmProfile_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        Fill_Inputs(userdataInstance.Get_User_From_Table(frmLogin.globalUserId))
+        Fill_Inputs(userdataInstance.GetUserFromTable(frmLogin.globalUserId))
         txtUserRegisteredDate.Enabled = False
 
     End Sub
@@ -20,18 +20,13 @@
 
         Dim newUser As New User
 
-
         userName = txtUserName.Text
         userEmail = txtUserEmail.Text
         password = txtUserPassword.Text
 
-
-
         newUser.user_name = userName
         newUser.user_email = userEmail
         newUser.user_password = password
-
-
 
         User_Inputs = newUser
 

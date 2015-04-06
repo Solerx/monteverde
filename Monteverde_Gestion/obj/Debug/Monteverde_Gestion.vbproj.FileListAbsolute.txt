@@ -40,6 +40,10 @@ C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\bin\Debug\Mo
 C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\bin\Debug\Monteverde_Gestion.exe
 C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\bin\Debug\Monteverde_Gestion.pdb
 C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\bin\Debug\Monteverde_Gestion.xml
+C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Monteverde_Gestion.frmUserToProjects.resources
+C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Monteverde_Gestion.frmProfile.resources
+C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Monteverde_Gestion.frmProjectsToUsers.resources
+C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Monteverde_Gestion.frmWorkCategoryManagement.resources
 C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Monteverde_Gestion.frmLogin.resources
 C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Monteverde_Gestion.frmHome.resources
 C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Monteverde_Gestion.frmProjectManagement.resources
@@ -49,5 +53,3 @@ C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Mo
 C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Monteverde_Gestion.exe
 C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Monteverde_Gestion.xml
 C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Monteverde_Gestion.pdb
-C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Monteverde_Gestion.frmWorkCategoryManagement.resources
-C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Monteverde_Gestion.frmProfile.resources

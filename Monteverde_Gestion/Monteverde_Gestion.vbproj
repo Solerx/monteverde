@@ -85,10 +85,24 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmUsersToProjects.Designer.vb">
+      <DependentUpon>frmUsersToProjects.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmUsersToProjects.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AssignedProject.vb" />
+    <Compile Include="AssignedProjectData.vb" />
     <Compile Include="frmProfile.Designer.vb">
       <DependentUpon>frmProfile.vb</DependentUpon>
     </Compile>
     <Compile Include="frmProfile.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProjectsToUsers.Designer.vb">
+      <DependentUpon>frmProjectsToUsers.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmProjectsToUsers.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmWorkCategoryManagement.Designer.vb">
@@ -150,8 +164,14 @@
     <Compile Include="WorkCategory.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmUsersToProjects.resx">
+      <DependentUpon>frmUsersToProjects.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmProfile.resx">
       <DependentUpon>frmProfile.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProjectsToUsers.resx">
+      <DependentUpon>frmProjectsToUsers.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmWorkCategoryManagement.resx">
       <DependentUpon>frmWorkCategoryManagement.vb</DependentUpon>
