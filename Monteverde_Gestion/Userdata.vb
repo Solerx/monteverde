@@ -168,7 +168,31 @@ Public Class Userdata
         cmdInsert.ExecuteNonQuery()
         MsgBox("User added successfully.")
         connection.Close()
+
     End Sub
+
+    Public Function GetUserIfAssigned(ByVal idUser As Integer, ByVal idProject As Integer) As Boolean
+
+        Dim cmdGetUser As New SqlCommand("SELECT * FROM User_Project WHERE id_user = " & idUser & "AND id_project = " & idProject, connection)
+
+        connection.Open()
+
+        Dim reader As SqlDataReader = cmdGetUser.ExecuteReader()
+
+        If reader.HasRows Then
+
+            GetUserIfAssigned = True
+
+            connection.Close()
+        Else
+
+            GetUserIfAssigned = False
+
+        End If
+
+        connection.Close()
+
+    End Function
 
     Public Function GetRoleByUser(idUser As Integer) As Role
 

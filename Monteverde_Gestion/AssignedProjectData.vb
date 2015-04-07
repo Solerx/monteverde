@@ -18,6 +18,72 @@ Public Class AssignedProjectData
 
     Dim dataTableAssignedUser As New DataTable
 
+    Public Function GetHoursAssigned(ByVal idUser As Integer, ByVal idProject As Integer) As Integer
+
+        Dim cmdSelectUser As New SqlCommand("SELECT work_time FROM User_Project WHERE id_user = " & idUser & "AND id_project = " & idProject, connection)
+
+        Dim assignedTime As Integer
+
+        connection.Open()
+
+        Dim reader As SqlDataReader = cmdSelectUser.ExecuteReader()
+
+        If reader.Read Then
+
+            assignedTime = reader.GetInt32(0)
+            reader.Close()
+
+        End If
+
+        reader.Close()
+        connection.Close()
+        GetHoursAssigned = assignedTime
+
+    End Function
+
+    Public Sub EditProjectHours(ByVal workTime As Integer, ByVal idProject As Integer)
+
+        Dim cmdUpdate As New SqlCommand
+
+        cmdUpdate = New SqlCommand("UPDATE Projectsdb SET " & _
+                               "project_hours = @project_hours " & _
+                               "WHERE id_project = " & idProject, connection)
+        connection.Open()
+
+        With cmdUpdate
+
+            .Parameters.AddWithValue("@project_hours", workTime)
+
+        End With
+
+
+        cmdUpdate.ExecuteNonQuery()
+        connection.Close()
+
+    End Sub
+
+    Public Sub Edit(ByVal workTime As Integer, ByVal idUser As Integer, ByVal idProject As Integer)
+
+        Dim cmdUpdate As New SqlCommand
+
+        cmdUpdate = New SqlCommand("UPDATE User_Project SET " & _
+                               "work_time = @work_time " & _
+                               "WHERE id_user = " & idUser & "AND id_project = " & idProject, connection)
+        connection.Open()
+
+        With cmdUpdate
+
+            .Parameters.AddWithValue("@work_time", workTime)
+
+        End With
+
+
+        cmdUpdate.ExecuteNonQuery()
+        connection.Close()
+
+    End Sub
+
+
     Public Sub Insert(ByVal userProject As AssignedProject)
 
         connection.Close()
@@ -131,7 +197,7 @@ Public Class AssignedProjectData
         dataTableAssignedProject = New DataTable
         dataTableAssignedProject.Columns.Add("ID")
         dataTableAssignedProject.Columns.Add("Project Name")
-        dataTableAssignedProject.Columns.Add("Hours")
+        dataTableAssignedProject.Columns.Add("Hours Assigned")
 
         CreateDataTableAssignedProject = dataTableAssignedProject
 
@@ -186,7 +252,7 @@ Public Class AssignedProjectData
             row = dataTableAssignedProject.NewRow
             row("ID") = assignedprojectGridView(i).apProject.Project_Id
             row("Project Name") = assignedprojectGridView(i).apProject.Project_Name
-            row("Hours") = assignedprojectGridView(i).apWorkTime
+            row("Hours Assigned") = assignedprojectGridView(i).apWorkTime
             dataTableAssignedProject.Rows.Add(row)
 
         Next
@@ -202,7 +268,7 @@ Public Class AssignedProjectData
 
         dataTableProjects.Columns.Add("ID")
         dataTableProjects.Columns.Add("Project Name")
-        dataTableProjects.Columns.Add("Hours")
+        dataTableProjects.Columns.Add("Hours to Assign")
 
         CreateDataTableProjects = dataTableProjects
 
@@ -259,7 +325,7 @@ Public Class AssignedProjectData
             row = dataTableProjects.NewRow
             row("ID") = projectGridView(i).Project_Id
             row("Project Name") = projectGridView(i).Project_Name
-            row("Hours") = projectGridView(i).Project_Hours
+            row("Hours to Assign") = projectGridView(i).Project_Hours
 
             dataTableProjects.Rows.Add(row)
 

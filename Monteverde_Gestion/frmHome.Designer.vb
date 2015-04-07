@@ -32,8 +32,8 @@ Partial Class frmHome
         Me.msiManageProjects = New System.Windows.Forms.ToolStripMenuItem()
         Me.msiManageWorkCategories = New System.Windows.Forms.ToolStripMenuItem()
         Me.msiManageUserProjects = New System.Windows.Forms.ToolStripMenuItem()
-        Me.UserToProjectToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.ProjectToUserToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.msiProjectToUser = New System.Windows.Forms.ToolStripMenuItem()
+        Me.msiUserToProject = New System.Windows.Forms.ToolStripMenuItem()
         Me.msiManageProfile = New System.Windows.Forms.ToolStripMenuItem()
         Me.TimeRegistrationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.NewTimeRegistrationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -127,27 +127,27 @@ Partial Class frmHome
         'msiManageUserProjects
         '
         Me.msiManageUserProjects.BackColor = System.Drawing.Color.Maroon
-        Me.msiManageUserProjects.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UserToProjectToolStripMenuItem, Me.ProjectToUserToolStripMenuItem})
+        Me.msiManageUserProjects.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.msiProjectToUser, Me.msiUserToProject})
         Me.msiManageUserProjects.ForeColor = System.Drawing.SystemColors.Control
         Me.msiManageUserProjects.Name = "msiManageUserProjects"
         Me.msiManageUserProjects.Size = New System.Drawing.Size(194, 22)
         Me.msiManageUserProjects.Text = "Assing User to Projects"
         '
-        'UserToProjectToolStripMenuItem
+        'msiProjectToUser
         '
-        Me.UserToProjectToolStripMenuItem.BackColor = System.Drawing.Color.Maroon
-        Me.UserToProjectToolStripMenuItem.ForeColor = System.Drawing.Color.White
-        Me.UserToProjectToolStripMenuItem.Name = "UserToProjectToolStripMenuItem"
-        Me.UserToProjectToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.UserToProjectToolStripMenuItem.Text = "User to Project"
+        Me.msiProjectToUser.BackColor = System.Drawing.Color.Maroon
+        Me.msiProjectToUser.ForeColor = System.Drawing.Color.White
+        Me.msiProjectToUser.Name = "msiProjectToUser"
+        Me.msiProjectToUser.Size = New System.Drawing.Size(152, 22)
+        Me.msiProjectToUser.Text = "Project to User"
         '
-        'ProjectToUserToolStripMenuItem
+        'msiUserToProject
         '
-        Me.ProjectToUserToolStripMenuItem.BackColor = System.Drawing.Color.Maroon
-        Me.ProjectToUserToolStripMenuItem.ForeColor = System.Drawing.Color.White
-        Me.ProjectToUserToolStripMenuItem.Name = "ProjectToUserToolStripMenuItem"
-        Me.ProjectToUserToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
-        Me.ProjectToUserToolStripMenuItem.Text = "Project to User"
+        Me.msiUserToProject.BackColor = System.Drawing.Color.Maroon
+        Me.msiUserToProject.ForeColor = System.Drawing.Color.White
+        Me.msiUserToProject.Name = "msiUserToProject"
+        Me.msiUserToProject.Size = New System.Drawing.Size(152, 22)
+        Me.msiUserToProject.Text = "User to Project"
         '
         'msiManageProfile
         '
@@ -275,6 +275,6 @@ Partial Class frmHome
     Friend WithEvents msiManageProfile As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents msiManageUserProjects As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents btnLogOut As System.Windows.Forms.Button
-    Friend WithEvents UserToProjectToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents ProjectToUserToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents msiProjectToUser As System.Windows.Forms.ToolStripMenuItem
+    Friend WithEvents msiUserToProject As System.Windows.Forms.ToolStripMenuItem
 End Class

@@ -44,6 +44,7 @@ Partial Class frmLogin
         '
         'txtEmail
         '
+        Me.txtEmail.AsciiOnly = True
         Me.txtEmail.BackColor = System.Drawing.Color.Maroon
         Me.txtEmail.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtEmail.ForeColor = System.Drawing.Color.White

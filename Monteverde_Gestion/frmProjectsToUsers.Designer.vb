@@ -28,7 +28,7 @@ Partial Class frmProjectsToUsers
         Me.lblUsers = New System.Windows.Forms.Label()
         Me.lblAssignedProjects = New System.Windows.Forms.Label()
         Me.btnRemoveProject = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.btnEdit = New System.Windows.Forms.Button()
         Me.lblProjectToAdd = New System.Windows.Forms.Label()
         Me.dgvProjects = New System.Windows.Forms.DataGridView()
         Me.btnAddProjectToUser = New System.Windows.Forms.Button()
@@ -105,19 +105,19 @@ Partial Class frmProjectsToUsers
         Me.btnRemoveProject.Text = "Remove Project From User"
         Me.btnRemoveProject.UseVisualStyleBackColor = False
         '
-        'Button1
+        'btnEdit
         '
-        Me.Button1.BackColor = System.Drawing.Color.White
-        Me.Button1.FlatAppearance.BorderColor = System.Drawing.Color.Maroon
-        Me.Button1.FlatAppearance.BorderSize = 2
-        Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button1.ForeColor = System.Drawing.Color.Maroon
-        Me.Button1.Location = New System.Drawing.Point(678, 120)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(97, 45)
-        Me.Button1.TabIndex = 40
-        Me.Button1.Text = "Edit Project Work Time"
-        Me.Button1.UseVisualStyleBackColor = False
+        Me.btnEdit.BackColor = System.Drawing.Color.White
+        Me.btnEdit.FlatAppearance.BorderColor = System.Drawing.Color.Maroon
+        Me.btnEdit.FlatAppearance.BorderSize = 2
+        Me.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnEdit.ForeColor = System.Drawing.Color.Maroon
+        Me.btnEdit.Location = New System.Drawing.Point(678, 120)
+        Me.btnEdit.Name = "btnEdit"
+        Me.btnEdit.Size = New System.Drawing.Size(97, 45)
+        Me.btnEdit.TabIndex = 40
+        Me.btnEdit.Text = "Edit Project Work Time"
+        Me.btnEdit.UseVisualStyleBackColor = False
         '
         'lblProjectToAdd
         '
@@ -162,7 +162,7 @@ Partial Class frmProjectsToUsers
         Me.Controls.Add(Me.btnAddProjectToUser)
         Me.Controls.Add(Me.dgvProjects)
         Me.Controls.Add(Me.lblProjectToAdd)
-        Me.Controls.Add(Me.Button1)
+        Me.Controls.Add(Me.btnEdit)
         Me.Controls.Add(Me.btnRemoveProject)
         Me.Controls.Add(Me.lblAssignedProjects)
         Me.Controls.Add(Me.lblUsers)
@@ -184,7 +184,7 @@ Partial Class frmProjectsToUsers
     Friend WithEvents lblUsers As System.Windows.Forms.Label
     Friend WithEvents lblAssignedProjects As System.Windows.Forms.Label
     Friend WithEvents btnRemoveProject As System.Windows.Forms.Button
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents btnEdit As System.Windows.Forms.Button
     Friend WithEvents lblProjectToAdd As System.Windows.Forms.Label
     Friend WithEvents dgvProjects As System.Windows.Forms.DataGridView
     Friend WithEvents btnAddProjectToUser As System.Windows.Forms.Button

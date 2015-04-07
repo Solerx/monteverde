@@ -29,7 +29,7 @@ Partial Class frmUserToProjects
         Me.dgvUsers = New System.Windows.Forms.DataGridView()
         Me.btnBack = New System.Windows.Forms.Button()
         Me.btnAddUserToProject = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
+        Me.btnEdit = New System.Windows.Forms.Button()
         Me.btnRemoveProject = New System.Windows.Forms.Button()
         Me.lblProjectToAdd = New System.Windows.Forms.Label()
         CType(Me.dgvAssignedUsers, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -42,7 +42,7 @@ Partial Class frmUserToProjects
         Me.lblProjectAssignedUsers.AutoSize = True
         Me.lblProjectAssignedUsers.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblProjectAssignedUsers.ForeColor = System.Drawing.Color.Maroon
-        Me.lblProjectAssignedUsers.Location = New System.Drawing.Point(444, 97)
+        Me.lblProjectAssignedUsers.Location = New System.Drawing.Point(383, 103)
         Me.lblProjectAssignedUsers.Name = "lblProjectAssignedUsers"
         Me.lblProjectAssignedUsers.Size = New System.Drawing.Size(226, 18)
         Me.lblProjectAssignedUsers.TabIndex = 44
@@ -52,9 +52,9 @@ Partial Class frmUserToProjects
         'dgvAssignedUsers
         '
         Me.dgvAssignedUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvAssignedUsers.Location = New System.Drawing.Point(439, 124)
+        Me.dgvAssignedUsers.Location = New System.Drawing.Point(386, 124)
         Me.dgvAssignedUsers.Name = "dgvAssignedUsers"
-        Me.dgvAssignedUsers.Size = New System.Drawing.Size(232, 181)
+        Me.dgvAssignedUsers.Size = New System.Drawing.Size(285, 181)
         Me.dgvAssignedUsers.TabIndex = 43
         '
         'lblProjects
@@ -113,19 +113,19 @@ Partial Class frmUserToProjects
         Me.btnAddUserToProject.Text = "Add User to Selected Project"
         Me.btnAddUserToProject.UseVisualStyleBackColor = False
         '
-        'Button2
+        'btnEdit
         '
-        Me.Button2.BackColor = System.Drawing.Color.White
-        Me.Button2.FlatAppearance.BorderColor = System.Drawing.Color.Maroon
-        Me.Button2.FlatAppearance.BorderSize = 2
-        Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.Button2.ForeColor = System.Drawing.Color.Maroon
-        Me.Button2.Location = New System.Drawing.Point(677, 124)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(97, 45)
-        Me.Button2.TabIndex = 48
-        Me.Button2.Text = "Edit User Work Time"
-        Me.Button2.UseVisualStyleBackColor = False
+        Me.btnEdit.BackColor = System.Drawing.Color.White
+        Me.btnEdit.FlatAppearance.BorderColor = System.Drawing.Color.Maroon
+        Me.btnEdit.FlatAppearance.BorderSize = 2
+        Me.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnEdit.ForeColor = System.Drawing.Color.Maroon
+        Me.btnEdit.Location = New System.Drawing.Point(677, 124)
+        Me.btnEdit.Name = "btnEdit"
+        Me.btnEdit.Size = New System.Drawing.Size(97, 45)
+        Me.btnEdit.TabIndex = 48
+        Me.btnEdit.Text = "Edit User Work Time"
+        Me.btnEdit.UseVisualStyleBackColor = False
         '
         'btnRemoveProject
         '
@@ -161,7 +161,7 @@ Partial Class frmUserToProjects
         Me.ClientSize = New System.Drawing.Size(784, 561)
         Me.Controls.Add(Me.lblProjectToAdd)
         Me.Controls.Add(Me.btnAddUserToProject)
-        Me.Controls.Add(Me.Button2)
+        Me.Controls.Add(Me.btnEdit)
         Me.Controls.Add(Me.btnRemoveProject)
         Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.dgvUsers)
@@ -185,7 +185,7 @@ Partial Class frmUserToProjects
     Friend WithEvents dgvUsers As System.Windows.Forms.DataGridView
     Friend WithEvents btnBack As System.Windows.Forms.Button
     Friend WithEvents btnAddUserToProject As System.Windows.Forms.Button
-    Friend WithEvents Button2 As System.Windows.Forms.Button
+    Friend WithEvents btnEdit As System.Windows.Forms.Button
     Friend WithEvents btnRemoveProject As System.Windows.Forms.Button
     Friend WithEvents lblProjectToAdd As System.Windows.Forms.Label
 End Class
