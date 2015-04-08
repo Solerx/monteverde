@@ -210,10 +210,9 @@
 
     Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles btnEdit.Click
 
-        Dim workTime As Integer = CInt(InputBox("Enter the new amount of hours.", "Editing Work Time", 1))
-        assignedProjectInstance.Edit(workTime, dgvAssignedUsers.Item(0, row3).Value(), dgvProjects.Item(0, row2).Value())
-        MsgBox("User edited successfully!")
+        ValidationOfWorkTime()
         updateAssignedUsersTable()
+        updateProjectTable()
 
     End Sub
 End Class

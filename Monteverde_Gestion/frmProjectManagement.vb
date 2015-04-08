@@ -145,6 +145,7 @@
     Private Sub btnEditProject_Click(sender As Object, e As EventArgs) Handles btnEditProject.Click
 
         showAll()
+        btnAdd.Hide()
         btnSave.Show()
         Fill_Inputs(projectdataInstance.getProyectById(dgvProjects.Item(0, row).Value))
         cbxProjectsStatus.Enabled = True

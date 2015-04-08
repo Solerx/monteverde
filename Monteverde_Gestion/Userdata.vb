@@ -173,6 +173,8 @@ Public Class Userdata
 
     Public Function GetUserIfAssigned(ByVal idUser As Integer, ByVal idProject As Integer) As Boolean
 
+        connection.Close()
+
         Dim cmdGetUser As New SqlCommand("SELECT * FROM User_Project WHERE id_user = " & idUser & "AND id_project = " & idProject, connection)
 
         connection.Open()

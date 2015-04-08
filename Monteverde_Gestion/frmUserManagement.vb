@@ -216,6 +216,7 @@ Public Class frmUserManagement
     Private Sub btnEditUser_Click(sender As Object, e As EventArgs) Handles btnEditUser.Click
 
         Show_All()
+        btnAdd.Hide()
         txtUserRegisteredDate.Enabled = False
         Fill_Inputs(userdataInstance.GetUserFromTable(dgvUsers.Item(0, row).Value))
         lblEditingUser.Show()
