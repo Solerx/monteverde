@@ -20,15 +20,15 @@ Public Class WorkCategoryData
 
     End Function
 
-    Public Function ListOfProjects() As List(Of WorkCategory)
+    Public Function ListOfCategories() As List(Of WorkCategory)
 
         connection.Close()
 
-        Dim cmdSelectUser As New SqlCommand("SELECT id, workcategory_name, workcategory_description FROM Work_Categories", connection)
+        Dim cmdSelectCategory As New SqlCommand("SELECT id, workcategory_name, workcategory_description FROM Work_Categories", connection)
 
         connection.Open()
 
-        Dim reader As SqlDataReader = cmdSelectUser.ExecuteReader()
+        Dim reader As SqlDataReader = cmdSelectCategory.ExecuteReader()
         Dim categoryList As New List(Of WorkCategory)
         Dim category As New WorkCategory
 
@@ -40,7 +40,7 @@ Public Class WorkCategoryData
                 category.Id = reader.GetInt32(0)
                 category.Name = reader.GetString(1)
                 category.Description = reader.GetString(2)
-               
+
                 categoryList.Add(category)
 
             Loop
@@ -51,9 +51,10 @@ Public Class WorkCategoryData
 
         reader.Close()
         connection.Close()
-        ListOfProjects = categoryList
+        ListOfCategories = categoryList
 
     End Function
+
 
     Public Function Fill_Data_Grid_View() As DataTable
 
@@ -63,7 +64,7 @@ Public Class WorkCategoryData
 
         Dim categoryGridView As List(Of WorkCategory)
 
-        categoryGridView = ListOfProjects()
+        categoryGridView = ListOfCategories()
 
         Dim row As DataRow
 

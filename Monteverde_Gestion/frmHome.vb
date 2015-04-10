@@ -97,5 +97,12 @@ Public Class frmHome
         frmUserToProjects.Show()
 
     End Sub
+
+    Private Sub NewTimeRegistrationToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NewTimeRegistrationToolStripMenuItem.Click
+
+        Me.Close()
+        frmNewTimeRegistration.Show()
+
+    End Sub
 End Class
 

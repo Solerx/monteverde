@@ -85,6 +85,12 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmNewTimeRegistration.Designer.vb">
+      <DependentUpon>frmNewTimeRegistration.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmNewTimeRegistration.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmUsersToProjects.Designer.vb">
       <DependentUpon>frmUsersToProjects.vb</DependentUpon>
     </Compile>
@@ -111,6 +117,8 @@
     <Compile Include="frmWorkCategoryManagement.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="UserTimeRegistration.vb" />
+    <Compile Include="UserTimeRegistrationData.vb" />
     <Compile Include="WorkCategoryData.vb" />
     <Compile Include="frmProjectManagement.Designer.vb">
       <DependentUpon>frmProjectManagement.vb</DependentUpon>
@@ -159,6 +167,9 @@
     <Compile Include="WorkCategory.vb" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="frmNewTimeRegistration.resx">
+      <DependentUpon>frmNewTimeRegistration.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmUsersToProjects.resx">
       <DependentUpon>frmUsersToProjects.vb</DependentUpon>
     </EmbeddedResource>
