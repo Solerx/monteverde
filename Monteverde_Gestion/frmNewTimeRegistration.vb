@@ -6,15 +6,26 @@ Public Class frmNewTimeRegistration
 
     Dim connection As New SqlConnection(strConexion)
 
+    Dim userDataInstace As Userdata = New Userdata
+
+    Dim projectDataInstace As Projectdata = New Projectdata
+
     Dim assignedProjectInstance As AssignedProjectData = New AssignedProjectData
 
-    Dim workCategoryDataInstance As WorkCategoryData
+    Dim workCategoryDataInstance As WorkCategoryData = New WorkCategoryData
+
+    Dim userTimeRegistrationDataInstance As UserTimeRegistrationData = New UserTimeRegistrationData
+
+    Dim chronometer As New DateTime
+
+    Dim userWorkedHours As Integer
 
     Dim row2 As Integer
 
     Private Sub frmNewTimeRegistration_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         UpdateTable()
+        HideAll()
         FillCombobox()
 
     End Sub
@@ -22,50 +33,101 @@ Public Class frmNewTimeRegistration
     Public Sub UpdateTable()
 
         Me.dgvAssignedProjects.DataSource = assignedProjectInstance.FillDataGridViewAssignedProject(frmLogin.globalUserId)
+        Me.dgvUserWorkedTime.DataSource = userTimeRegistrationDataInstance.FillDataGridViewWithUserTime(userTimeRegistrationDataInstance.ListOfWorkedTimeByUserId(frmLogin.globalUserId))
 
     End Sub
 
-    Public Function FillComboBox() As Dictionary(Of String, String)
+    Public Sub ResetAll()
 
-        Dim category = New Dictionary(Of String, String)()
+        cbxWorkCategories.ResetText()
+        txtUserWorkedHours.ResetText()
+        rtbNotes.ResetText()
+        btnFinishWork.Enabled = True
+        btnStartToWork.Enabled = True
+        HideAll()
 
-        connection.Open()
+    End Sub
 
-        Dim cmdSelectCategory As New SqlCommand("SELECT workcategory_name FROM Work_Categories", connection)
+    Public Sub FillComboBox()
 
-        Dim reader As SqlDataReader = cmdSelectCategory.ExecuteReader()
+        Dim listOfCategories As List(Of WorkCategory) = workCategoryDataInstance.ListOfCategories()
 
-        For index = 1 To 10
+        For Each category In listOfCategories
 
-            While reader.Read()
-
-                category(index) = cbxWorkCategories.Items.Add(reader.Item(0))
-
-
-            End While
+            cbxWorkCategories.Items.Add(category.Name)
 
         Next
 
-        connection.Close()
+        'Another way out
 
-        FillComboBox = category
+        '  For i = 0 To listOfCategories.Count - 1
 
-    End Function
+        ' cbxWorkCategories.Items.Add(listOfCategories.Item(i))
 
-    Public Sub Inputs()
+        ' Next i
+
+    End Sub
+
+    Public Function Inputs() As UserTimeRegistration
 
         Dim timeStamp As DateTime
         Dim workCategory As String
-        Dim workTime As Integer
-        Dim notes As Integer
+        Dim notes As String
+        Dim newRegister As New UserTimeRegistration
 
-
-        workCategory = cbxWorkCategories.SelectedText
-        workTime = txtUserWorkedHours.Text
+        workCategory = cbxWorkCategories.Text
         notes = rtbNotes.Text
         timeStamp = DateTime.Now
 
+        newRegister.UtUser = userDataInstace.GetUserFromTable(frmLogin.globalUserId)
+        newRegister.UtWorkTimeCategory = workCategoryDataInstance.GetCategoryByName(workCategory)
+        newRegister.UtProject = projectDataInstace.GetProyectById(dgvAssignedProjects.Item(0, row2).Value())
+        newRegister.UtWorkTime = userWorkedHours
+        newRegister.UtUserNotes = notes
+        newRegister.UtTimeStampDate = timeStamp
 
+        Inputs = newRegister
+
+    End Function
+
+    Public Function ValidationOfWorkTimeEdit(ByVal workTime As Integer) As Boolean
+
+        Dim workTimeFromProject As New Project
+
+        Dim alreadyAssignedTime As Integer
+
+        Dim newWorkTime As Integer
+
+        alreadyAssignedTime = assignedProjectInstance.GetHoursAssigned(frmLogin.globalUserId, dgvAssignedProjects.Item(0, row2).Value())
+
+        If alreadyAssignedTime >= workTime Then
+
+            newWorkTime = alreadyAssignedTime - workTime
+            assignedProjectInstance.Edit(newWorkTime, frmLogin.globalUserId, dgvAssignedProjects.Item(0, row2).Value())
+            ValidationOfWorkTimeEdit = True
+            UpdateTable()
+
+        Else
+
+            ValidationOfWorkTimeEdit = False
+            UpdateTable()
+
+        End If
+
+
+    End Function
+
+    Public Sub HideAll()
+
+        lblWorkCategories.Hide()
+        cbxWorkCategories.Hide()
+        lblUserWorkedHours.Hide()
+        txtUserWorkedHours.Hide()
+        lblChrono.Hide()
+        lblNotes.Hide()
+        rtbNotes.Hide()
+        btnRegister.Hide()
+        btnFinishWork.Hide()
 
     End Sub
 
@@ -76,10 +138,82 @@ Public Class frmNewTimeRegistration
 
     End Sub
 
-    Private Sub btnSave_Click(sender As Object, e As EventArgs) Handles btnSave.Click
+    Private Sub dgvAssignedProjects_CellClick(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles dgvAssignedProjects.CellClick
 
-        Dim timeStamp As DateTime = DateTime.Now
-        MsgBox(timeStamp)
+        row2 = dgvAssignedProjects.CurrentRow.Index
+
+    End Sub
+
+    Private Sub btnRegister_Click(sender As Object, e As EventArgs) Handles btnRegister.Click
+
+        If ValidationOfWorkTimeEdit(Inputs.UtWorkTime) = False Then
+
+            UpdateTable()
+            MsgBox("You can't work more hours on this project as the ones already assigned." & vbCrLf & "Contact an administrator.")
+
+        Else
+
+            userTimeRegistrationDataInstance.Insert(Inputs())
+            Dim timeStamp As DateTime = DateTime.Now
+            UpdateTable()
+            ResetAll()
+
+        End If
+
+    End Sub
+
+    Private Sub Timer1_Tick(sender As Object, e As EventArgs) Handles Timer1.Tick
+
+        Dim Difference As TimeSpan = DateTime.Now.Subtract(chronometer)
+
+        Dim alreadyAssignedTime As Integer
+
+        alreadyAssignedTime = assignedProjectInstance.GetHoursAssigned(frmLogin.globalUserId, dgvAssignedProjects.Item(0, row2).Value())
+
+        lblChrono.Text = Difference.Hours.ToString & ":" & Difference.Minutes.ToString & ":" & Difference.Seconds.ToString
+
+        If Difference.Hours = alreadyAssignedTime Then
+
+            Timer1.Stop()
+            MsgBox("You already complete your hours assigned to this proyect." & vbCrLf & "Contact an administrator.")
+            lblWorkCategories.Show()
+            cbxWorkCategories.Show()
+            lblUserWorkedHours.Hide()
+            txtUserWorkedHours.Hide()
+            lblNotes.Show()
+            rtbNotes.Show()
+            btnRegister.Show()
+            btnFinishWork.Enabled = False
+            userWorkedHours = Difference.Hours
+
+        End If
+
+        userWorkedHours = Difference.Hours
+
+    End Sub
+
+
+    Private Sub btnFinishWork_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles btnFinishWork.Click
+
+        Timer1.Stop()
+        lblWorkCategories.Show()
+        cbxWorkCategories.Show()
+        lblUserWorkedHours.Hide()
+        txtUserWorkedHours.Hide()
+        lblNotes.Show()
+        rtbNotes.Show()
+        btnRegister.Show()
+        btnFinishWork.Enabled = False
+
+    End Sub
+
+    Private Sub btnStartToWork_Click(sender As Object, e As EventArgs) Handles btnStartToWork.Click
+
+        lblChrono.Show()
+        chronometer = DateTime.Now 'This will change 'Time' to the current time
+        Timer1.Start() 'Starts the Timer.
+        btnStartToWork.Enabled = False
+        btnFinishWork.Show()
 
     End Sub
 End Class

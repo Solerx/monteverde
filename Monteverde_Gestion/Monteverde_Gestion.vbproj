@@ -111,6 +111,12 @@
     <Compile Include="frmProjectsToUsers.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmViewTimeRegistrations.Designer.vb">
+      <DependentUpon>frmViewTimeRegistrations.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmViewTimeRegistrations.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmWorkCategoryManagement.Designer.vb">
       <DependentUpon>frmWorkCategoryManagement.vb</DependentUpon>
     </Compile>
@@ -178,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmProjectsToUsers.resx">
       <DependentUpon>frmProjectsToUsers.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmViewTimeRegistrations.resx">
+      <DependentUpon>frmViewTimeRegistrations.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmWorkCategoryManagement.resx">
       <DependentUpon>frmWorkCategoryManagement.vb</DependentUpon>

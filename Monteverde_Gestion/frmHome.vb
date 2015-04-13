@@ -104,5 +104,12 @@ Public Class frmHome
         frmNewTimeRegistration.Show()
 
     End Sub
+
+    Private Sub msiViewUserRegs_Click(sender As Object, e As EventArgs) Handles msiViewUserRegs.Click
+
+        Me.Close()
+        frmViewTimeRegistrations.Show()
+
+    End Sub
 End Class
 

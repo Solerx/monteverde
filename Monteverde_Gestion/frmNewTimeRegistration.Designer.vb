@@ -22,6 +22,7 @@ Partial Class frmNewTimeRegistration
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Me.components = New System.ComponentModel.Container()
         Me.dgvAssignedProjects = New System.Windows.Forms.DataGridView()
         Me.cbxWorkCategories = New System.Windows.Forms.ComboBox()
         Me.lblProjectToAdd = New System.Windows.Forms.Label()
@@ -31,9 +32,15 @@ Partial Class frmNewTimeRegistration
         Me.lblWorkCategories = New System.Windows.Forms.Label()
         Me.rtbNotes = New System.Windows.Forms.RichTextBox()
         Me.lblNotes = New System.Windows.Forms.Label()
-        Me.btnSave = New System.Windows.Forms.Button()
+        Me.btnRegister = New System.Windows.Forms.Button()
         Me.lvlWorkedTimeInfo = New System.Windows.Forms.Label()
+        Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
+        Me.btnFinishWork = New System.Windows.Forms.Button()
+        Me.btnStartToWork = New System.Windows.Forms.Button()
+        Me.dgvUserWorkedTime = New System.Windows.Forms.DataGridView()
+        Me.lblChrono = New System.Windows.Forms.Label()
         CType(Me.dgvAssignedProjects, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvUserWorkedTime, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'dgvAssignedProjects
@@ -41,7 +48,7 @@ Partial Class frmNewTimeRegistration
         Me.dgvAssignedProjects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvAssignedProjects.Location = New System.Drawing.Point(12, 118)
         Me.dgvAssignedProjects.Name = "dgvAssignedProjects"
-        Me.dgvAssignedProjects.Size = New System.Drawing.Size(328, 431)
+        Me.dgvAssignedProjects.Size = New System.Drawing.Size(328, 203)
         Me.dgvAssignedProjects.TabIndex = 32
         '
         'cbxWorkCategories
@@ -49,9 +56,9 @@ Partial Class frmNewTimeRegistration
         Me.cbxWorkCategories.BackColor = System.Drawing.Color.Maroon
         Me.cbxWorkCategories.ForeColor = System.Drawing.Color.White
         Me.cbxWorkCategories.FormattingEnabled = True
-        Me.cbxWorkCategories.Location = New System.Drawing.Point(434, 178)
+        Me.cbxWorkCategories.Location = New System.Drawing.Point(434, 324)
         Me.cbxWorkCategories.Name = "cbxWorkCategories"
-        Me.cbxWorkCategories.Size = New System.Drawing.Size(178, 21)
+        Me.cbxWorkCategories.Size = New System.Drawing.Size(239, 21)
         Me.cbxWorkCategories.TabIndex = 54
         '
         'lblProjectToAdd
@@ -60,7 +67,7 @@ Partial Class frmNewTimeRegistration
         Me.lblProjectToAdd.BackColor = System.Drawing.SystemColors.Window
         Me.lblProjectToAdd.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblProjectToAdd.ForeColor = System.Drawing.Color.Maroon
-        Me.lblProjectToAdd.Location = New System.Drawing.Point(12, 84)
+        Me.lblProjectToAdd.Location = New System.Drawing.Point(6, 84)
         Me.lblProjectToAdd.Name = "lblProjectToAdd"
         Me.lblProjectToAdd.Size = New System.Drawing.Size(266, 31)
         Me.lblProjectToAdd.TabIndex = 55
@@ -86,7 +93,7 @@ Partial Class frmNewTimeRegistration
         Me.txtUserWorkedHours.BackColor = System.Drawing.Color.Maroon
         Me.txtUserWorkedHours.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtUserWorkedHours.ForeColor = System.Drawing.Color.White
-        Me.txtUserWorkedHours.Location = New System.Drawing.Point(434, 242)
+        Me.txtUserWorkedHours.Location = New System.Drawing.Point(310, 28)
         Me.txtUserWorkedHours.Name = "txtUserWorkedHours"
         Me.txtUserWorkedHours.Size = New System.Drawing.Size(239, 20)
         Me.txtUserWorkedHours.TabIndex = 57
@@ -96,7 +103,7 @@ Partial Class frmNewTimeRegistration
         Me.lblUserWorkedHours.AutoSize = True
         Me.lblUserWorkedHours.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblUserWorkedHours.ForeColor = System.Drawing.Color.Maroon
-        Me.lblUserWorkedHours.Location = New System.Drawing.Point(431, 223)
+        Me.lblUserWorkedHours.Location = New System.Drawing.Point(307, 9)
         Me.lblUserWorkedHours.Name = "lblUserWorkedHours"
         Me.lblUserWorkedHours.Size = New System.Drawing.Size(101, 16)
         Me.lblUserWorkedHours.TabIndex = 58
@@ -107,7 +114,7 @@ Partial Class frmNewTimeRegistration
         Me.lblWorkCategories.AutoSize = True
         Me.lblWorkCategories.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblWorkCategories.ForeColor = System.Drawing.Color.Maroon
-        Me.lblWorkCategories.Location = New System.Drawing.Point(431, 159)
+        Me.lblWorkCategories.Location = New System.Drawing.Point(431, 305)
         Me.lblWorkCategories.Name = "lblWorkCategories"
         Me.lblWorkCategories.Size = New System.Drawing.Size(107, 16)
         Me.lblWorkCategories.TabIndex = 59
@@ -116,9 +123,9 @@ Partial Class frmNewTimeRegistration
         'rtbNotes
         '
         Me.rtbNotes.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.rtbNotes.Location = New System.Drawing.Point(434, 305)
+        Me.rtbNotes.Location = New System.Drawing.Point(434, 375)
         Me.rtbNotes.Name = "rtbNotes"
-        Me.rtbNotes.Size = New System.Drawing.Size(239, 147)
+        Me.rtbNotes.Size = New System.Drawing.Size(338, 95)
         Me.rtbNotes.TabIndex = 60
         Me.rtbNotes.Text = ""
         '
@@ -127,29 +134,29 @@ Partial Class frmNewTimeRegistration
         Me.lblNotes.AutoSize = True
         Me.lblNotes.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblNotes.ForeColor = System.Drawing.Color.Maroon
-        Me.lblNotes.Location = New System.Drawing.Point(431, 286)
+        Me.lblNotes.Location = New System.Drawing.Point(431, 354)
         Me.lblNotes.Name = "lblNotes"
         Me.lblNotes.Size = New System.Drawing.Size(50, 16)
         Me.lblNotes.TabIndex = 61
         Me.lblNotes.Text = "Notes: "
         '
-        'btnSave
+        'btnRegister
         '
-        Me.btnSave.BackColor = System.Drawing.Color.White
-        Me.btnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnSave.FlatAppearance.BorderColor = System.Drawing.Color.Maroon
-        Me.btnSave.FlatAppearance.BorderSize = 2
-        Me.btnSave.FlatAppearance.CheckedBackColor = System.Drawing.Color.DimGray
-        Me.btnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray
-        Me.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
-        Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSave.ForeColor = System.Drawing.Color.Maroon
-        Me.btnSave.Location = New System.Drawing.Point(545, 504)
-        Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(149, 45)
-        Me.btnSave.TabIndex = 62
-        Me.btnSave.Text = "Register New Work Time"
-        Me.btnSave.UseVisualStyleBackColor = False
+        Me.btnRegister.BackColor = System.Drawing.Color.White
+        Me.btnRegister.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnRegister.FlatAppearance.BorderColor = System.Drawing.Color.Maroon
+        Me.btnRegister.FlatAppearance.BorderSize = 2
+        Me.btnRegister.FlatAppearance.CheckedBackColor = System.Drawing.Color.DimGray
+        Me.btnRegister.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray
+        Me.btnRegister.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
+        Me.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnRegister.ForeColor = System.Drawing.Color.Maroon
+        Me.btnRegister.Location = New System.Drawing.Point(623, 504)
+        Me.btnRegister.Name = "btnRegister"
+        Me.btnRegister.Size = New System.Drawing.Size(149, 45)
+        Me.btnRegister.TabIndex = 62
+        Me.btnRegister.Text = "Register New Work Time"
+        Me.btnRegister.UseVisualStyleBackColor = False
         '
         'lvlWorkedTimeInfo
         '
@@ -157,12 +164,72 @@ Partial Class frmNewTimeRegistration
         Me.lvlWorkedTimeInfo.BackColor = System.Drawing.SystemColors.Window
         Me.lvlWorkedTimeInfo.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lvlWorkedTimeInfo.ForeColor = System.Drawing.Color.Maroon
-        Me.lvlWorkedTimeInfo.Location = New System.Drawing.Point(401, 95)
+        Me.lvlWorkedTimeInfo.Location = New System.Drawing.Point(6, 341)
         Me.lvlWorkedTimeInfo.Name = "lvlWorkedTimeInfo"
         Me.lvlWorkedTimeInfo.Size = New System.Drawing.Size(349, 31)
         Me.lvlWorkedTimeInfo.TabIndex = 63
         Me.lvlWorkedTimeInfo.Text = "Worked Time Information:" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10)
         Me.lvlWorkedTimeInfo.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'Timer1
+        '
+        '
+        'btnFinishWork
+        '
+        Me.btnFinishWork.BackColor = System.Drawing.Color.White
+        Me.btnFinishWork.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnFinishWork.FlatAppearance.BorderColor = System.Drawing.Color.Maroon
+        Me.btnFinishWork.FlatAppearance.BorderSize = 2
+        Me.btnFinishWork.FlatAppearance.CheckedBackColor = System.Drawing.Color.DimGray
+        Me.btnFinishWork.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray
+        Me.btnFinishWork.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
+        Me.btnFinishWork.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnFinishWork.ForeColor = System.Drawing.Color.Maroon
+        Me.btnFinishWork.Location = New System.Drawing.Point(526, 244)
+        Me.btnFinishWork.Name = "btnFinishWork"
+        Me.btnFinishWork.Size = New System.Drawing.Size(159, 45)
+        Me.btnFinishWork.TabIndex = 64
+        Me.btnFinishWork.Text = "Finish Work"
+        Me.btnFinishWork.UseVisualStyleBackColor = False
+        '
+        'btnStartToWork
+        '
+        Me.btnStartToWork.BackColor = System.Drawing.Color.White
+        Me.btnStartToWork.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnStartToWork.FlatAppearance.BorderColor = System.Drawing.Color.Maroon
+        Me.btnStartToWork.FlatAppearance.BorderSize = 2
+        Me.btnStartToWork.FlatAppearance.CheckedBackColor = System.Drawing.Color.DimGray
+        Me.btnStartToWork.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray
+        Me.btnStartToWork.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
+        Me.btnStartToWork.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnStartToWork.ForeColor = System.Drawing.Color.Maroon
+        Me.btnStartToWork.Location = New System.Drawing.Point(444, 118)
+        Me.btnStartToWork.Name = "btnStartToWork"
+        Me.btnStartToWork.Size = New System.Drawing.Size(328, 65)
+        Me.btnStartToWork.TabIndex = 65
+        Me.btnStartToWork.Text = "Start Working"
+        Me.btnStartToWork.UseVisualStyleBackColor = False
+        '
+        'dgvUserWorkedTime
+        '
+        Me.dgvUserWorkedTime.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvUserWorkedTime.Location = New System.Drawing.Point(12, 375)
+        Me.dgvUserWorkedTime.Name = "dgvUserWorkedTime"
+        Me.dgvUserWorkedTime.Size = New System.Drawing.Size(328, 174)
+        Me.dgvUserWorkedTime.TabIndex = 66
+        '
+        'lblChrono
+        '
+        Me.lblChrono.AutoSize = True
+        Me.lblChrono.BackColor = System.Drawing.SystemColors.Window
+        Me.lblChrono.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblChrono.ForeColor = System.Drawing.Color.Maroon
+        Me.lblChrono.Location = New System.Drawing.Point(537, 186)
+        Me.lblChrono.Name = "lblChrono"
+        Me.lblChrono.Size = New System.Drawing.Size(136, 55)
+        Me.lblChrono.TabIndex = 67
+        Me.lblChrono.Text = "0:0:0"
+        Me.lblChrono.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
         'frmNewTimeRegistration
         '
@@ -170,8 +237,12 @@ Partial Class frmNewTimeRegistration
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(784, 561)
+        Me.Controls.Add(Me.lblChrono)
+        Me.Controls.Add(Me.dgvUserWorkedTime)
+        Me.Controls.Add(Me.btnStartToWork)
+        Me.Controls.Add(Me.btnFinishWork)
         Me.Controls.Add(Me.lvlWorkedTimeInfo)
-        Me.Controls.Add(Me.btnSave)
+        Me.Controls.Add(Me.btnRegister)
         Me.Controls.Add(Me.lblNotes)
         Me.Controls.Add(Me.rtbNotes)
         Me.Controls.Add(Me.lblWorkCategories)
@@ -184,6 +255,7 @@ Partial Class frmNewTimeRegistration
         Me.Name = "frmNewTimeRegistration"
         Me.Text = "New Time Registration"
         CType(Me.dgvAssignedProjects, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvUserWorkedTime, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -197,6 +269,11 @@ Partial Class frmNewTimeRegistration
     Friend WithEvents lblWorkCategories As System.Windows.Forms.Label
     Friend WithEvents rtbNotes As System.Windows.Forms.RichTextBox
     Friend WithEvents lblNotes As System.Windows.Forms.Label
-    Friend WithEvents btnSave As System.Windows.Forms.Button
+    Friend WithEvents btnRegister As System.Windows.Forms.Button
     Friend WithEvents lvlWorkedTimeInfo As System.Windows.Forms.Label
+    Friend WithEvents Timer1 As System.Windows.Forms.Timer
+    Friend WithEvents btnFinishWork As System.Windows.Forms.Button
+    Friend WithEvents btnStartToWork As System.Windows.Forms.Button
+    Friend WithEvents dgvUserWorkedTime As System.Windows.Forms.DataGridView
+    Friend WithEvents lblChrono As System.Windows.Forms.Label
 End Class

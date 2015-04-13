@@ -1,8 +1,8 @@
 ﻿Public Class UserTimeRegistration
 
-    Private user As Integer
+    Private user As User
 
-    Private project As Integer
+    Private project As Project
 
     Private hours As Integer
 
@@ -10,7 +10,20 @@
 
     Private timestamp As DateTime
 
-    Public Property TimeStampDate() As DateTime
+    Private workCategory As WorkCategory
+
+    Public Property UtWorkTimeCategory() As WorkCategory
+        Get
+            Return workCategory
+        End Get
+        Set(ByVal value As WorkCategory)
+            workCategory = value
+        End Set
+    End Property
+
+
+
+    Public Property UtTimeStampDate() As DateTime
         Get
             Return timestamp
         End Get
@@ -19,7 +32,7 @@
         End Set
     End Property
 
-    Public Property UserNotes() As String
+    Public Property UtUserNotes() As String
         Get
             Return notes
         End Get
@@ -29,7 +42,7 @@
     End Property
 
 
-    Public Property WorkTime() As Integer
+    Public Property UtWorkTime() As Integer
         Get
             Return hours
         End Get
@@ -38,21 +51,21 @@
         End Set
     End Property
 
-    Public Property IdProject() As Integer
+    Public Property UtProject() As Project
         Get
-            Return project
+            Return Project
         End Get
-        Set(ByVal value As Integer)
+        Set(ByVal value As Project)
             project = value
         End Set
     End Property
 
 
-    Public Property IdUser() As Integer
+    Public Property UtUser() As User
         Get
             Return user
         End Get
-        Set(ByVal value As Integer)
+        Set(ByVal value As User)
             user = value
         End Set
     End Property

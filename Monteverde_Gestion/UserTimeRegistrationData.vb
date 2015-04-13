@@ -6,6 +6,13 @@ Public Class UserTimeRegistrationData
 
     Dim connection As New SqlConnection(strConexion)
 
+    Dim connection2 As New SqlConnection(strConexion)
+
+    Dim userDataInstance As Userdata = New Userdata
+
+    Dim projectDataInstace As Projectdata = New Projectdata
+
+    Dim dataTableRegisters As New DataTable
 
     Public Sub Insert(ByVal timeRegistration As UserTimeRegistration)
 
@@ -13,23 +20,23 @@ Public Class UserTimeRegistrationData
 
         Dim cmdInsert As New SqlCommand
 
-        cmdInsert = New SqlCommand("insert into Time_Registration(id_user,id_project,hours,user_notes,date)" & _
-                                   "values(@id_user,@id_project,@hours,@user_notes,@date)", connection)
+        cmdInsert = New SqlCommand("insert into Time_Registration(id_user,id_project,hours,user_notes,date,work_category)" & _
+                                   "values(@id_user,@id_project,@hours,@user_notes,@date,@work_category)", connection)
         connection.Open()
 
         With cmdInsert
 
-            .Parameters.AddWithValue("@id_user", timeRegistration.IdUser)
-            .Parameters.AddWithValue("@id_project", timeRegistration.IdProject)
-            .Parameters.AddWithValue("@hours", timeRegistration.WorkTime)
-            .Parameters.AddWithValue("@user_notes", timeRegistration.UserNotes)
-            .Parameters.AddWithValue("@date", timeRegistration.TimeStampDate)
-
+            .Parameters.AddWithValue("@id_user", timeRegistration.UtUser.user_user_id)
+            .Parameters.AddWithValue("@id_project", timeRegistration.UtProject.Project_Id)
+            .Parameters.AddWithValue("@hours", timeRegistration.UtWorkTime)
+            .Parameters.AddWithValue("@user_notes", timeRegistration.UtUserNotes)
+            .Parameters.AddWithValue("@date", timeRegistration.UtTimeStampDate)
+            .Parameters.AddWithValue("@work_category", timeRegistration.UtWorkTimeCategory.Name)
 
         End With
 
         cmdInsert.ExecuteNonQuery()
-        MsgBox("Category added successfully.")
+        MsgBox("Worked Time added successfully.")
         connection.Close()
 
     End Sub
@@ -74,28 +81,322 @@ Public Class UserTimeRegistrationData
 
     End Sub
 
-    Public Function GetCategoryByName(ByVal Name As String) As WorkCategory
+    'Public Function GetTimeRegisters() As UserTimeRegistration
+
+    '    connection.Close()
+
+    '    Dim cmdSelect As New SqlCommand("SELECT id_user,id_project,hours,user_notes,date,work_category,name,project_name " & _
+    '                                    "FROM Time_Registration, Usersdb, Projectsdb WHERE Time_Registration.id_user=Usersdb.id_user and Time_Registration.id_project=Projectsdb.id_project", connection)
+
+    '    connection.Open()
+
+    '    Dim reader As SqlDataReader = cmdSelect.ExecuteReader()
+
+    '    Dim category As New UserTimeRegistration
+
+    '    reader.Read()
+
+    '    category = New UserTimeRegistration
+    '    category.UtUser = reader.GetString(0)
+
+
+
+    '    reader.Close()
+
+    '    GetTimeRegisters = category
+
+    'End Function
+
+    Public Function CreateDataTableRegisteredTime() As DataTable
+
+        dataTableRegisters = New DataTable
+
+        dataTableRegisters.Columns.Add("User")
+        dataTableRegisters.Columns.Add("Project")
+        dataTableRegisters.Columns.Add("Worked Time")
+        dataTableRegisters.Columns.Add("Work Category")
+        dataTableRegisters.Columns.Add("Notes")
+        dataTableRegisters.Columns.Add("Registered Date")
+
+
+        CreateDataTableRegisteredTime = dataTableRegisters
+
+    End Function
+
+    Public Function CreateDataTableUserRegisteredTime() As DataTable
+
+        dataTableRegisters = New DataTable
+
+        dataTableRegisters.Columns.Add("Project")
+        dataTableRegisters.Columns.Add("Worked Time")
+        dataTableRegisters.Columns.Add("Work Category")
+        dataTableRegisters.Columns.Add("Notes")
+        dataTableRegisters.Columns.Add("Registered Date")
+
+
+        CreateDataTableUserRegisteredTime = dataTableRegisters
+
+    End Function
+
+    Public Function ListOfWorkedTime() As List(Of UserTimeRegistration)
 
         connection.Close()
 
-        Dim cmdSelectUser As New SqlCommand("SELECT workcategory_name, workcategory_description FROM Work_Categories WHERE workcategory_name = '" & Name & "'", connection)
+        Dim cmdSelectRegister As New SqlCommand("SELECT id_user,id_project,hours,user_notes,date,work_category FROM Time_Registration", connection)
 
         connection.Open()
 
-        Dim reader As SqlDataReader = cmdSelectUser.ExecuteReader()
+        Dim reader As SqlDataReader = cmdSelectRegister.ExecuteReader()
+        Dim timeRegistrationList As New List(Of UserTimeRegistration)
+        Dim register As New UserTimeRegistration
 
-        Dim category As New WorkCategory
+        Do While reader.HasRows
 
-        reader.Read()
+            Do While reader.Read()
 
-        category = New WorkCategory
-        category.Name = reader.GetString(0)
-        category.Description = reader.GetString(1)
+                register = New UserTimeRegistration
+                register.UtUser = userDataInstance.GetUserFromTable(reader.GetInt32(0))
+                register.UtProject = projectDataInstace.GetProyectById(reader.GetInt32(1))
+                register.UtWorkTime = reader.GetInt32(2)
+                register.UtUserNotes = reader.GetString(3)
+                register.UtTimeStampDate = reader.GetDateTime(4)
+                register.UtWorkTimeCategory = GetWorkCategory(reader.GetString(5))
 
+
+                timeRegistrationList.Add(register)
+
+            Loop
+
+            reader.NextResult()
+
+        Loop
 
         reader.Close()
+        connection.Close()
+        ListOfWorkedTime = timeRegistrationList
 
-        GetCategoryByName = category
+    End Function
+
+    Public Function FillDataGridView() As DataTable
+
+        dataTableRegisters = CreateDataTableRegisteredTime()
+
+        Dim workedtimeGridView As List(Of UserTimeRegistration)
+
+        workedtimeGridView = ListOfWorkedTime()
+
+        Dim row As DataRow
+
+        For i = 0 To workedtimeGridView.Count - 1 Step 1
+
+            row = dataTableRegisters.NewRow
+            row("User") = workedtimeGridView(i).UtUser.user_user_id & " - " & workedtimeGridView(i).UtUser.user_name
+            row("Project") = workedtimeGridView(i).UtProject.Project_Id & " - " & workedtimeGridView(i).UtProject.Project_Name
+            row("Worked Time") = workedtimeGridView(i).UtWorkTime
+            row("Work Category") = workedtimeGridView(i).UtWorkTimeCategory.Name
+            row("Notes") = workedtimeGridView(i).UtUserNotes
+            row("Registered Date") = workedtimeGridView(i).UtTimeStampDate
+
+            dataTableRegisters.Rows.Add(row)
+
+        Next
+
+        FillDataGridView = dataTableRegisters
+
+    End Function
+
+    Public Function ListOfWorkedTimeByUserId(ByVal idUser As Integer) As List(Of UserTimeRegistration)
+
+        connection.Close()
+
+        Dim cmdSelectRegister As New SqlCommand("SELECT id_user,id_project,hours,user_notes,date,work_category FROM Time_Registration WHERE id_user =" & idUser, connection)
+
+        connection.Open()
+
+        Dim reader As SqlDataReader = cmdSelectRegister.ExecuteReader()
+        Dim timeRegistrationList As New List(Of UserTimeRegistration)
+        Dim register As New UserTimeRegistration
+
+        Do While reader.HasRows
+
+            Do While reader.Read()
+
+                register = New UserTimeRegistration
+                register.UtUser = userDataInstance.GetUserFromTable(reader.GetInt32(0))
+                register.UtProject = projectDataInstace.GetProyectById(reader.GetInt32(1))
+                register.UtWorkTime = reader.GetInt32(2)
+                register.UtUserNotes = reader.GetString(3)
+                register.UtTimeStampDate = reader.GetDateTime(4)
+                register.UtWorkTimeCategory = GetWorkCategory(reader.GetString(5))
+
+
+                timeRegistrationList.Add(register)
+
+            Loop
+
+            reader.NextResult()
+
+        Loop
+
+        reader.Close()
+        connection.Close()
+        ListOfWorkedTimeByUserId = timeRegistrationList
+
+    End Function
+
+    Public Function ListOfWorkedTimeByProjectId(ByVal idProject As Integer) As List(Of UserTimeRegistration)
+
+        connection.Close()
+
+        Dim cmdSelectRegister As New SqlCommand("SELECT id_user,id_project,hours,user_notes,date,work_category FROM Time_Registration WHERE id_project =" & idProject, connection)
+
+        connection.Open()
+
+        Dim reader As SqlDataReader = cmdSelectRegister.ExecuteReader()
+        Dim timeRegistrationList As New List(Of UserTimeRegistration)
+        Dim register As New UserTimeRegistration
+
+        Do While reader.HasRows
+
+            Do While reader.Read()
+
+                register = New UserTimeRegistration
+                register.UtUser = userDataInstance.GetUserFromTable(reader.GetInt32(0))
+                register.UtProject = projectDataInstace.GetProyectById(reader.GetInt32(1))
+                register.UtWorkTime = reader.GetInt32(2)
+                register.UtUserNotes = reader.GetString(3)
+                register.UtTimeStampDate = reader.GetDateTime(4)
+                register.UtWorkTimeCategory = GetWorkCategory(reader.GetString(5))
+
+
+                timeRegistrationList.Add(register)
+
+            Loop
+
+            reader.NextResult()
+
+        Loop
+
+        reader.Close()
+        connection.Close()
+        ListOfWorkedTimeByProjectId = timeRegistrationList
+
+    End Function
+
+    Public Function ListOfWorkedTimeByCategory(ByVal workCategory As String) As List(Of UserTimeRegistration)
+
+        connection.Close()
+
+        Dim cmdSelectRegister As New SqlCommand("SELECT id_user,id_project,hours,user_notes,date,work_category FROM Time_Registration WHERE work_category = '" & workCategory & "'", connection)
+
+        connection.Open()
+
+        Dim reader As SqlDataReader = cmdSelectRegister.ExecuteReader()
+        Dim timeRegistrationList As New List(Of UserTimeRegistration)
+        Dim register As New UserTimeRegistration
+
+        Do While reader.HasRows
+
+            Do While reader.Read()
+
+                register = New UserTimeRegistration
+                register.UtUser = userDataInstance.GetUserFromTable(reader.GetInt32(0))
+                register.UtProject = projectDataInstace.GetProyectById(reader.GetInt32(1))
+                register.UtWorkTime = reader.GetInt32(2)
+                register.UtUserNotes = reader.GetString(3)
+                register.UtTimeStampDate = reader.GetDateTime(4)
+                register.UtWorkTimeCategory = GetWorkCategory(reader.GetString(5))
+
+
+                timeRegistrationList.Add(register)
+
+            Loop
+
+            reader.NextResult()
+
+        Loop
+
+        reader.Close()
+        connection.Close()
+        ListOfWorkedTimeByCategory = timeRegistrationList
+
+    End Function
+
+    Public Function FillDataGridViewWithUserTime(ByVal workedtimeGridView As List(Of UserTimeRegistration)) As DataTable
+
+        'Fill table created at Create_Data_Table_User() 
+
+        dataTableRegisters = CreateDataTableUserRegisteredTime()
+
+        Dim row As DataRow
+
+        For i = 0 To workedtimeGridView.Count - 1 Step 1
+
+            row = dataTableRegisters.NewRow
+            row("Project") = workedtimeGridView(i).UtProject.Project_Id & " - " & workedtimeGridView(i).UtProject.Project_Name
+            row("Worked Time") = workedtimeGridView(i).UtWorkTime
+            row("Work Category") = workedtimeGridView(i).UtWorkTimeCategory.Name
+            row("Notes") = workedtimeGridView(i).UtUserNotes
+            row("Registered Date") = workedtimeGridView(i).UtTimeStampDate
+
+            dataTableRegisters.Rows.Add(row)
+
+        Next
+
+        FillDataGridViewWithUserTime = dataTableRegisters
+
+    End Function
+
+    Public Function FillDataGridViewWithFilter(ByVal workedtimeGridView As List(Of UserTimeRegistration)) As DataTable
+
+        'Fill table created at Create_Data_Table_User() 
+
+        dataTableRegisters = CreateDataTableRegisteredTime()
+
+        Dim row As DataRow
+
+        For i = 0 To workedtimeGridView.Count - 1 Step 1
+
+            row = dataTableRegisters.NewRow
+            row("User") = workedtimeGridView(i).UtUser.user_user_id & " - " & workedtimeGridView(i).UtUser.user_name
+            row("Project") = workedtimeGridView(i).UtProject.Project_Id & " - " & workedtimeGridView(i).UtProject.Project_Name
+            row("Worked Time") = workedtimeGridView(i).UtWorkTime
+            row("Work Category") = workedtimeGridView(i).UtWorkTimeCategory.Name
+            row("Notes") = workedtimeGridView(i).UtUserNotes
+            row("Registered Date") = workedtimeGridView(i).UtTimeStampDate
+
+            dataTableRegisters.Rows.Add(row)
+
+        Next
+
+        FillDataGridViewWithFilter = dataTableRegisters
+
+    End Function
+
+    Public Function GetWorkCategory(ByVal category As String) As WorkCategory
+
+
+        Dim cmdSelectUser As New SqlCommand("SELECT workcategory_name FROM Work_Categories, Time_Registration WHERE Time_Registration.work_category = Work_Categories.workcategory_name AND Time_Registration.work_category='" & category & "'", connection2)
+
+        connection2.Open()
+
+        Dim reader As SqlDataReader = cmdSelectUser.ExecuteReader()
+
+        Dim workCategory As New WorkCategory
+
+        If reader.HasRows Then
+
+            If reader.Read() Then
+
+                workCategory.Name = reader.GetString(0)
+                connection2.Close()
+
+            End If
+
+        End If
+
+        GetWorkCategory = workCategory
+        connection2.Close()
 
     End Function
 

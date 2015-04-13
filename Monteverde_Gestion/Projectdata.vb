@@ -117,7 +117,7 @@ Public Class Projectdata
         connection.Close()
     End Sub
 
-    Public Sub editProject(ByVal project As Project, ByVal id As Integer)
+    Public Sub EditProject(ByVal project As Project, ByVal id As Integer)
 
         Dim cmdUpdate As New SqlCommand
 
@@ -163,7 +163,7 @@ Public Class Projectdata
 
     End Sub
 
-    Public Function getProyectById(ByVal id As Integer) As Project
+    Public Function GetProyectById(ByVal id As Integer) As Project
 
         connection.Close()
 

@@ -183,6 +183,7 @@ Public Class AssignedProjectData
             row("ID") = assignedUserGridView(i).apUser.user_user_id
             row("User Name") = assignedUserGridView(i).apUser.user_name
             row("Hours Assigned") = assignedUserGridView(i).apWorkTime
+
             dataTableAssignedUser.Rows.Add(row)
 
         Next
@@ -197,7 +198,7 @@ Public Class AssignedProjectData
         dataTableAssignedProject = New DataTable
         dataTableAssignedProject.Columns.Add("ID")
         dataTableAssignedProject.Columns.Add("Project Name")
-        dataTableAssignedProject.Columns.Add("Hours Assigned")
+        dataTableAssignedProject.Columns.Add("Hours Assigned Left")
 
         CreateDataTableAssignedProject = dataTableAssignedProject
 
@@ -252,7 +253,17 @@ Public Class AssignedProjectData
             row = dataTableAssignedProject.NewRow
             row("ID") = assignedprojectGridView(i).apProject.Project_Id
             row("Project Name") = assignedprojectGridView(i).apProject.Project_Name
-            row("Hours Assigned") = assignedprojectGridView(i).apWorkTime
+
+            If assignedprojectGridView(i).apWorkTime = 0 Then
+
+                row("Hours Assigned Left") = "Closed"
+
+            Else
+
+                row("Hours Assigned Left") = assignedprojectGridView(i).apWorkTime
+
+            End If
+
             dataTableAssignedProject.Rows.Add(row)
 
         Next

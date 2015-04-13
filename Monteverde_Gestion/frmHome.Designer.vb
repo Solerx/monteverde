@@ -62,7 +62,7 @@ Partial Class frmHome
         Me.lblUserRole.AutoSize = True
         Me.lblUserRole.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblUserRole.ForeColor = System.Drawing.Color.Maroon
-        Me.lblUserRole.Location = New System.Drawing.Point(321, 346)
+        Me.lblUserRole.Location = New System.Drawing.Point(304, 348)
         Me.lblUserRole.Name = "lblUserRole"
         Me.lblUserRole.Size = New System.Drawing.Size(102, 25)
         Me.lblUserRole.TabIndex = 22
@@ -86,7 +86,7 @@ Partial Class frmHome
         Me.lblUserEmail.AutoSize = True
         Me.lblUserEmail.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblUserEmail.ForeColor = System.Drawing.Color.Maroon
-        Me.lblUserEmail.Location = New System.Drawing.Point(321, 296)
+        Me.lblUserEmail.Location = New System.Drawing.Point(304, 296)
         Me.lblUserEmail.Name = "lblUserEmail"
         Me.lblUserEmail.Size = New System.Drawing.Size(117, 25)
         Me.lblUserEmail.TabIndex = 24
