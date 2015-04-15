@@ -27,8 +27,6 @@ Partial Class frmNewTimeRegistration
         Me.cbxWorkCategories = New System.Windows.Forms.ComboBox()
         Me.lblProjectToAdd = New System.Windows.Forms.Label()
         Me.btnBack = New System.Windows.Forms.Button()
-        Me.txtUserWorkedHours = New System.Windows.Forms.MaskedTextBox()
-        Me.lblUserWorkedHours = New System.Windows.Forms.Label()
         Me.lblWorkCategories = New System.Windows.Forms.Label()
         Me.rtbNotes = New System.Windows.Forms.RichTextBox()
         Me.lblNotes = New System.Windows.Forms.Label()
@@ -39,6 +37,7 @@ Partial Class frmNewTimeRegistration
         Me.btnStartToWork = New System.Windows.Forms.Button()
         Me.dgvUserWorkedTime = New System.Windows.Forms.DataGridView()
         Me.lblChrono = New System.Windows.Forms.Label()
+        Me.btnCancel = New System.Windows.Forms.Button()
         CType(Me.dgvAssignedProjects, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvUserWorkedTime, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -87,27 +86,6 @@ Partial Class frmNewTimeRegistration
         Me.btnBack.TabIndex = 56
         Me.btnBack.Text = "Back to Main Menu"
         Me.btnBack.UseVisualStyleBackColor = False
-        '
-        'txtUserWorkedHours
-        '
-        Me.txtUserWorkedHours.BackColor = System.Drawing.Color.Maroon
-        Me.txtUserWorkedHours.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.txtUserWorkedHours.ForeColor = System.Drawing.Color.White
-        Me.txtUserWorkedHours.Location = New System.Drawing.Point(310, 28)
-        Me.txtUserWorkedHours.Name = "txtUserWorkedHours"
-        Me.txtUserWorkedHours.Size = New System.Drawing.Size(239, 20)
-        Me.txtUserWorkedHours.TabIndex = 57
-        '
-        'lblUserWorkedHours
-        '
-        Me.lblUserWorkedHours.AutoSize = True
-        Me.lblUserWorkedHours.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblUserWorkedHours.ForeColor = System.Drawing.Color.Maroon
-        Me.lblUserWorkedHours.Location = New System.Drawing.Point(307, 9)
-        Me.lblUserWorkedHours.Name = "lblUserWorkedHours"
-        Me.lblUserWorkedHours.Size = New System.Drawing.Size(101, 16)
-        Me.lblUserWorkedHours.TabIndex = 58
-        Me.lblUserWorkedHours.Text = "Worked Hours: "
         '
         'lblWorkCategories
         '
@@ -185,7 +163,7 @@ Partial Class frmNewTimeRegistration
         Me.btnFinishWork.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
         Me.btnFinishWork.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnFinishWork.ForeColor = System.Drawing.Color.Maroon
-        Me.btnFinishWork.Location = New System.Drawing.Point(526, 244)
+        Me.btnFinishWork.Location = New System.Drawing.Point(613, 244)
         Me.btnFinishWork.Name = "btnFinishWork"
         Me.btnFinishWork.Size = New System.Drawing.Size(159, 45)
         Me.btnFinishWork.TabIndex = 64
@@ -231,12 +209,31 @@ Partial Class frmNewTimeRegistration
         Me.lblChrono.Text = "0:0:0"
         Me.lblChrono.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
+        'btnCancel
+        '
+        Me.btnCancel.BackColor = System.Drawing.Color.White
+        Me.btnCancel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnCancel.FlatAppearance.BorderColor = System.Drawing.Color.Maroon
+        Me.btnCancel.FlatAppearance.BorderSize = 2
+        Me.btnCancel.FlatAppearance.CheckedBackColor = System.Drawing.Color.DimGray
+        Me.btnCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray
+        Me.btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
+        Me.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnCancel.ForeColor = System.Drawing.Color.Maroon
+        Me.btnCancel.Location = New System.Drawing.Point(444, 244)
+        Me.btnCancel.Name = "btnCancel"
+        Me.btnCancel.Size = New System.Drawing.Size(159, 45)
+        Me.btnCancel.TabIndex = 68
+        Me.btnCancel.Text = "Cancel"
+        Me.btnCancel.UseVisualStyleBackColor = False
+        '
         'frmNewTimeRegistration
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(784, 561)
+        Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.lblChrono)
         Me.Controls.Add(Me.dgvUserWorkedTime)
         Me.Controls.Add(Me.btnStartToWork)
@@ -246,8 +243,6 @@ Partial Class frmNewTimeRegistration
         Me.Controls.Add(Me.lblNotes)
         Me.Controls.Add(Me.rtbNotes)
         Me.Controls.Add(Me.lblWorkCategories)
-        Me.Controls.Add(Me.lblUserWorkedHours)
-        Me.Controls.Add(Me.txtUserWorkedHours)
         Me.Controls.Add(Me.btnBack)
         Me.Controls.Add(Me.lblProjectToAdd)
         Me.Controls.Add(Me.cbxWorkCategories)
@@ -264,8 +259,6 @@ Partial Class frmNewTimeRegistration
     Friend WithEvents cbxWorkCategories As System.Windows.Forms.ComboBox
     Friend WithEvents lblProjectToAdd As System.Windows.Forms.Label
     Friend WithEvents btnBack As System.Windows.Forms.Button
-    Friend WithEvents txtUserWorkedHours As System.Windows.Forms.MaskedTextBox
-    Friend WithEvents lblUserWorkedHours As System.Windows.Forms.Label
     Friend WithEvents lblWorkCategories As System.Windows.Forms.Label
     Friend WithEvents rtbNotes As System.Windows.Forms.RichTextBox
     Friend WithEvents lblNotes As System.Windows.Forms.Label
@@ -276,4 +269,5 @@ Partial Class frmNewTimeRegistration
     Friend WithEvents btnStartToWork As System.Windows.Forms.Button
     Friend WithEvents dgvUserWorkedTime As System.Windows.Forms.DataGridView
     Friend WithEvents lblChrono As System.Windows.Forms.Label
+    Friend WithEvents btnCancel As System.Windows.Forms.Button
 End Class

@@ -86,16 +86,30 @@ Public Class Userdata
         user.user_is_active = reader.GetBoolean(7)
         user.user_user_role = GetRoleByUser(reader.GetInt32(8))
 
-
-
-
         reader.Close()
 
         GetUserFromTable = user
 
     End Function
 
+    Public Function GetIdUserFromName(ByVal name As String) As Integer
 
+        connection.Close()
+        Dim cmdSelectUser As New SqlCommand("SELECT id_user FROM Usersdb WHERE name = '" & name & "'", connection)
+        connection.Open()
+        Dim reader As SqlDataReader = cmdSelectUser.ExecuteReader()
+
+        Dim id As Integer
+
+        reader.Read()
+
+        id = reader.GetInt32(0)
+
+        reader.Close()
+
+        GetIdUserFromName = id
+
+    End Function
 
     Public Function List_Of_Users() As List(Of User)
 

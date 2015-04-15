@@ -83,7 +83,6 @@ Public Class AssignedProjectData
 
     End Sub
 
-
     Public Sub Insert(ByVal userProject As AssignedProject)
 
         connection.Close()
@@ -121,6 +120,7 @@ Public Class AssignedProjectData
         connection.Close()
 
     End Sub
+
     Public Function CreateDataTableAssignedUser() As DataTable
 
         'Create Users table
@@ -152,8 +152,12 @@ Public Class AssignedProjectData
                 assignedUser = New AssignedProject
                 assignedUser.apUser = userDataInstance.GetUserFromTable(reader.GetInt32(0))
                 assignedUser.apWorkTime = reader.GetInt32(1)
+                If assignedUser.apUser.user_is_active = True Then
 
-                userList.Add(assignedUser)
+                    userList.Add(assignedUser)
+
+                End If
+
 
             Loop
 
@@ -224,7 +228,9 @@ Public Class AssignedProjectData
                 assignedProject.apProject = projectDataInstance.getProyectById(reader.GetInt32(0))
                 assignedProject.apWorkTime = reader.GetInt32(1)
 
-                projectList.Add(assignedProject)
+                If assignedProject.apProject.Project_Status <> "Finished" Then
+                    projectList.Add(assignedProject)
+                End If
 
             Loop
 
@@ -253,17 +259,7 @@ Public Class AssignedProjectData
             row = dataTableAssignedProject.NewRow
             row("ID") = assignedprojectGridView(i).apProject.Project_Id
             row("Project Name") = assignedprojectGridView(i).apProject.Project_Name
-
-            If assignedprojectGridView(i).apWorkTime = 0 Then
-
-                row("Hours Assigned Left") = "Closed"
-
-            Else
-
-                row("Hours Assigned Left") = assignedprojectGridView(i).apWorkTime
-
-            End If
-
+            row("Hours Assigned Left") = assignedprojectGridView(i).apWorkTime
             dataTableAssignedProject.Rows.Add(row)
 
         Next

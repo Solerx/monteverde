@@ -191,4 +191,26 @@ Public Class Projectdata
 
     End Function
 
+    Public Function GetProyectByName(ByVal name As String) As Integer
+
+        connection.Close()
+
+        Dim cmdSelectUser As New SqlCommand("SELECT id_project FROM Projectsdb WHERE project_name = '" & name & "'", connection)
+
+        connection.Open()
+
+        Dim reader As SqlDataReader = cmdSelectUser.ExecuteReader()
+
+        Dim idProject As Integer
+
+        reader.Read()
+
+        idProject = reader.GetInt32(0)
+
+        reader.Close()
+
+        GetProyectByName = idProject
+
+    End Function
+
 End Class

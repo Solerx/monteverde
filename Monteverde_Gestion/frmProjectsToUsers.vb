@@ -181,7 +181,6 @@
                 updateAssignedProjectsTable()
                 updateProjectTable()
 
-
             Else
 
                 newWorkTime = workTime - alreadyAssignedTime
@@ -209,4 +208,6 @@
         ValidationOfWorkTimeEdit(workTime)
 
     End Sub
+
+ 
 End Class

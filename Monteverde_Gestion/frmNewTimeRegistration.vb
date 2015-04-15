@@ -40,7 +40,6 @@ Public Class frmNewTimeRegistration
     Public Sub ResetAll()
 
         cbxWorkCategories.ResetText()
-        txtUserWorkedHours.ResetText()
         rtbNotes.ResetText()
         btnFinishWork.Enabled = True
         btnStartToWork.Enabled = True
@@ -121,13 +120,12 @@ Public Class frmNewTimeRegistration
 
         lblWorkCategories.Hide()
         cbxWorkCategories.Hide()
-        lblUserWorkedHours.Hide()
-        txtUserWorkedHours.Hide()
         lblChrono.Hide()
         lblNotes.Hide()
         rtbNotes.Hide()
         btnRegister.Hide()
         btnFinishWork.Hide()
+        btnCancel.Hide()
 
     End Sub
 
@@ -148,8 +146,6 @@ Public Class frmNewTimeRegistration
 
         If ValidationOfWorkTimeEdit(Inputs.UtWorkTime) = False Then
 
-            UpdateTable()
-            MsgBox("You can't work more hours on this project as the ones already assigned." & vbCrLf & "Contact an administrator.")
 
         Else
 
@@ -175,11 +171,9 @@ Public Class frmNewTimeRegistration
         If Difference.Hours = alreadyAssignedTime Then
 
             Timer1.Stop()
-            MsgBox("You already complete your hours assigned to this proyect." & vbCrLf & "Contact an administrator.")
+            MsgBox("You completed the hours assigned to this proyect." & vbCrLf & "Contact an administrator.")
             lblWorkCategories.Show()
             cbxWorkCategories.Show()
-            lblUserWorkedHours.Hide()
-            txtUserWorkedHours.Hide()
             lblNotes.Show()
             rtbNotes.Show()
             btnRegister.Show()
@@ -198,8 +192,6 @@ Public Class frmNewTimeRegistration
         Timer1.Stop()
         lblWorkCategories.Show()
         cbxWorkCategories.Show()
-        lblUserWorkedHours.Hide()
-        txtUserWorkedHours.Hide()
         lblNotes.Show()
         rtbNotes.Show()
         btnRegister.Show()
@@ -209,11 +201,37 @@ Public Class frmNewTimeRegistration
 
     Private Sub btnStartToWork_Click(sender As Object, e As EventArgs) Handles btnStartToWork.Click
 
-        lblChrono.Show()
-        chronometer = DateTime.Now 'This will change 'Time' to the current time
-        Timer1.Start() 'Starts the Timer.
-        btnStartToWork.Enabled = False
-        btnFinishWork.Show()
+        If dgvAssignedProjects.Item(2, row2).Value() = 0 Then
+
+            UpdateTable()
+            MsgBox("You can't work more hours on this project as the ones already assigned." & vbCrLf & "Contact an administrator.")
+
+        Else
+
+            lblChrono.Show()
+            chronometer = DateTime.Now 'This will change 'Time' to the current time
+            Timer1.Start() 'Starts the Timer.
+            btnStartToWork.Enabled = False
+            btnFinishWork.Show()
+            btnCancel.Show()
+
+        End If
+
+        
 
     End Sub
+
+    Private Sub btnCancel_Click(sender As Object, e As EventArgs) Handles btnCancel.Click
+
+        Dim alert = MsgBox("Are you sure you want to cancel the timer?", MsgBoxStyle.YesNo, "Cancel Timer!")
+
+        If alert = MsgBoxResult.Yes Then
+
+            Timer1.Stop()
+            ResetAll()
+
+        End If
+
+    End Sub
+
 End Class

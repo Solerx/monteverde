@@ -33,6 +33,10 @@ Partial Class frmViewTimeRegistrations
         Me.btnFilter = New System.Windows.Forms.Button()
         Me.btnResetFilter = New System.Windows.Forms.Button()
         Me.lblFilters = New System.Windows.Forms.Label()
+        Me.lblUserWorkedHours = New System.Windows.Forms.Label()
+        Me.txtUserWorkedHours = New System.Windows.Forms.MaskedTextBox()
+        Me.btnEdit = New System.Windows.Forms.Button()
+        Me.btnSave = New System.Windows.Forms.Button()
         CType(Me.dgvWorkedTime, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -41,7 +45,7 @@ Partial Class frmViewTimeRegistrations
         Me.dgvWorkedTime.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvWorkedTime.Location = New System.Drawing.Point(12, 249)
         Me.dgvWorkedTime.Name = "dgvWorkedTime"
-        Me.dgvWorkedTime.Size = New System.Drawing.Size(760, 300)
+        Me.dgvWorkedTime.Size = New System.Drawing.Size(760, 249)
         Me.dgvWorkedTime.TabIndex = 55
         '
         'cbxUsers
@@ -153,7 +157,7 @@ Partial Class frmViewTimeRegistrations
         Me.btnResetFilter.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
         Me.btnResetFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnResetFilter.ForeColor = System.Drawing.Color.Maroon
-        Me.btnResetFilter.Location = New System.Drawing.Point(623, 198)
+        Me.btnResetFilter.Location = New System.Drawing.Point(167, 198)
         Me.btnResetFilter.Name = "btnResetFilter"
         Me.btnResetFilter.Size = New System.Drawing.Size(149, 45)
         Me.btnResetFilter.TabIndex = 86
@@ -172,12 +176,73 @@ Partial Class frmViewTimeRegistrations
         Me.lblFilters.Text = "Filter by:"
         Me.lblFilters.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
+        'lblUserWorkedHours
+        '
+        Me.lblUserWorkedHours.AutoSize = True
+        Me.lblUserWorkedHours.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblUserWorkedHours.ForeColor = System.Drawing.Color.Maroon
+        Me.lblUserWorkedHours.Location = New System.Drawing.Point(177, 510)
+        Me.lblUserWorkedHours.Name = "lblUserWorkedHours"
+        Me.lblUserWorkedHours.Size = New System.Drawing.Size(101, 16)
+        Me.lblUserWorkedHours.TabIndex = 89
+        Me.lblUserWorkedHours.Text = "Worked Hours: "
+        '
+        'txtUserWorkedHours
+        '
+        Me.txtUserWorkedHours.BackColor = System.Drawing.Color.Maroon
+        Me.txtUserWorkedHours.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtUserWorkedHours.ForeColor = System.Drawing.Color.White
+        Me.txtUserWorkedHours.Location = New System.Drawing.Point(180, 529)
+        Me.txtUserWorkedHours.Name = "txtUserWorkedHours"
+        Me.txtUserWorkedHours.Size = New System.Drawing.Size(239, 20)
+        Me.txtUserWorkedHours.TabIndex = 88
+        '
+        'btnEdit
+        '
+        Me.btnEdit.BackColor = System.Drawing.Color.White
+        Me.btnEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnEdit.FlatAppearance.BorderColor = System.Drawing.Color.Maroon
+        Me.btnEdit.FlatAppearance.BorderSize = 2
+        Me.btnEdit.FlatAppearance.CheckedBackColor = System.Drawing.Color.DimGray
+        Me.btnEdit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray
+        Me.btnEdit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
+        Me.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnEdit.ForeColor = System.Drawing.Color.Maroon
+        Me.btnEdit.Location = New System.Drawing.Point(12, 510)
+        Me.btnEdit.Name = "btnEdit"
+        Me.btnEdit.Size = New System.Drawing.Size(149, 45)
+        Me.btnEdit.TabIndex = 90
+        Me.btnEdit.Text = "Edit Time Registration"
+        Me.btnEdit.UseVisualStyleBackColor = False
+        '
+        'btnSave
+        '
+        Me.btnSave.BackColor = System.Drawing.Color.White
+        Me.btnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnSave.FlatAppearance.BorderColor = System.Drawing.Color.Maroon
+        Me.btnSave.FlatAppearance.BorderSize = 2
+        Me.btnSave.FlatAppearance.CheckedBackColor = System.Drawing.Color.DimGray
+        Me.btnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray
+        Me.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
+        Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSave.ForeColor = System.Drawing.Color.Maroon
+        Me.btnSave.Location = New System.Drawing.Point(445, 510)
+        Me.btnSave.Name = "btnSave"
+        Me.btnSave.Size = New System.Drawing.Size(149, 45)
+        Me.btnSave.TabIndex = 91
+        Me.btnSave.Text = "Save"
+        Me.btnSave.UseVisualStyleBackColor = False
+        '
         'frmViewTimeRegistrations
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(784, 561)
+        Me.Controls.Add(Me.btnSave)
+        Me.Controls.Add(Me.btnEdit)
+        Me.Controls.Add(Me.lblUserWorkedHours)
+        Me.Controls.Add(Me.txtUserWorkedHours)
         Me.Controls.Add(Me.lblFilters)
         Me.Controls.Add(Me.btnResetFilter)
         Me.Controls.Add(Me.btnFilter)
@@ -207,4 +272,8 @@ Partial Class frmViewTimeRegistrations
     Friend WithEvents btnFilter As System.Windows.Forms.Button
     Friend WithEvents btnResetFilter As System.Windows.Forms.Button
     Friend WithEvents lblFilters As System.Windows.Forms.Label
+    Friend WithEvents lblUserWorkedHours As System.Windows.Forms.Label
+    Friend WithEvents txtUserWorkedHours As System.Windows.Forms.MaskedTextBox
+    Friend WithEvents btnEdit As System.Windows.Forms.Button
+    Friend WithEvents btnSave As System.Windows.Forms.Button
 End Class
