@@ -41,6 +41,7 @@ C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\bin\Debug\Mo
 C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\bin\Debug\Monteverde_Gestion.pdb
 C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\bin\Debug\Monteverde_Gestion.xml
 C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Monteverde_Gestion.frmNewTimeRegistration.resources
+C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Monteverde_Gestion.frmRequestHolidays.resources
 C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Monteverde_Gestion.frmUserToProjects.resources
 C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Monteverde_Gestion.frmProfile.resources
 C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Monteverde_Gestion.frmProjectsToUsers.resources
@@ -55,3 +56,4 @@ C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Mo
 C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Monteverde_Gestion.exe
 C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Monteverde_Gestion.xml
 C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Monteverde_Gestion.pdb
+C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Monteverde_Gestion.frmViewHolidayRquest.resources

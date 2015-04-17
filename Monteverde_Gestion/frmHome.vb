@@ -7,14 +7,18 @@ Public Class frmHome
 
     Dim userdataInstance As Userdata = New Userdata
 
-    Dim idRole = userdataInstance.GetRole(frmLogin.globalUserId)
+    Dim userId As Integer = frmLogin.globalUserId
+
+    Dim user As User = userdataInstance.GetUserFromTable(userId)
+
+    Dim role As String = user.user_user_role.role_role_name
 
 
     Private Sub frmHome_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         lblUserName.Text = userdataInstance.GetUserName(frmLogin.txtEmail.Text)
         lblUserEmail.Text = frmLogin.txtEmail.Text
-        selectUserType(idRole)
+        selectUserType(role)
 
 
     End Sub
@@ -26,19 +30,19 @@ Public Class frmHome
 
     End Sub
 
-    Public Sub selectUserType(ByVal idRole As Integer)
+    Public Sub selectUserType(ByVal idRole As String)
 
-        Select Case idRole
+        Select Case role
 
-            Case 1
+            Case "Parent-Administrator"
 
                 lblUserRole.Text = "Parent-Administrator"
 
-            Case 2
+            Case "Administrator"
 
                 lblUserRole.Text = "Administrator"
 
-            Case 3
+            Case "User"
 
                 lblUserRole.Text = "User"
                 msiManageUsers.Visible = False
@@ -109,6 +113,20 @@ Public Class frmHome
 
         Me.Close()
         frmViewTimeRegistrations.Show()
+
+    End Sub
+
+    Private Sub HolidaysRequestToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles HolidaysRequestToolStripMenuItem.Click
+
+        Me.Close()
+        frmRequestHolidays.Show()
+
+    End Sub
+
+    Private Sub msiUserHolidays_Click(sender As Object, e As EventArgs) Handles msiUserHolidays.Click
+
+        Me.Close()
+        frmViewHolidayRquest.Show()
 
     End Sub
 End Class

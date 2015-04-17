@@ -85,10 +85,23 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmViewHolidayRquest.Designer.vb">
+      <DependentUpon>frmViewHolidayRquest.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmViewHolidayRquest.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Holidays.vb" />
     <Compile Include="frmNewTimeRegistration.Designer.vb">
       <DependentUpon>frmNewTimeRegistration.vb</DependentUpon>
     </Compile>
     <Compile Include="frmNewTimeRegistration.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRequestHolidays.Designer.vb">
+      <DependentUpon>frmRequestHolidays.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmRequestHolidays.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmUsersToProjects.Designer.vb">
@@ -123,6 +136,7 @@
     <Compile Include="frmWorkCategoryManagement.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="HolidaysData.vb" />
     <Compile Include="UserTimeRegistration.vb" />
     <Compile Include="UserTimeRegistrationData.vb" />
     <Compile Include="WorkCategoryData.vb" />
@@ -176,6 +190,9 @@
     <EmbeddedResource Include="frmNewTimeRegistration.resx">
       <DependentUpon>frmNewTimeRegistration.vb</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmRequestHolidays.resx">
+      <DependentUpon>frmRequestHolidays.vb</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmUsersToProjects.resx">
       <DependentUpon>frmUsersToProjects.vb</DependentUpon>
     </EmbeddedResource>
@@ -184,6 +201,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmProjectsToUsers.resx">
       <DependentUpon>frmProjectsToUsers.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmViewHolidayRquest.resx">
+      <DependentUpon>frmViewHolidayRquest.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmViewTimeRegistrations.resx">
       <DependentUpon>frmViewTimeRegistrations.vb</DependentUpon>

@@ -359,7 +359,6 @@ Public Class Userdata
             IsActive = reader.GetBoolean(0)
             reader.Close()
 
-
         End If
 
         reader.Close()
@@ -371,6 +370,8 @@ Public Class Userdata
     End Function
 
     Public Function GetUserName(ByVal email As String) As String
+
+        connection.Close()
 
         Dim userName As String = ""
 

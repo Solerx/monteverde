@@ -182,8 +182,6 @@
         txtUserWorkedHours.Show()
         txtUserWorkedHours.Text = dgvWorkedTime.Item(2, row).Value()
         btnSave.Show()
-        MsgBox(dgvWorkedTime.Item(5, row).Value())
-
 
     End Sub
 
