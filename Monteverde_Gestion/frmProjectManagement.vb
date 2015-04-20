@@ -33,6 +33,8 @@
         txtProjectEnterprise.ResetText()
         txtProjectHours.ResetText()
         txtProjectName.ResetText()
+        txtProjectHours.BackColor = Color.Maroon
+        txtProjectHours.ForeColor = Color.White
 
     End Sub
 
@@ -219,4 +221,23 @@
         End If
 
     End Sub
+
+    Private Sub OnlyNumbers_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtProjectHours.KeyPress
+
+        If (Microsoft.VisualBasic.Asc(e.KeyChar) <> 8) And (Microsoft.VisualBasic.Asc(e.KeyChar) < 48) _
+                  Or (Microsoft.VisualBasic.Asc(e.KeyChar) > 57) Then
+            e.Handled = True
+            txtProjectHours.BackColor = Color.Yellow
+            txtProjectHours.ForeColor = Color.Black
+            MessageBox.Show("Only numbers on this input.", "Hours to Assign")
+
+        End If
+        If (Microsoft.VisualBasic.Asc(e.KeyChar) = 8) Then
+
+            e.Handled = False
+
+        End If
+
+    End Sub
+
 End Class

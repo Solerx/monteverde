@@ -6,13 +6,14 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{4306233A-582C-4942-AB1F-29BBFB72C3C9}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <StartupObject>Monteverde_Gestion.My.MyApplication</StartupObject>
-    <RootNamespace>Monteverde_Gestion</RootNamespace>
-    <AssemblyName>Monteverde_Gestion</AssemblyName>
+    <StartupObject>Monteverde_Administrator.My.MyApplication</StartupObject>
+    <RootNamespace>Monteverde_Administrator</RootNamespace>
+    <AssemblyName>Monteverde_Administrator</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <PublishUrl>publish\</PublishUrl>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\Jorge Soler\Desktop\Nueva carpeta\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -22,10 +23,10 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationRevision>2</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -35,7 +36,7 @@
     <DefineDebug>true</DefineDebug>
     <DefineTrace>true</DefineTrace>
     <OutputPath>bin\Debug\</OutputPath>
-    <DocumentationFile>Monteverde_Gestion.xml</DocumentationFile>
+    <DocumentationFile>Monteverde_Administrator.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
@@ -45,7 +46,7 @@
     <DefineTrace>true</DefineTrace>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
-    <DocumentationFile>Monteverde_Gestion.xml</DocumentationFile>
+    <DocumentationFile>Monteverde_Administrator.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
@@ -59,6 +60,21 @@
   </PropertyGroup>
   <PropertyGroup>
     <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>352219C5007949A1393E5337D675BFA9C2B149BE</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Monteverde_Gestion_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -85,10 +101,10 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmViewHolidayRquest.Designer.vb">
-      <DependentUpon>frmViewHolidayRquest.vb</DependentUpon>
+    <Compile Include="frmViewHolidayRequest.Designer.vb">
+      <DependentUpon>frmViewHolidayRequest.vb</DependentUpon>
     </Compile>
-    <Compile Include="frmViewHolidayRquest.vb">
+    <Compile Include="frmViewHolidayRequest.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Holidays.vb" />
@@ -202,8 +218,8 @@
     <EmbeddedResource Include="frmProjectsToUsers.resx">
       <DependentUpon>frmProjectsToUsers.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmViewHolidayRquest.resx">
-      <DependentUpon>frmViewHolidayRquest.vb</DependentUpon>
+    <EmbeddedResource Include="frmViewHolidayRequest.resx">
+      <DependentUpon>frmViewHolidayRequest.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmViewTimeRegistrations.resx">
       <DependentUpon>frmViewTimeRegistrations.vb</DependentUpon>
@@ -231,6 +247,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="My Project\app.manifest" />
     <None Include="My Project\Application.myapp">
       <Generator>MyApplicationCodeGenerator</Generator>
       <LastGenOutput>Application.Designer.vb</LastGenOutput>

@@ -236,9 +236,9 @@ Public Class Userdata
 
     End Function
 
-    Public Function GetRoleByRoleName(idRole As Integer) As Role
+    Public Function GetRoleClass(idUser As Integer) As Role
 
-        Dim cmdSelectUser As New SqlCommand("SELECT id_role FROM Role, Usersdb WHERE Role.id_role = Usersdb.user_role AND Usersdb.user_role='" & idRole & "'", connection2)
+        Dim cmdSelectUser As New SqlCommand("SELECT id_role,role_name,role_description FROM Role, Usersdb WHERE Role.id_role = Usersdb.user_role AND Usersdb.id_user='" & idUser & "'", connection2)
 
         connection2.Open()
 
@@ -251,20 +251,26 @@ Public Class Userdata
             If reader.Read() Then
 
                 role.role_id_role = reader.GetInt32(0)
+                role.role_role_name = reader.GetString(1)
+                role.role_role_description = reader.GetString(2)
                 connection2.Close()
 
             End If
 
         End If
 
-        GetRoleByRoleName = role
+        GetRoleClass = role
         connection2.Close()
 
     End Function
 
     Public Sub Edit(ByVal User As User, ByVal id As Integer)
 
+        connection.Close()
+
         Dim cmdUpdate As New SqlCommand
+
+        connection.Open()
 
         cmdUpdate = New SqlCommand("UPDATE Usersdb SET " & _
                                "name = @name, " & _
@@ -293,7 +299,7 @@ Public Class Userdata
 
         cmdUpdate.ExecuteNonQuery()
         connection.Close()
-        MsgBox("User edited successfully!")
+
 
     End Sub
 
@@ -323,9 +329,11 @@ Public Class Userdata
 
     End Sub
 
-    Public Sub delete(ByVal indexRow As Integer, ByVal id As Integer)
+    Public Sub Delete(ByVal indexRow As Integer, ByVal id As Integer)
 
-        connection.Close()
+        Try
+
+            connection.Close()
 
         Dim cmdUpdate As New SqlCommand
 
@@ -337,6 +345,13 @@ Public Class Userdata
         Fill_Data_Grid_View()
         connection.Close()
         MsgBox("User removed successfully!")
+
+        Catch ex As SqlException
+
+            MessageBox.Show("The user can't be removed because he is already assigned to projects.", "Error removing user!")
+
+        End Try
+
 
 
     End Sub
@@ -398,13 +413,13 @@ Public Class Userdata
 
     End Function
 
-    Public Function GetRole(ByVal id_user As Integer) As Integer
+    Public Function GetRoleId(ByVal roleName As String) As Role
 
         connection.Close()
 
-        Dim idRole As String = ""
+        Dim role As New Role
 
-        Dim cmdIdRole = New SqlCommand("SELECT id_role FROM Role, Usersdb WHERE Role.id_role=Usersdb.user_role and Usersdb.id_user= '" & id_user & "'", connection)
+        Dim cmdIdRole = New SqlCommand("SELECT id_role,role_name,role_description FROM Role WHERE role_name= '" & roleName & "'", connection)
         Dim reader As SqlDataReader
 
         connection.Open()
@@ -413,7 +428,9 @@ Public Class Userdata
 
         If reader.Read Then
 
-            idRole = (reader.GetInt32(0))
+            role.role_id_role = reader.GetInt32(0)
+            role.role_role_name = reader.GetString(1)
+            role.role_role_description = reader.GetString(2)
             reader.Close()
 
         End If
@@ -422,7 +439,7 @@ Public Class Userdata
 
         connection.Close()
 
-        GetRole = idRole
+        GetRoleId = role
 
     End Function
 

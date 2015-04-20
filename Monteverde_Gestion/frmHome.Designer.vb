@@ -43,6 +43,8 @@ Partial Class frmHome
         Me.HolidaysRequestToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.msiUserHolidays = New System.Windows.Forms.ToolStripMenuItem()
         Me.msHome = New System.Windows.Forms.MenuStrip()
+        Me.lblHolidayRequest = New System.Windows.Forms.Label()
+        Me.lblRequests = New System.Windows.Forms.Label()
         CType(Me.pbLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.msHome.SuspendLayout()
         Me.SuspendLayout()
@@ -233,12 +235,39 @@ Partial Class frmHome
         Me.msHome.TabIndex = 23
         Me.msHome.Text = "MenuStrip1"
         '
+        'lblHolidayRequest
+        '
+        Me.lblHolidayRequest.AutoSize = True
+        Me.lblHolidayRequest.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblHolidayRequest.ForeColor = System.Drawing.Color.Maroon
+        Me.lblHolidayRequest.Location = New System.Drawing.Point(482, 477)
+        Me.lblHolidayRequest.Name = "lblHolidayRequest"
+        Me.lblHolidayRequest.Size = New System.Drawing.Size(290, 25)
+        Me.lblHolidayRequest.TabIndex = 37
+        Me.lblHolidayRequest.Text = "Pending Holiday Requests"
+        Me.lblHolidayRequest.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
+        'lblRequests
+        '
+        Me.lblRequests.AutoSize = True
+        Me.lblRequests.Cursor = System.Windows.Forms.Cursors.Hand
+        Me.lblRequests.Font = New System.Drawing.Font("Microsoft Sans Serif", 24.0!, CType((System.Drawing.FontStyle.Bold Or System.Drawing.FontStyle.Underline), System.Drawing.FontStyle), System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblRequests.ForeColor = System.Drawing.Color.Maroon
+        Me.lblRequests.Location = New System.Drawing.Point(613, 502)
+        Me.lblRequests.Name = "lblRequests"
+        Me.lblRequests.Size = New System.Drawing.Size(36, 37)
+        Me.lblRequests.TabIndex = 38
+        Me.lblRequests.Text = "0"
+        Me.lblRequests.TextAlign = System.Drawing.ContentAlignment.TopCenter
+        '
         'frmHome
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(784, 561)
+        Me.Controls.Add(Me.lblRequests)
+        Me.Controls.Add(Me.lblHolidayRequest)
         Me.Controls.Add(Me.btnLogOut)
         Me.Controls.Add(Me.lblUserEmail)
         Me.Controls.Add(Me.lblUserName)
@@ -277,4 +306,6 @@ Partial Class frmHome
     Friend WithEvents HolidaysRequestToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents msiUserHolidays As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents msHome As System.Windows.Forms.MenuStrip
+    Friend WithEvents lblHolidayRequest As System.Windows.Forms.Label
+    Friend WithEvents lblRequests As System.Windows.Forms.Label
 End Class

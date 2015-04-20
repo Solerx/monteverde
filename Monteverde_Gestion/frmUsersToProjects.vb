@@ -161,51 +161,61 @@
 
     Public Sub ValidationOfWorkTime()
 
-        Dim workTime As Integer = CInt(InputBox("Enter the new amount of hours.", "Editing Work Time", 1))
+        Dim workTime = InputBox("Enter the new amount of hours.", "Editing Work Time", 1)
 
-        Dim workTimeFromProject As New Project
-
-        Dim alreadyAssignedTime As Integer
-
-        Dim newWorkTime As Integer
+        If workTime <> "" Then
 
 
-        alreadyAssignedTime = assignedProjectInstance.GetHoursAssigned(dgvAssignedUsers.Item(0, row3).Value(), dgvProjects.Item(0, row2).Value())
-        workTimeFromProject = projectInstance.getProyectById(dgvProjects.Item(0, row2).Value())
 
-        Dim totalHours = workTimeFromProject.Project_Hours + alreadyAssignedTime
+            Dim workTimeFromProject As New Project
 
-        If totalHours >= workTime Then
+            Dim alreadyAssignedTime As Integer
 
-            If alreadyAssignedTime > workTime Then
+            Dim newWorkTime As Integer
 
-                newWorkTime = alreadyAssignedTime - workTime
-                newWorkTime = newWorkTime + workTimeFromProject.Project_Hours
-                assignedProjectInstance.EditProjectHours(newWorkTime, dgvProjects.Item(0, row2).Value())
-                assignedProjectInstance.Edit(workTime, dgvAssignedUsers.Item(0, row3).Value(), dgvProjects.Item(0, row2).Value())
-                MsgBox("User time edited successfully!")
-                updateAssignedUsersTable()
-                updateProjectTable()
 
+            alreadyAssignedTime = assignedProjectInstance.GetHoursAssigned(dgvAssignedUsers.Item(0, row3).Value(), dgvProjects.Item(0, row2).Value())
+            workTimeFromProject = projectInstance.GetProyectById(dgvProjects.Item(0, row2).Value())
+
+            Dim totalHours = workTimeFromProject.Project_Hours + alreadyAssignedTime
+
+            If totalHours >= workTime Then
+
+                If alreadyAssignedTime > workTime Then
+
+                    newWorkTime = alreadyAssignedTime - workTime
+                    newWorkTime = newWorkTime + workTimeFromProject.Project_Hours
+                    assignedProjectInstance.EditProjectHours(newWorkTime, dgvProjects.Item(0, row2).Value())
+                    assignedProjectInstance.Edit(workTime, dgvAssignedUsers.Item(0, row3).Value(), dgvProjects.Item(0, row2).Value())
+                    MsgBox("User time edited successfully!")
+                    updateAssignedUsersTable()
+                    updateProjectTable()
+
+
+                Else
+
+                    newWorkTime = workTime - alreadyAssignedTime
+                    newWorkTime = workTimeFromProject.Project_Hours - newWorkTime
+                    assignedProjectInstance.EditProjectHours(newWorkTime, dgvProjects.Item(0, row2).Value())
+                    assignedProjectInstance.Edit(workTime, dgvAssignedUsers.Item(0, row3).Value(), dgvProjects.Item(0, row2).Value())
+                    MsgBox("User time edited successfully!")
+                    updateAssignedUsersTable()
+                    updateProjectTable()
+
+                End If
 
             Else
 
-                newWorkTime = workTime - alreadyAssignedTime
-                newWorkTime = workTimeFromProject.Project_Hours - newWorkTime
-                assignedProjectInstance.EditProjectHours(newWorkTime, dgvProjects.Item(0, row2).Value())
-                assignedProjectInstance.Edit(workTime, dgvAssignedUsers.Item(0, row3).Value(), dgvProjects.Item(0, row2).Value())
-                MsgBox("User time edited successfully!")
-                updateAssignedUsersTable()
-                updateProjectTable()
+                MsgBox("The amount of worktime assined is longer than the project's assigned hours!")
 
             End If
 
+
         Else
 
-            MsgBox("The amount of worktime assined is longer than the project's assigned hours!")
+            Exit Sub
 
         End If
-
     End Sub
 
     Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles btnEdit.Click

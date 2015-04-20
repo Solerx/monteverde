@@ -43,6 +43,8 @@ Public Class AssignedProjectData
 
     Public Sub EditProjectHours(ByVal workTime As Integer, ByVal idProject As Integer)
 
+
+
         Dim cmdUpdate As New SqlCommand
 
         cmdUpdate = New SqlCommand("UPDATE Projectsdb SET " & _

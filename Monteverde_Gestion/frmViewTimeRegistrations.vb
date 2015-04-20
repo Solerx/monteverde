@@ -199,9 +199,27 @@
 
         userRegistrationDataInstance.EditWorkTimeFromUser(workTime, userName, projectName, notes)
 
+        txtUserWorkedHours.BackColor = Color.Maroon
+        txtUserWorkedHours.ForeColor = Color.White
 
         UpdateTable()
 
     End Sub
 
+    Private Sub OnlyNumbersWorkedHours_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtUserWorkedHours.KeyPress
+
+        If (Microsoft.VisualBasic.Asc(e.KeyChar) <> 8) And (Microsoft.VisualBasic.Asc(e.KeyChar) < 48) _
+                  Or (Microsoft.VisualBasic.Asc(e.KeyChar) > 57) Then
+            MessageBox.Show("Only numbers on this input.", "Worked Hours")
+            e.Handled = True
+            txtUserWorkedHours.BackColor = Color.Yellow
+            txtUserWorkedHours.ForeColor = Color.Black
+
+        End If
+
+        If (Microsoft.VisualBasic.Asc(e.KeyChar) = 8) Then
+            e.Handled = False
+
+        End If
+    End Sub
 End Class

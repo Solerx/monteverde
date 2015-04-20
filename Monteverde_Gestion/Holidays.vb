@@ -4,7 +4,9 @@
 
     Private holidaysRequested As Int16
 
-    Private requestedDate As DateTime
+    Private fromDate As DateTime
+
+    Private toDate As DateTime
 
     Private requestStatus As String
 
@@ -29,13 +31,21 @@
         End Set
     End Property
 
-
-    Public Property hDate() As DateTime
+    Public Property hFromDate() As DateTime
         Get
-            Return requestedDate
+            Return toDate
         End Get
         Set(ByVal value As DateTime)
-            requestedDate = value
+            toDate = value
+        End Set
+    End Property
+
+    Public Property hToDate() As DateTime
+        Get
+            Return fromDate
+        End Get
+        Set(ByVal value As DateTime)
+            fromDate = value
         End Set
     End Property
 

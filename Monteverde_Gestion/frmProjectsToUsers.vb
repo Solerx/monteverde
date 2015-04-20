@@ -1,4 +1,6 @@
-﻿Public Class frmProjectsToUsers
+﻿Imports System.Data.SqlClient
+
+Public Class frmProjectsToUsers
 
     Dim assignedProjectInstance As AssignedProjectData = New AssignedProjectData
 
@@ -31,7 +33,7 @@
         secondId = dgvUsers.Item(0, row).Value()
         hours = workTime
 
-        newEntry.apProject = projectInstance.getProyectById(firstId)
+        newEntry.apProject = projectInstance.GetProyectById(firstId)
         newEntry.apUser = userdataInstance.GetUserFromTable(secondId)
         newEntry.apWorkTime = hours
 
@@ -92,7 +94,7 @@
 
         Dim newWorkTime As Integer
 
-        workTimeFromProject = projectInstance.getProyectById(dgvProjects.Item(0, row2).Value())
+        workTimeFromProject = projectInstance.GetProyectById(dgvProjects.Item(0, row2).Value())
         userAssigned = userdataInstance.GetUserIfAssigned(dgvUsers.Item(0, row).Value(), dgvProjects.Item(0, row2).Value())
 
         If userAssigned = False Then
@@ -135,7 +137,7 @@
         Dim newWorkTime As Integer
 
         alreadyAssignedTime = assignedProjectInstance.GetHoursAssigned(dgvUsers.Item(0, row).Value(), dgvAssignedProjects.Item(0, row3).Value())
-        workTimeFromProject = projectInstance.getProyectById(dgvAssignedProjects.Item(0, row3).Value())
+        workTimeFromProject = projectInstance.GetProyectById(dgvAssignedProjects.Item(0, row3).Value())
         newWorkTime = workTimeFromProject.Project_Hours + alreadyAssignedTime
         assignedProjectInstance.EditProjectHours(newWorkTime, dgvProjects.Item(0, row2).Value())
         assignedProjectInstance.Delete(dgvUsers.Item(0, row).Value(), dgvAssignedProjects.Item(0, row3).Value())
@@ -165,7 +167,7 @@
         Dim newWorkTime As Integer
 
         alreadyAssignedTime = assignedProjectInstance.GetHoursAssigned(dgvUsers.Item(0, row).Value(), dgvAssignedProjects.Item(0, row3).Value())
-        workTimeFromProject = projectInstance.getProyectById(dgvAssignedProjects.Item(0, row3).Value())
+        workTimeFromProject = projectInstance.GetProyectById(dgvAssignedProjects.Item(0, row3).Value())
 
         Dim totalHours = workTimeFromProject.Project_Hours + alreadyAssignedTime
 
@@ -200,14 +202,23 @@
         End If
 
     End Sub
-   
+
     Private Sub btnEdit_Click(sender As Object, e As EventArgs) Handles btnEdit.Click
 
-        Dim workTime As Integer = CInt(InputBox("Enter the new amount of hours.", "Editing Work Time", 1))
+        Dim workTime = InputBox("Enter the new amount of hours.", "Editing Work Time", 1)
 
-        ValidationOfWorkTimeEdit(workTime)
+
+        If workTime <> "" Then
+
+            ValidationOfWorkTimeEdit(workTime)
+
+        Else
+
+            Exit Sub
+
+        End If
 
     End Sub
 
- 
+
 End Class

@@ -1,6 +1,6 @@
 ﻿Imports System.Data.SqlClient
 
-Imports Monteverde_Gestion.Userdata
+Imports Monteverde_Administrator.Userdata
 
 
 Public Class frmHome
@@ -11,6 +11,8 @@ Public Class frmHome
 
     Dim user As User = userdataInstance.GetUserFromTable(userId)
 
+    Dim holidaysDataInstace As HolidaysData = New HolidaysData
+
     Dim role As String = user.user_user_role.role_role_name
 
 
@@ -19,7 +21,7 @@ Public Class frmHome
         lblUserName.Text = userdataInstance.GetUserName(frmLogin.txtEmail.Text)
         lblUserEmail.Text = frmLogin.txtEmail.Text
         selectUserType(role)
-
+        
 
     End Sub
 
@@ -37,10 +39,14 @@ Public Class frmHome
             Case "Parent-Administrator"
 
                 lblUserRole.Text = "Parent-Administrator"
+                holidaysDataInstace.FillDataGridView()
+                lblRequests.Text = holidaysDataInstace.pendingRequests
 
             Case "Administrator"
 
                 lblUserRole.Text = "Administrator"
+                holidaysDataInstace.FillDataGridView()
+                lblRequests.Text = holidaysDataInstace.pendingRequests
 
             Case "User"
 
@@ -51,7 +57,8 @@ Public Class frmHome
                 msiManageUserProjects.Visible = False
                 msiViewUserRegs.Visible = False
                 msiUserHolidays.Visible = False
-
+                lblRequests.Hide()
+                lblHolidayRequest.Hide()
 
             Case Else
 
@@ -126,7 +133,14 @@ Public Class frmHome
     Private Sub msiUserHolidays_Click(sender As Object, e As EventArgs) Handles msiUserHolidays.Click
 
         Me.Close()
-        frmViewHolidayRquest.Show()
+        frmViewHolidayRequest.Show()
+
+    End Sub
+
+    Private Sub lblRequests_Click(sender As Object, e As EventArgs) Handles lblRequests.Click
+
+        Me.Close()
+        frmViewHolidayRequest.Show()
 
     End Sub
 End Class

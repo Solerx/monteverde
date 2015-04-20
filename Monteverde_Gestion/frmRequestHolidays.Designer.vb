@@ -28,13 +28,15 @@ Partial Class frmRequestHolidays
         Me.btnBack = New System.Windows.Forms.Button()
         Me.lblHolidays = New System.Windows.Forms.Label()
         Me.lblAvailableHolidays = New System.Windows.Forms.Label()
-        Me.MaskedTextBox1 = New System.Windows.Forms.MaskedTextBox()
-        Me.Label1 = New System.Windows.Forms.Label()
+        Me.txtFromDate = New System.Windows.Forms.MaskedTextBox()
+        Me.lblFromDate = New System.Windows.Forms.Label()
         Me.lblNotes = New System.Windows.Forms.Label()
         Me.rtbNotes = New System.Windows.Forms.RichTextBox()
         Me.dgvHolidaysRequest = New System.Windows.Forms.DataGridView()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.btnCancel = New System.Windows.Forms.Button()
+        Me.lblToDate = New System.Windows.Forms.Label()
+        Me.txtToDate = New System.Windows.Forms.MaskedTextBox()
         CType(Me.dgvHolidaysRequest, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -61,7 +63,7 @@ Partial Class frmRequestHolidays
         Me.lblUserHolidays.AutoSize = True
         Me.lblUserHolidays.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblUserHolidays.ForeColor = System.Drawing.Color.Maroon
-        Me.lblUserHolidays.Location = New System.Drawing.Point(35, 198)
+        Me.lblUserHolidays.Location = New System.Drawing.Point(35, 176)
         Me.lblUserHolidays.Name = "lblUserHolidays"
         Me.lblUserHolidays.Size = New System.Drawing.Size(268, 16)
         Me.lblUserHolidays.TabIndex = 52
@@ -72,7 +74,7 @@ Partial Class frmRequestHolidays
         Me.txtUserHolidays.BackColor = System.Drawing.Color.Maroon
         Me.txtUserHolidays.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.txtUserHolidays.ForeColor = System.Drawing.Color.White
-        Me.txtUserHolidays.Location = New System.Drawing.Point(38, 230)
+        Me.txtUserHolidays.Location = New System.Drawing.Point(38, 195)
         Me.txtUserHolidays.Name = "txtUserHolidays"
         Me.txtUserHolidays.Size = New System.Drawing.Size(239, 20)
         Me.txtUserHolidays.TabIndex = 51
@@ -96,7 +98,7 @@ Partial Class frmRequestHolidays
         Me.lblHolidays.AutoSize = True
         Me.lblHolidays.Font = New System.Drawing.Font("Microsoft Sans Serif", 36.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblHolidays.ForeColor = System.Drawing.Color.Maroon
-        Me.lblHolidays.Location = New System.Drawing.Point(146, 133)
+        Me.lblHolidays.Location = New System.Drawing.Point(145, 121)
         Me.lblHolidays.Name = "lblHolidays"
         Me.lblHolidays.Size = New System.Drawing.Size(52, 55)
         Me.lblHolidays.TabIndex = 55
@@ -107,41 +109,41 @@ Partial Class frmRequestHolidays
         Me.lblAvailableHolidays.AutoSize = True
         Me.lblAvailableHolidays.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblAvailableHolidays.ForeColor = System.Drawing.Color.Maroon
-        Me.lblAvailableHolidays.Location = New System.Drawing.Point(112, 117)
+        Me.lblAvailableHolidays.Location = New System.Drawing.Point(112, 105)
         Me.lblAvailableHolidays.Name = "lblAvailableHolidays"
         Me.lblAvailableHolidays.Size = New System.Drawing.Size(125, 16)
         Me.lblAvailableHolidays.TabIndex = 54
         Me.lblAvailableHolidays.Text = "Available holidays: "
         '
-        'MaskedTextBox1
+        'txtFromDate
         '
-        Me.MaskedTextBox1.BackColor = System.Drawing.Color.Maroon
-        Me.MaskedTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.MaskedTextBox1.ForeColor = System.Drawing.Color.White
-        Me.MaskedTextBox1.Location = New System.Drawing.Point(38, 287)
-        Me.MaskedTextBox1.Mask = "00/00/0000"
-        Me.MaskedTextBox1.Name = "MaskedTextBox1"
-        Me.MaskedTextBox1.Size = New System.Drawing.Size(239, 20)
-        Me.MaskedTextBox1.TabIndex = 56
-        Me.MaskedTextBox1.ValidatingType = GetType(Date)
+        Me.txtFromDate.BackColor = System.Drawing.Color.Maroon
+        Me.txtFromDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtFromDate.ForeColor = System.Drawing.Color.White
+        Me.txtFromDate.Location = New System.Drawing.Point(39, 251)
+        Me.txtFromDate.Mask = "00/00/0000"
+        Me.txtFromDate.Name = "txtFromDate"
+        Me.txtFromDate.Size = New System.Drawing.Size(239, 20)
+        Me.txtFromDate.TabIndex = 56
+        Me.txtFromDate.ValidatingType = GetType(Date)
         '
-        'Label1
+        'lblFromDate
         '
-        Me.Label1.AutoSize = True
-        Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.ForeColor = System.Drawing.Color.Maroon
-        Me.Label1.Location = New System.Drawing.Point(35, 268)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(114, 16)
-        Me.Label1.TabIndex = 57
-        Me.Label1.Text = "Date to use them: "
+        Me.lblFromDate.AutoSize = True
+        Me.lblFromDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblFromDate.ForeColor = System.Drawing.Color.Maroon
+        Me.lblFromDate.Location = New System.Drawing.Point(35, 232)
+        Me.lblFromDate.Name = "lblFromDate"
+        Me.lblFromDate.Size = New System.Drawing.Size(74, 16)
+        Me.lblFromDate.TabIndex = 57
+        Me.lblFromDate.Text = "From Date:"
         '
         'lblNotes
         '
         Me.lblNotes.AutoSize = True
         Me.lblNotes.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblNotes.ForeColor = System.Drawing.Color.Maroon
-        Me.lblNotes.Location = New System.Drawing.Point(35, 326)
+        Me.lblNotes.Location = New System.Drawing.Point(36, 344)
         Me.lblNotes.Name = "lblNotes"
         Me.lblNotes.Size = New System.Drawing.Size(50, 16)
         Me.lblNotes.TabIndex = 63
@@ -150,7 +152,7 @@ Partial Class frmRequestHolidays
         'rtbNotes
         '
         Me.rtbNotes.BackColor = System.Drawing.Color.WhiteSmoke
-        Me.rtbNotes.Location = New System.Drawing.Point(38, 345)
+        Me.rtbNotes.Location = New System.Drawing.Point(38, 363)
         Me.rtbNotes.Name = "rtbNotes"
         Me.rtbNotes.Size = New System.Drawing.Size(322, 95)
         Me.rtbNotes.TabIndex = 62
@@ -159,9 +161,9 @@ Partial Class frmRequestHolidays
         'dgvHolidaysRequest
         '
         Me.dgvHolidaysRequest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvHolidaysRequest.Location = New System.Drawing.Point(437, 136)
+        Me.dgvHolidaysRequest.Location = New System.Drawing.Point(437, 124)
         Me.dgvHolidaysRequest.Name = "dgvHolidaysRequest"
-        Me.dgvHolidaysRequest.Size = New System.Drawing.Size(308, 306)
+        Me.dgvHolidaysRequest.Size = New System.Drawing.Size(315, 334)
         Me.dgvHolidaysRequest.TabIndex = 64
         '
         'Label2
@@ -169,7 +171,7 @@ Partial Class frmRequestHolidays
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label2.ForeColor = System.Drawing.Color.Maroon
-        Me.Label2.Location = New System.Drawing.Point(434, 117)
+        Me.Label2.Location = New System.Drawing.Point(434, 105)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(102, 16)
         Me.Label2.TabIndex = 65
@@ -186,12 +188,35 @@ Partial Class frmRequestHolidays
         Me.btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
         Me.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCancel.ForeColor = System.Drawing.Color.Maroon
-        Me.btnCancel.Location = New System.Drawing.Point(527, 474)
+        Me.btnCancel.Location = New System.Drawing.Point(521, 474)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(149, 45)
         Me.btnCancel.TabIndex = 66
-        Me.btnCancel.Text = "Cancel Rquest"
+        Me.btnCancel.Text = "Remove Request"
         Me.btnCancel.UseVisualStyleBackColor = False
+        '
+        'lblToDate
+        '
+        Me.lblToDate.AutoSize = True
+        Me.lblToDate.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblToDate.ForeColor = System.Drawing.Color.Maroon
+        Me.lblToDate.Location = New System.Drawing.Point(35, 285)
+        Me.lblToDate.Name = "lblToDate"
+        Me.lblToDate.Size = New System.Drawing.Size(60, 16)
+        Me.lblToDate.TabIndex = 68
+        Me.lblToDate.Text = "To Date:"
+        '
+        'txtToDate
+        '
+        Me.txtToDate.BackColor = System.Drawing.Color.Maroon
+        Me.txtToDate.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.txtToDate.ForeColor = System.Drawing.Color.White
+        Me.txtToDate.Location = New System.Drawing.Point(38, 304)
+        Me.txtToDate.Mask = "00/00/0000"
+        Me.txtToDate.Name = "txtToDate"
+        Me.txtToDate.Size = New System.Drawing.Size(239, 20)
+        Me.txtToDate.TabIndex = 67
+        Me.txtToDate.ValidatingType = GetType(Date)
         '
         'frmRequestHolidays
         '
@@ -199,13 +224,15 @@ Partial Class frmRequestHolidays
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.White
         Me.ClientSize = New System.Drawing.Size(784, 561)
+        Me.Controls.Add(Me.lblToDate)
+        Me.Controls.Add(Me.txtToDate)
         Me.Controls.Add(Me.btnCancel)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.dgvHolidaysRequest)
         Me.Controls.Add(Me.lblNotes)
         Me.Controls.Add(Me.rtbNotes)
-        Me.Controls.Add(Me.Label1)
-        Me.Controls.Add(Me.MaskedTextBox1)
+        Me.Controls.Add(Me.lblFromDate)
+        Me.Controls.Add(Me.txtFromDate)
         Me.Controls.Add(Me.lblHolidays)
         Me.Controls.Add(Me.lblAvailableHolidays)
         Me.Controls.Add(Me.btnRequest)
@@ -225,11 +252,13 @@ Partial Class frmRequestHolidays
     Friend WithEvents btnBack As System.Windows.Forms.Button
     Friend WithEvents lblHolidays As System.Windows.Forms.Label
     Friend WithEvents lblAvailableHolidays As System.Windows.Forms.Label
-    Friend WithEvents MaskedTextBox1 As System.Windows.Forms.MaskedTextBox
-    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents txtFromDate As System.Windows.Forms.MaskedTextBox
+    Friend WithEvents lblFromDate As System.Windows.Forms.Label
     Friend WithEvents lblNotes As System.Windows.Forms.Label
     Friend WithEvents rtbNotes As System.Windows.Forms.RichTextBox
     Friend WithEvents dgvHolidaysRequest As System.Windows.Forms.DataGridView
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents btnCancel As System.Windows.Forms.Button
+    Friend WithEvents lblToDate As System.Windows.Forms.Label
+    Friend WithEvents txtToDate As System.Windows.Forms.MaskedTextBox
 End Class

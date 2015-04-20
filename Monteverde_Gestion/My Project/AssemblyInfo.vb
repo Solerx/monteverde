@@ -8,10 +8,10 @@ Imports System.Runtime.InteropServices
 
 ' Review the values of the assembly attributes
 
-<Assembly: AssemblyTitle("Monteverde_Gestion")> 
-<Assembly: AssemblyDescription("")> 
-<Assembly: AssemblyCompany("")> 
-<Assembly: AssemblyProduct("Monteverde_Gestion")> 
+<Assembly: AssemblyTitle("MonteverdeSetup")> 
+<Assembly: AssemblyDescription("Monteverde Administrator")> 
+<Assembly: AssemblyCompany("Monteverde")> 
+<Assembly: AssemblyProduct("Monteverde_Administrator")> 
 <Assembly: AssemblyCopyright("Copyright ©  2015")> 
 <Assembly: AssemblyTrademark("")> 
 

@@ -147,19 +147,26 @@ Public Class Projectdata
 
     Public Sub DeleteProject(ByVal indexRow As Integer, ByVal id As Integer)
 
-        connection.Close()
+        Try
 
-        Dim cmdUpdate As New SqlCommand
+            connection.Close()
 
-        cmdUpdate = New SqlCommand("Delete from Projectsdb " & _
-        "WHERE id_project = " & id, connection)
+            Dim cmdUpdate As New SqlCommand
 
-        connection.Open()
-        cmdUpdate.ExecuteNonQuery()
-        Fill_Data_Grid_View()
-        connection.Close()
-        MsgBox("Project removed successfully!")
+            cmdUpdate = New SqlCommand("Delete from Projectsdb " & _
+            "WHERE id_project = " & id, connection)
 
+            connection.Open()
+            cmdUpdate.ExecuteNonQuery()
+            Fill_Data_Grid_View()
+            connection.Close()
+            MsgBox("Project removed successfully!")
+
+        Catch ex As SqlException
+
+            MessageBox.Show("The project can't be removed because it is already assigned to users.", "Error removing project!")
+
+        End Try
 
     End Sub
 

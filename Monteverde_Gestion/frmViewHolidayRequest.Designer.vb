@@ -1,5 +1,5 @@
 ﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
-Partial Class frmViewHolidayRquest
+Partial Class frmViewHolidayRequest
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
@@ -87,7 +87,7 @@ Partial Class frmViewHolidayRquest
         Me.btnBack.Text = "Back to Main Menu"
         Me.btnBack.UseVisualStyleBackColor = False
         '
-        'frmViewHolidayRquest
+        'frmViewHolidayRequest
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
@@ -97,7 +97,7 @@ Partial Class frmViewHolidayRquest
         Me.Controls.Add(Me.btnRejectRequest)
         Me.Controls.Add(Me.btnAcceptRequest)
         Me.Controls.Add(Me.dgvHolidaysRequest)
-        Me.Name = "frmViewHolidayRquest"
+        Me.Name = "frmViewHolidayRequest"
         Me.Text = "frmViewHolidayRquest"
         CType(Me.dgvHolidaysRequest, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)

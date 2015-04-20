@@ -6,7 +6,7 @@ Public Class frmNewTimeRegistration
 
     Dim connection As New SqlConnection(strConexion)
 
-    Dim userDataInstace As Userdata = New Userdata
+    Dim userDataInstance As Userdata = New Userdata
 
     Dim projectDataInstace As Projectdata = New Projectdata
 
@@ -17,6 +17,8 @@ Public Class frmNewTimeRegistration
     Dim userTimeRegistrationDataInstance As UserTimeRegistrationData = New UserTimeRegistrationData
 
     Dim chronometer As New DateTime
+
+    Dim user As User = userDataInstance.GetUserFromTable(frmLogin.globalUserId)
 
     Dim userWorkedHours As Integer
 
@@ -78,7 +80,7 @@ Public Class frmNewTimeRegistration
         notes = rtbNotes.Text
         timeStamp = DateTime.Now
 
-        newRegister.UtUser = userDataInstace.GetUserFromTable(frmLogin.globalUserId)
+        newRegister.UtUser = userDataInstance.GetUserFromTable(frmLogin.globalUserId)
         newRegister.UtWorkTimeCategory = workCategoryDataInstance.GetCategoryByName(workCategory)
         newRegister.UtProject = projectDataInstace.GetProyectById(dgvAssignedProjects.Item(0, row2).Value())
         newRegister.UtWorkTime = userWorkedHours
@@ -150,6 +152,9 @@ Public Class frmNewTimeRegistration
         Else
 
             userTimeRegistrationDataInstance.Insert(Inputs())
+            user.user_worked_hours = Inputs.UtWorkTime
+            user.user_user_role = userDataInstance.GetRoleClass(user.user_user_id)
+            userDataInstance.Edit(user, user.user_user_id)
             Dim timeStamp As DateTime = DateTime.Now
             UpdateTable()
             ResetAll()
@@ -168,21 +173,28 @@ Public Class frmNewTimeRegistration
 
         lblChrono.Text = Difference.Hours.ToString & ":" & Difference.Minutes.ToString & ":" & Difference.Seconds.ToString
 
-        If Difference.Hours = alreadyAssignedTime Then
+        If Difference.Hours >= 1 Then
 
-            Timer1.Stop()
-            MsgBox("You completed the hours assigned to this proyect." & vbCrLf & "Contact an administrator.")
-            lblWorkCategories.Show()
-            cbxWorkCategories.Show()
-            lblNotes.Show()
-            rtbNotes.Show()
-            btnRegister.Show()
-            btnFinishWork.Enabled = False
+            btnFinishWork.Enabled = True
+
+            If Difference.Hours = alreadyAssignedTime Then
+
+                Timer1.Stop()
+                MsgBox("You completed the hours assigned to this proyect." & vbCrLf & "Contact an administrator.")
+                lblWorkCategories.Show()
+                cbxWorkCategories.Show()
+                lblNotes.Show()
+                rtbNotes.Show()
+                btnRegister.Show()
+                btnFinishWork.Enabled = False
+                userWorkedHours = Difference.Hours
+
+            End If
+
             userWorkedHours = Difference.Hours
 
         End If
 
-        userWorkedHours = Difference.Hours
 
     End Sub
 
@@ -195,7 +207,8 @@ Public Class frmNewTimeRegistration
         lblNotes.Show()
         rtbNotes.Show()
         btnRegister.Show()
-        btnFinishWork.Enabled = False
+
+
 
     End Sub
 
@@ -213,6 +226,7 @@ Public Class frmNewTimeRegistration
             Timer1.Start() 'Starts the Timer.
             btnStartToWork.Enabled = False
             btnFinishWork.Show()
+            btnFinishWork.Enabled = False
             btnCancel.Show()
 
         End If
@@ -233,5 +247,6 @@ Public Class frmNewTimeRegistration
         End If
 
     End Sub
+
 
 End Class

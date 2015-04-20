@@ -12,6 +12,10 @@ Public Class HolidaysData
 
     Dim dataTableRequested As New DataTable
 
+    Public acceptedRequest As New Integer
+
+    Public pendingRequests As New Integer
+
     Public Function CreateDataTable() As DataTable
 
         'Create Users table
@@ -20,7 +24,8 @@ Public Class HolidaysData
         dataTableRequested.Columns.Add("User")
         dataTableRequested.Columns.Add("Holidays Available")
         dataTableRequested.Columns.Add("Holidays Requested")
-        dataTableRequested.Columns.Add("Date Requested")
+        dataTableRequested.Columns.Add("From Date")
+        dataTableRequested.Columns.Add("To Date")
         dataTableRequested.Columns.Add("Status")
         dataTableRequested.Columns.Add("Notes")
 
@@ -29,7 +34,7 @@ Public Class HolidaysData
 
     End Function
 
-    Public Function FillDataGridView(ByVal idUser As Integer) As DataTable
+    Public Function FillDataGridViewUser(ByVal idUser As Integer) As DataTable
 
         dataTableRequested = CreateDataTable()
 
@@ -45,7 +50,47 @@ Public Class HolidaysData
             row("User") = requestGridView(i).hUser.user_name
             row("Holidays Available") = userDataInstance.GetUserFromTable(requestGridView(i).hUser.user_user_id).user_holidays
             row("Holidays Requested") = requestGridView(i).hRequested
-            row("Date Requested") = requestGridView(i).hDate
+            row("From Date") = requestGridView(i).hFromDate
+            row("To Date") = requestGridView(i).hToDate
+            row("Status") = requestGridView(i).hStatus
+            row("Notes") = requestGridView(i).hNotes
+
+            If requestGridView(i).hUser.user_user_id = idUser Then
+
+                dataTableRequested.Rows.Add(row)
+
+            End If
+
+
+        Next
+
+        FillDataGridViewUser = dataTableRequested
+
+    End Function
+
+    Public Function FillDataGridView() As DataTable
+
+        dataTableRequested = CreateDataTable()
+
+        Dim requestGridView As List(Of Holidays)
+
+        requestGridView = ListOfRequests()
+
+        Dim row As DataRow
+
+        For i = 0 To requestGridView.Count - 1 Step 1
+
+            row = dataTableRequested.NewRow
+            row("User") = requestGridView(i).hUser.user_name
+            row("Holidays Available") = userDataInstance.GetUserFromTable(requestGridView(i).hUser.user_user_id).user_holidays
+            row("Holidays Requested") = requestGridView(i).hRequested
+            row("From Date") = requestGridView(i).hFromDate
+            row("To Date") = requestGridView(i).hToDate
+            If requestGridView(i).hStatus = "Pending" Then
+
+                pendingRequests = pendingRequests + 1
+
+            End If
             row("Status") = requestGridView(i).hStatus
             row("Notes") = requestGridView(i).hNotes
             dataTableRequested.Rows.Add(row)
@@ -56,40 +101,12 @@ Public Class HolidaysData
 
     End Function
 
-    'Public Function GetUserFromTable(ByVal id As Integer) As User
-
-    '    connection.Close()
-    '    Dim cmdSelectUser As New SqlCommand("SELECT id_user,name,email,password,worked_hours,holidays,registered_date,is_active,user_role FROM Role,Usersdb WHERE Role.id_role=Usersdb.user_role and Usersdb.id_user = " & id, connection)
-    '    connection.Open()
-    '    Dim reader As SqlDataReader = cmdSelectUser.ExecuteReader()
-
-    '    Dim user As New User
-
-    '    reader.Read()
-    '    user = New User
-
-    '    user.user_user_id = reader.GetInt32(0)
-    '    user.user_name = reader.GetString(1)
-    '    user.user_email = reader.GetString(2)
-    '    user.user_password = reader.GetString(3)
-    '    user.user_worked_hours = reader.GetInt32(4)
-    '    user.user_holidays = reader.GetInt32(5)
-    '    user.user_registered_date = reader.GetDateTime(6)
-    '    user.user_is_active = reader.GetBoolean(7)
-    '    user.user_user_role = GetRoleByUser(reader.GetInt32(8))
-
-    '    reader.Close()
-
-    '    GetUserFromTable = user
-
-    'End Function
-
     Public Function ListOfRequests() As List(Of Holidays)
 
         'From table Usersdb, obtain all the rows.
         connection.Close()
 
-        Dim cmdSelectUser As New SqlCommand("SELECT id_user,holidays_requested,date_requested,status,notes FROM User_Holidays", connection)
+        Dim cmdSelectUser As New SqlCommand("SELECT id_user,holidays_requested,date_from,date_to,status,notes FROM User_Holidays", connection)
         connection.Open()
 
         Dim reader As SqlDataReader = cmdSelectUser.ExecuteReader()
@@ -105,9 +122,10 @@ Public Class HolidaysData
                 request = New Holidays
                 request.hUser = userDataInstance.GetUserFromTable(reader.GetInt32(0))
                 request.hRequested = reader.GetInt16(1)
-                request.hDate = reader.GetDateTime(2)
-                request.hStatus = reader.GetString(3)
-                request.hNotes = reader.GetString(4)
+                request.hFromDate = reader.GetDateTime(2)
+                request.hToDate = reader.GetDateTime(3)
+                request.hStatus = reader.GetString(4)
+                request.hNotes = reader.GetString(5)
                 resquestList.Add(request)
 
             Loop
@@ -123,7 +141,71 @@ Public Class HolidaysData
 
     End Function
 
+    Public Sub InsertRequest(ByVal request As Holidays)
+
+        connection.Close()
+
+        Dim cmdInsert As New SqlCommand
+
+        cmdInsert = New SqlCommand("insert into User_Holidays(id_user,holidays_requested,date_from,date_to,status,notes)" & _
+                                   "values(@id_user,@holidays_requested,@date_from,@date_to,@status,@notes)", connection)
+        connection.Open()
+
+        With cmdInsert
+
+            .Parameters.AddWithValue("@id_user", request.hUser.user_user_id)
+            .Parameters.AddWithValue("@holidays_requested", request.hRequested)
+            .Parameters.AddWithValue("@date_from", request.hFromDate)
+            .Parameters.AddWithValue("@date_to", request.hToDate)
+            .Parameters.AddWithValue("@status", request.hStatus)
+            .Parameters.AddWithValue("@notes", request.hNotes)
+
+        End With
+
+        cmdInsert.ExecuteNonQuery()
+        MsgBox("Holidays request successfull.")
+        connection.Close()
+
+    End Sub
+
+    Public Sub Delete(ByVal idUser As Integer, ByVal notes As String)
+
+        connection.Close()
+
+        Dim cmdUpdate As New SqlCommand
+
+        cmdUpdate = New SqlCommand("Delete from User_Holidays " & _
+                                   "where id_user = " & idUser & "AND notes = '" & notes & "'", connection)
+
+        connection.Open()
+        cmdUpdate.ExecuteNonQuery()
+        connection.Close()
+        MsgBox("Request canceled successfully!")
 
 
+    End Sub
+
+    Public Sub Edit(ByVal status As String, idUser As Integer, ByVal notes As String)
+
+        connection.Open()
+
+        Dim cmdUpdate As New SqlCommand
+
+        cmdUpdate = New SqlCommand("UPDATE User_Holidays SET " & _
+                                   "status = @status " & _
+                                   "where id_user = " & idUser & "AND notes = '" & notes & "'", connection)
+
+        With cmdUpdate
+
+            .Parameters.AddWithValue("@status", status)
+
+        End With
+
+
+        cmdUpdate.ExecuteNonQuery()
+        connection.Close()
+        MsgBox("User edited successfully!")
+
+    End Sub
 
 End Class

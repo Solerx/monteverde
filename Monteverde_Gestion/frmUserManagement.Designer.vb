@@ -231,6 +231,7 @@ Partial Class frmUserManagement
         Me.txtUserWorkedHours.Name = "txtUserWorkedHours"
         Me.txtUserWorkedHours.Size = New System.Drawing.Size(239, 20)
         Me.txtUserWorkedHours.TabIndex = 40
+        Me.txtUserWorkedHours.Text = "0"
         '
         'lblUserHolidays
         '
@@ -252,6 +253,7 @@ Partial Class frmUserManagement
         Me.txtUserHolidays.Name = "txtUserHolidays"
         Me.txtUserHolidays.Size = New System.Drawing.Size(239, 20)
         Me.txtUserHolidays.TabIndex = 42
+        Me.txtUserHolidays.Text = "1"
         '
         'lblRegisteredDate
         '
@@ -325,7 +327,7 @@ Partial Class frmUserManagement
         Me.btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
         Me.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAdd.ForeColor = System.Drawing.Color.Maroon
-        Me.btnAdd.Location = New System.Drawing.Point(333, 504)
+        Me.btnAdd.Location = New System.Drawing.Point(299, 504)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(149, 45)
         Me.btnAdd.TabIndex = 49

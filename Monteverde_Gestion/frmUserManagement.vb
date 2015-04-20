@@ -45,7 +45,6 @@ Public Class frmUserManagement
         txtUserHolidays.Hide()
         txtUserRegisteredDate.Hide()
 
-
         btnSave.Hide()
         btnAdd.Hide()
 
@@ -56,12 +55,13 @@ Public Class frmUserManagement
         txtUserName.ResetText()
         txtUserEmail.ResetText()
         txtUserPassword.ResetText()
-        txtUserWorkedHours.ResetText()
-        txtUserHolidays.ResetText()
         txtUserRegisteredDate.ResetText()
         'cbxUserStatus.Refresh()
         'cbxUserRole.Refresh()
-
+        txtUserHolidays.BackColor = Color.Maroon
+        txtUserWorkedHours.BackColor = Color.Maroon
+        txtUserHolidays.ForeColor = Color.White
+        txtUserWorkedHours.ForeColor = Color.White
 
     End Sub
 
@@ -85,8 +85,6 @@ Public Class frmUserManagement
         txtUserHolidays.Show()
         txtUserRegisteredDate.Show()
 
-
-
     End Sub
 
     Public Function User_Inputs() As User
@@ -94,10 +92,10 @@ Public Class frmUserManagement
         Dim userName As String = " "
         Dim userEmail As String = " "
         Dim password As String = " "
-        Dim workedHours As Integer
+        Dim workedHours As Double
         Dim holidays As Integer
-        Dim userRole As Integer
-        Dim memberSince As DateTime
+        Dim userRole As String
+        Dim userSince As DateTime
         Dim isActive As Boolean
         Dim newUser As New User
 
@@ -107,8 +105,8 @@ Public Class frmUserManagement
         password = txtUserPassword.Text
         workedHours = CInt(txtUserWorkedHours.Text)
         holidays = CInt(txtUserHolidays.Text)
-        memberSince = CDate(txtUserRegisteredDate.Text)
-        userRole = cbxUserRole.SelectedValue
+        userSince = DateTime.Now
+        userRole = cbxUserRole.Text
 
         If cbxUserStatus.SelectedIndex = 0 Then
 
@@ -125,8 +123,8 @@ Public Class frmUserManagement
         newUser.user_password = password
         newUser.user_worked_hours = workedHours
         newUser.user_holidays = holidays
-        newUser.user_user_role = userdataInstance.GetRoleByRoleName(userRole)
-        newUser.user_registered_date = memberSince
+        newUser.user_user_role = userdataInstance.GetRoleId(userRole)
+        newUser.user_registered_date = userSince
         newUser.user_is_active = isActive
 
         User_Inputs = newUser
@@ -201,9 +199,13 @@ Public Class frmUserManagement
         Hide_All()
         Reset_Spaces()
         btnAdd.Show()
-        txtUserRegisteredDate.Enabled = True
         Show_All()
-
+        txtUserRegisteredDate.Enabled = True
+        txtUserWorkedHours.Enabled = False
+        txtUserHolidays.Enabled = False
+        txtUserRegisteredDate.Text = DateTime.Now
+        lblRegisteredDate.Hide()
+        txtUserRegisteredDate.Hide()
 
     End Sub
 
@@ -221,6 +223,8 @@ Public Class frmUserManagement
         Fill_Inputs(userdataInstance.GetUserFromTable(dgvUsers.Item(0, row).Value))
         lblEditingUser.Show()
         lblUserId.Show()
+        txtUserWorkedHours.Enabled = True
+        txtUserHolidays.Enabled = True
         btnSave.Show()
 
 
@@ -258,7 +262,7 @@ Public Class frmUserManagement
                 userdataInstance.Edit(User_Inputs, dgvUsers.Item(0, row).Value())
                 updateUserTable()
                 Reset_Spaces()
-
+                MsgBox("User edited successfully!")
             Else
 
                 Reset_Spaces()
@@ -307,5 +311,37 @@ Public Class frmUserManagement
 
     End Sub
 
-  
+    Private Sub OnlyNumbersHolidays_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtUserHolidays.KeyPress
+
+        If (Microsoft.VisualBasic.Asc(e.KeyChar) < 48) _
+                  Or (Microsoft.VisualBasic.Asc(e.KeyChar) > 57) Then
+            MessageBox.Show("Only numbers on this input.", "Holidays")
+            e.Handled = True
+            txtUserHolidays.BackColor = Color.Yellow
+            txtUserHolidays.ForeColor = Color.Black
+
+        End If
+        If (Microsoft.VisualBasic.Asc(e.KeyChar) = 8) Then
+
+            e.Handled = False
+        End If
+    End Sub
+
+    Private Sub OnlyNumbersWorkedHours_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles txtUserWorkedHours.KeyPress
+
+        If (Microsoft.VisualBasic.Asc(e.KeyChar) <> 8) And (Microsoft.VisualBasic.Asc(e.KeyChar) < 48) _
+                  Or (Microsoft.VisualBasic.Asc(e.KeyChar) > 57) Then
+            MessageBox.Show("Only numbers on this input.", "Worked Hours")
+            e.Handled = True
+            txtUserWorkedHours.BackColor = Color.Yellow
+            txtUserWorkedHours.ForeColor = Color.Black
+
+        End If
+
+        If (Microsoft.VisualBasic.Asc(e.KeyChar) = 8) Then
+            e.Handled = False
+        End If
+
+    End Sub
+
 End Class

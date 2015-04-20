@@ -1,6 +1,6 @@
 ﻿Imports System.Data.SqlClient
 
-Imports Monteverde_Gestion.Userdata
+Imports Monteverde_Administrator.Userdata
 
 Public Class frmLogin
 
@@ -10,9 +10,15 @@ Public Class frmLogin
 
     Dim connection As New SqlConnection(strConexion)
 
+    Dim userName As String
+
+    Dim password As String
+
     Public globalUserId As Integer
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+      
 
     End Sub
 
@@ -79,7 +85,22 @@ Public Class frmLogin
     Private Sub btnLogIn_Click(sender As Object, e As EventArgs) Handles btnLogIn.Click
 
         Login()
-        txtPassword.ResetText()
+        If cbxRecordLog.Checked Then
+
+            userName = txtEmail.Text
+            password = txtPassword.Text
+
+        Else
+            txtPassword.ResetText()
+
+        End If
+
+
+    End Sub
+
+    Private Sub cbxRecordLog_CheckedChanged(sender As Object, e As EventArgs) Handles cbxRecordLog.CheckedChanged
+
+
 
     End Sub
 End Class
