@@ -43,6 +43,7 @@ C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\bin\Debug\Mo
 C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\bin\Debug\Monteverde_Administrator.pdb
 C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\bin\Debug\Monteverde_Administrator.xml
 C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Monteverde_Administrator.frmNewTimeRegistration.resources
+C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Monteverde_Administrator.frmReports.resources
 C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Monteverde_Administrator.frmRequestHolidays.resources
 C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Monteverde_Administrator.frmUserToProjects.resources
 C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Monteverde_Administrator.frmProfile.resources

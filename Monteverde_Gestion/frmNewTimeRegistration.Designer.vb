@@ -26,18 +26,18 @@ Partial Class frmNewTimeRegistration
         Me.dgvAssignedProjects = New System.Windows.Forms.DataGridView()
         Me.cbxWorkCategories = New System.Windows.Forms.ComboBox()
         Me.lblProjectToAdd = New System.Windows.Forms.Label()
-        Me.btnBack = New System.Windows.Forms.Button()
         Me.lblWorkCategories = New System.Windows.Forms.Label()
         Me.rtbNotes = New System.Windows.Forms.RichTextBox()
         Me.lblNotes = New System.Windows.Forms.Label()
-        Me.btnRegister = New System.Windows.Forms.Button()
         Me.lvlWorkedTimeInfo = New System.Windows.Forms.Label()
         Me.Timer1 = New System.Windows.Forms.Timer(Me.components)
-        Me.btnFinishWork = New System.Windows.Forms.Button()
         Me.btnStartToWork = New System.Windows.Forms.Button()
         Me.dgvUserWorkedTime = New System.Windows.Forms.DataGridView()
         Me.lblChrono = New System.Windows.Forms.Label()
         Me.btnCancel = New System.Windows.Forms.Button()
+        Me.btnFinishWork = New System.Windows.Forms.Button()
+        Me.btnRegister = New System.Windows.Forms.Button()
+        Me.btnBack = New System.Windows.Forms.Button()
         CType(Me.dgvAssignedProjects, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.dgvUserWorkedTime, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
@@ -73,20 +73,6 @@ Partial Class frmNewTimeRegistration
         Me.lblProjectToAdd.Text = "Projects Assigned: "
         Me.lblProjectToAdd.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
-        'btnBack
-        '
-        Me.btnBack.BackColor = System.Drawing.Color.White
-        Me.btnBack.FlatAppearance.BorderColor = System.Drawing.Color.Maroon
-        Me.btnBack.FlatAppearance.BorderSize = 2
-        Me.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnBack.ForeColor = System.Drawing.Color.Maroon
-        Me.btnBack.Location = New System.Drawing.Point(12, 12)
-        Me.btnBack.Name = "btnBack"
-        Me.btnBack.Size = New System.Drawing.Size(266, 45)
-        Me.btnBack.TabIndex = 56
-        Me.btnBack.Text = "Back to Main Menu"
-        Me.btnBack.UseVisualStyleBackColor = False
-        '
         'lblWorkCategories
         '
         Me.lblWorkCategories.AutoSize = True
@@ -118,24 +104,6 @@ Partial Class frmNewTimeRegistration
         Me.lblNotes.TabIndex = 61
         Me.lblNotes.Text = "Notes: "
         '
-        'btnRegister
-        '
-        Me.btnRegister.BackColor = System.Drawing.Color.White
-        Me.btnRegister.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnRegister.FlatAppearance.BorderColor = System.Drawing.Color.Maroon
-        Me.btnRegister.FlatAppearance.BorderSize = 2
-        Me.btnRegister.FlatAppearance.CheckedBackColor = System.Drawing.Color.DimGray
-        Me.btnRegister.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray
-        Me.btnRegister.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
-        Me.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnRegister.ForeColor = System.Drawing.Color.Maroon
-        Me.btnRegister.Location = New System.Drawing.Point(623, 504)
-        Me.btnRegister.Name = "btnRegister"
-        Me.btnRegister.Size = New System.Drawing.Size(149, 45)
-        Me.btnRegister.TabIndex = 62
-        Me.btnRegister.Text = "Register New Work Time"
-        Me.btnRegister.UseVisualStyleBackColor = False
-        '
         'lvlWorkedTimeInfo
         '
         Me.lvlWorkedTimeInfo.AutoSize = True
@@ -152,24 +120,6 @@ Partial Class frmNewTimeRegistration
         'Timer1
         '
         '
-        'btnFinishWork
-        '
-        Me.btnFinishWork.BackColor = System.Drawing.Color.White
-        Me.btnFinishWork.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnFinishWork.FlatAppearance.BorderColor = System.Drawing.Color.Maroon
-        Me.btnFinishWork.FlatAppearance.BorderSize = 2
-        Me.btnFinishWork.FlatAppearance.CheckedBackColor = System.Drawing.Color.DimGray
-        Me.btnFinishWork.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray
-        Me.btnFinishWork.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
-        Me.btnFinishWork.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnFinishWork.ForeColor = System.Drawing.Color.Maroon
-        Me.btnFinishWork.Location = New System.Drawing.Point(613, 244)
-        Me.btnFinishWork.Name = "btnFinishWork"
-        Me.btnFinishWork.Size = New System.Drawing.Size(159, 45)
-        Me.btnFinishWork.TabIndex = 64
-        Me.btnFinishWork.Text = "Finish Work"
-        Me.btnFinishWork.UseVisualStyleBackColor = False
-        '
         'btnStartToWork
         '
         Me.btnStartToWork.BackColor = System.Drawing.Color.White
@@ -180,6 +130,7 @@ Partial Class frmNewTimeRegistration
         Me.btnStartToWork.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray
         Me.btnStartToWork.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
         Me.btnStartToWork.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnStartToWork.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnStartToWork.ForeColor = System.Drawing.Color.Maroon
         Me.btnStartToWork.Location = New System.Drawing.Point(444, 118)
         Me.btnStartToWork.Name = "btnStartToWork"
@@ -220,12 +171,71 @@ Partial Class frmNewTimeRegistration
         Me.btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
         Me.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCancel.ForeColor = System.Drawing.Color.Maroon
+        Me.btnCancel.Image = Global.Monteverde_Administrator.My.Resources.Resources.Imagen22
+        Me.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnCancel.Location = New System.Drawing.Point(444, 244)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(159, 45)
         Me.btnCancel.TabIndex = 68
         Me.btnCancel.Text = "Cancel"
         Me.btnCancel.UseVisualStyleBackColor = False
+        '
+        'btnFinishWork
+        '
+        Me.btnFinishWork.BackColor = System.Drawing.Color.White
+        Me.btnFinishWork.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnFinishWork.FlatAppearance.BorderColor = System.Drawing.Color.Maroon
+        Me.btnFinishWork.FlatAppearance.BorderSize = 2
+        Me.btnFinishWork.FlatAppearance.CheckedBackColor = System.Drawing.Color.DimGray
+        Me.btnFinishWork.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray
+        Me.btnFinishWork.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
+        Me.btnFinishWork.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnFinishWork.ForeColor = System.Drawing.Color.Maroon
+        Me.btnFinishWork.Image = Global.Monteverde_Administrator.My.Resources.Resources.Imagen31
+        Me.btnFinishWork.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnFinishWork.Location = New System.Drawing.Point(613, 244)
+        Me.btnFinishWork.Name = "btnFinishWork"
+        Me.btnFinishWork.Size = New System.Drawing.Size(159, 45)
+        Me.btnFinishWork.TabIndex = 64
+        Me.btnFinishWork.Text = "Finish Work"
+        Me.btnFinishWork.UseVisualStyleBackColor = False
+        '
+        'btnRegister
+        '
+        Me.btnRegister.BackColor = System.Drawing.Color.White
+        Me.btnRegister.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnRegister.FlatAppearance.BorderColor = System.Drawing.Color.Maroon
+        Me.btnRegister.FlatAppearance.BorderSize = 2
+        Me.btnRegister.FlatAppearance.CheckedBackColor = System.Drawing.Color.DimGray
+        Me.btnRegister.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray
+        Me.btnRegister.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
+        Me.btnRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnRegister.ForeColor = System.Drawing.Color.Maroon
+        Me.btnRegister.Image = Global.Monteverde_Administrator.My.Resources.Resources.Imagen23
+        Me.btnRegister.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnRegister.Location = New System.Drawing.Point(601, 504)
+        Me.btnRegister.Name = "btnRegister"
+        Me.btnRegister.Size = New System.Drawing.Size(171, 45)
+        Me.btnRegister.TabIndex = 62
+        Me.btnRegister.Text = "Register New Work Time"
+        Me.btnRegister.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.btnRegister.UseVisualStyleBackColor = False
+        '
+        'btnBack
+        '
+        Me.btnBack.BackColor = System.Drawing.Color.White
+        Me.btnBack.FlatAppearance.BorderColor = System.Drawing.Color.Maroon
+        Me.btnBack.FlatAppearance.BorderSize = 2
+        Me.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnBack.ForeColor = System.Drawing.Color.Maroon
+        Me.btnBack.Image = Global.Monteverde_Administrator.My.Resources.Resources.Sin_título
+        Me.btnBack.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnBack.Location = New System.Drawing.Point(12, 12)
+        Me.btnBack.Name = "btnBack"
+        Me.btnBack.Size = New System.Drawing.Size(266, 45)
+        Me.btnBack.TabIndex = 56
+        Me.btnBack.Text = "Back to Main Menu"
+        Me.btnBack.UseVisualStyleBackColor = False
         '
         'frmNewTimeRegistration
         '

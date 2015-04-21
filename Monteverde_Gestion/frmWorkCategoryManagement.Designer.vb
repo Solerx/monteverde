@@ -76,11 +76,13 @@ Partial Class frmWorkCategoryManagement
         Me.btnAddCategory.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
         Me.btnAddCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAddCategory.ForeColor = System.Drawing.Color.Maroon
+        Me.btnAddCategory.Image = Global.Monteverde_Administrator.My.Resources.Resources.Imagen14
+        Me.btnAddCategory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnAddCategory.Location = New System.Drawing.Point(12, 465)
         Me.btnAddCategory.Name = "btnAddCategory"
-        Me.btnAddCategory.Size = New System.Drawing.Size(89, 45)
+        Me.btnAddCategory.Size = New System.Drawing.Size(106, 45)
         Me.btnAddCategory.TabIndex = 34
-        Me.btnAddCategory.Text = "Add New Category"
+        Me.btnAddCategory.Text = "    Add New" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "    Category"
         Me.btnAddCategory.UseVisualStyleBackColor = False
         '
         'btnRemoveCategory
@@ -94,11 +96,13 @@ Partial Class frmWorkCategoryManagement
         Me.btnRemoveCategory.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
         Me.btnRemoveCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnRemoveCategory.ForeColor = System.Drawing.Color.Maroon
-        Me.btnRemoveCategory.Location = New System.Drawing.Point(293, 465)
+        Me.btnRemoveCategory.Image = Global.Monteverde_Administrator.My.Resources.Resources.Imagen1
+        Me.btnRemoveCategory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnRemoveCategory.Location = New System.Drawing.Point(276, 465)
         Me.btnRemoveCategory.Name = "btnRemoveCategory"
-        Me.btnRemoveCategory.Size = New System.Drawing.Size(89, 45)
+        Me.btnRemoveCategory.Size = New System.Drawing.Size(106, 45)
         Me.btnRemoveCategory.TabIndex = 36
-        Me.btnRemoveCategory.Text = "Remove Category"
+        Me.btnRemoveCategory.Text = "    Remove " & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "    Category"
         Me.btnRemoveCategory.UseVisualStyleBackColor = False
         '
         'btnEditCategory
@@ -112,11 +116,14 @@ Partial Class frmWorkCategoryManagement
         Me.btnEditCategory.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
         Me.btnEditCategory.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEditCategory.ForeColor = System.Drawing.Color.Maroon
-        Me.btnEditCategory.Location = New System.Drawing.Point(107, 465)
+        Me.btnEditCategory.Image = Global.Monteverde_Administrator.My.Resources.Resources.Imagen16
+        Me.btnEditCategory.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnEditCategory.Location = New System.Drawing.Point(124, 465)
         Me.btnEditCategory.Name = "btnEditCategory"
-        Me.btnEditCategory.Size = New System.Drawing.Size(89, 45)
+        Me.btnEditCategory.Size = New System.Drawing.Size(106, 45)
         Me.btnEditCategory.TabIndex = 37
         Me.btnEditCategory.Text = "Edit Category"
+        Me.btnEditCategory.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnEditCategory.UseVisualStyleBackColor = False
         '
         'btnSave
@@ -148,9 +155,11 @@ Partial Class frmWorkCategoryManagement
         Me.btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
         Me.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAdd.ForeColor = System.Drawing.Color.Maroon
-        Me.btnAdd.Location = New System.Drawing.Point(683, 465)
+        Me.btnAdd.Image = Global.Monteverde_Administrator.My.Resources.Resources.Imagen2
+        Me.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnAdd.Location = New System.Drawing.Point(678, 465)
         Me.btnAdd.Name = "btnAdd"
-        Me.btnAdd.Size = New System.Drawing.Size(89, 45)
+        Me.btnAdd.Size = New System.Drawing.Size(94, 45)
         Me.btnAdd.TabIndex = 39
         Me.btnAdd.Text = "Add"
         Me.btnAdd.UseVisualStyleBackColor = False
@@ -195,6 +204,8 @@ Partial Class frmWorkCategoryManagement
         Me.btnBack.FlatAppearance.BorderSize = 2
         Me.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnBack.ForeColor = System.Drawing.Color.Maroon
+        Me.btnBack.Image = Global.Monteverde_Administrator.My.Resources.Resources.Sin_título
+        Me.btnBack.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnBack.Location = New System.Drawing.Point(12, 11)
         Me.btnBack.Name = "btnBack"
         Me.btnBack.Size = New System.Drawing.Size(266, 45)

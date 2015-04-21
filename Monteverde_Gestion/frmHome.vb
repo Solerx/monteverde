@@ -143,5 +143,12 @@ Public Class frmHome
         frmViewHolidayRequest.Show()
 
     End Sub
+
+    Private Sub ReportsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ReportsToolStripMenuItem.Click
+
+        Me.Close()
+        frmReports.Show()
+
+    End Sub
 End Class
 

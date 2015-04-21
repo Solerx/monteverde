@@ -1904,6 +1904,10 @@
 		<row><td>monteverde_administrator.xml</td><td>ISX_DEFAULTCOMPONENT</td><td>MONTEV~1.XML|Monteverde_Administrator.xml</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\bin\Debug\Monteverde_Administrator.xml</td><td>1</td><td/></row>
 		<row><td>monteverde_gestion.vshost.ex</td><td>ISX_DEFAULTCOMPONENT</td><td>MONTEV~1.CON|Monteverde_Gestion.vshost.exe.config</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\bin\Debug\Monteverde_Gestion.vshost.exe.config</td><td>1</td><td/></row>
 		<row><td>monteverde_gestion.vshost.ex1</td><td>ISX_DEFAULTCOMPONENT</td><td>MONTEV~1.MAN|Monteverde_Gestion.vshost.exe.manifest</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\bin\Debug\Monteverde_Gestion.vshost.exe.manifest</td><td>1</td><td/></row>
+		<row><td>monteverdedatabase.mdf</td><td>ISX_DEFAULTCOMPONENT</td><td>MONTEV~1.MDF|MonteverdeDataBase.mdf</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\MonteverdeDataBase.mdf</td><td>1</td><td/></row>
+		<row><td>monteverdedatabase.mdf1</td><td>ISX_DEFAULTCOMPONENT1</td><td>MONTEV~1.MDF|MonteverdeDataBase.mdf</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\MonteverdeDataBase.mdf</td><td>1</td><td/></row>
+		<row><td>monteverdedatabase_log.ldf</td><td>ISX_DEFAULTCOMPONENT</td><td>MONTEV~1.LDF|MonteverdeDataBase_log.ldf</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\MonteverdeDataBase_log.ldf</td><td>1</td><td/></row>
+		<row><td>monteverdedatabase_log.ldf1</td><td>ISX_DEFAULTCOMPONENT1</td><td>MONTEV~1.LDF|MonteverdeDataBase_log.ldf</td><td>0</td><td/><td/><td/><td>1</td><td>C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\MonteverdeDataBase_log.ldf</td><td>1</td><td/></row>
 	</table>
 
 	<table name="FileSFPCatalog">

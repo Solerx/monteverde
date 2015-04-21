@@ -22,10 +22,7 @@ Partial Class frmUserManagement
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
-        Me.btnEditUser = New System.Windows.Forms.Button()
-        Me.btnRemoveUser = New System.Windows.Forms.Button()
         Me.btnBack = New System.Windows.Forms.Button()
-        Me.btnAddUser = New System.Windows.Forms.Button()
         Me.dgvUsers = New System.Windows.Forms.DataGridView()
         Me.txtUserEmail = New System.Windows.Forms.MaskedTextBox()
         Me.txtUserName = New System.Windows.Forms.MaskedTextBox()
@@ -41,50 +38,17 @@ Partial Class frmUserManagement
         Me.txtUserHolidays = New System.Windows.Forms.MaskedTextBox()
         Me.lblRegisteredDate = New System.Windows.Forms.Label()
         Me.txtUserRegisteredDate = New System.Windows.Forms.MaskedTextBox()
-        Me.btnSave = New System.Windows.Forms.Button()
         Me.lblEditingUser = New System.Windows.Forms.Label()
         Me.lblUserId = New System.Windows.Forms.Label()
-        Me.btnAdd = New System.Windows.Forms.Button()
         Me.cbxUserStatus = New System.Windows.Forms.ComboBox()
         Me.cbxUserRole = New System.Windows.Forms.ComboBox()
+        Me.btnAdd = New System.Windows.Forms.Button()
+        Me.btnSave = New System.Windows.Forms.Button()
+        Me.btnEditUser = New System.Windows.Forms.Button()
+        Me.btnRemoveUser = New System.Windows.Forms.Button()
+        Me.btnAddUser = New System.Windows.Forms.Button()
         CType(Me.dgvUsers, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'btnEditUser
-        '
-        Me.btnEditUser.BackColor = System.Drawing.Color.White
-        Me.btnEditUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnEditUser.FlatAppearance.BorderColor = System.Drawing.Color.Maroon
-        Me.btnEditUser.FlatAppearance.BorderSize = 2
-        Me.btnEditUser.FlatAppearance.CheckedBackColor = System.Drawing.Color.DimGray
-        Me.btnEditUser.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray
-        Me.btnEditUser.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
-        Me.btnEditUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnEditUser.ForeColor = System.Drawing.Color.Maroon
-        Me.btnEditUser.Location = New System.Drawing.Point(157, 290)
-        Me.btnEditUser.Name = "btnEditUser"
-        Me.btnEditUser.Size = New System.Drawing.Size(121, 45)
-        Me.btnEditUser.TabIndex = 26
-        Me.btnEditUser.Text = "Edit Selected User"
-        Me.btnEditUser.UseVisualStyleBackColor = False
-        '
-        'btnRemoveUser
-        '
-        Me.btnRemoveUser.BackColor = System.Drawing.Color.White
-        Me.btnRemoveUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnRemoveUser.FlatAppearance.BorderColor = System.Drawing.Color.Maroon
-        Me.btnRemoveUser.FlatAppearance.BorderSize = 2
-        Me.btnRemoveUser.FlatAppearance.CheckedBackColor = System.Drawing.Color.DimGray
-        Me.btnRemoveUser.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray
-        Me.btnRemoveUser.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
-        Me.btnRemoveUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnRemoveUser.ForeColor = System.Drawing.Color.Maroon
-        Me.btnRemoveUser.Location = New System.Drawing.Point(624, 290)
-        Me.btnRemoveUser.Name = "btnRemoveUser"
-        Me.btnRemoveUser.Size = New System.Drawing.Size(148, 45)
-        Me.btnRemoveUser.TabIndex = 27
-        Me.btnRemoveUser.Text = "Remove User"
-        Me.btnRemoveUser.UseVisualStyleBackColor = False
         '
         'btnBack
         '
@@ -93,6 +57,8 @@ Partial Class frmUserManagement
         Me.btnBack.FlatAppearance.BorderSize = 2
         Me.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnBack.ForeColor = System.Drawing.Color.Maroon
+        Me.btnBack.Image = Global.Monteverde_Administrator.My.Resources.Resources.Sin_título
+        Me.btnBack.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnBack.Location = New System.Drawing.Point(12, 12)
         Me.btnBack.Name = "btnBack"
         Me.btnBack.Size = New System.Drawing.Size(266, 45)
@@ -100,26 +66,9 @@ Partial Class frmUserManagement
         Me.btnBack.Text = "Back to Main Menu"
         Me.btnBack.UseVisualStyleBackColor = False
         '
-        'btnAddUser
-        '
-        Me.btnAddUser.BackColor = System.Drawing.Color.White
-        Me.btnAddUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnAddUser.FlatAppearance.BorderColor = System.Drawing.Color.Maroon
-        Me.btnAddUser.FlatAppearance.BorderSize = 2
-        Me.btnAddUser.FlatAppearance.CheckedBackColor = System.Drawing.Color.DimGray
-        Me.btnAddUser.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray
-        Me.btnAddUser.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
-        Me.btnAddUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAddUser.ForeColor = System.Drawing.Color.Maroon
-        Me.btnAddUser.Location = New System.Drawing.Point(12, 290)
-        Me.btnAddUser.Name = "btnAddUser"
-        Me.btnAddUser.Size = New System.Drawing.Size(121, 45)
-        Me.btnAddUser.TabIndex = 25
-        Me.btnAddUser.Text = "Add New User"
-        Me.btnAddUser.UseVisualStyleBackColor = False
-        '
         'dgvUsers
         '
+        Me.dgvUsers.BackgroundColor = System.Drawing.Color.Maroon
         Me.dgvUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvUsers.Location = New System.Drawing.Point(12, 63)
         Me.dgvUsers.Name = "dgvUsers"
@@ -276,24 +225,6 @@ Partial Class frmUserManagement
         Me.txtUserRegisteredDate.Size = New System.Drawing.Size(239, 20)
         Me.txtUserRegisteredDate.TabIndex = 44
         '
-        'btnSave
-        '
-        Me.btnSave.BackColor = System.Drawing.Color.White
-        Me.btnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnSave.FlatAppearance.BorderColor = System.Drawing.Color.Maroon
-        Me.btnSave.FlatAppearance.BorderSize = 2
-        Me.btnSave.FlatAppearance.CheckedBackColor = System.Drawing.Color.DimGray
-        Me.btnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray
-        Me.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
-        Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnSave.ForeColor = System.Drawing.Color.Maroon
-        Me.btnSave.Location = New System.Drawing.Point(333, 504)
-        Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(149, 45)
-        Me.btnSave.TabIndex = 46
-        Me.btnSave.Text = "Save"
-        Me.btnSave.UseVisualStyleBackColor = False
-        '
         'lblEditingUser
         '
         Me.lblEditingUser.AutoSize = True
@@ -316,24 +247,6 @@ Partial Class frmUserManagement
         Me.lblUserId.TabIndex = 48
         Me.lblUserId.Text = "id_user"
         '
-        'btnAdd
-        '
-        Me.btnAdd.BackColor = System.Drawing.Color.White
-        Me.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.Maroon
-        Me.btnAdd.FlatAppearance.BorderSize = 2
-        Me.btnAdd.FlatAppearance.CheckedBackColor = System.Drawing.Color.DimGray
-        Me.btnAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray
-        Me.btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
-        Me.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnAdd.ForeColor = System.Drawing.Color.Maroon
-        Me.btnAdd.Location = New System.Drawing.Point(299, 504)
-        Me.btnAdd.Name = "btnAdd"
-        Me.btnAdd.Size = New System.Drawing.Size(149, 45)
-        Me.btnAdd.TabIndex = 49
-        Me.btnAdd.Text = "Add"
-        Me.btnAdd.UseVisualStyleBackColor = False
-        '
         'cbxUserStatus
         '
         Me.cbxUserStatus.BackColor = System.Drawing.Color.Maroon
@@ -352,6 +265,106 @@ Partial Class frmUserManagement
         Me.cbxUserRole.Name = "cbxUserRole"
         Me.cbxUserRole.Size = New System.Drawing.Size(178, 21)
         Me.cbxUserRole.TabIndex = 53
+        '
+        'btnAdd
+        '
+        Me.btnAdd.BackColor = System.Drawing.Color.White
+        Me.btnAdd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnAdd.FlatAppearance.BorderColor = System.Drawing.Color.Maroon
+        Me.btnAdd.FlatAppearance.BorderSize = 2
+        Me.btnAdd.FlatAppearance.CheckedBackColor = System.Drawing.Color.DimGray
+        Me.btnAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray
+        Me.btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
+        Me.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAdd.ForeColor = System.Drawing.Color.Maroon
+        Me.btnAdd.Image = Global.Monteverde_Administrator.My.Resources.Resources.Nueva_imagen_de_mapa_de_bits
+        Me.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnAdd.Location = New System.Drawing.Point(321, 504)
+        Me.btnAdd.Name = "btnAdd"
+        Me.btnAdd.Size = New System.Drawing.Size(149, 45)
+        Me.btnAdd.TabIndex = 49
+        Me.btnAdd.Text = "Add"
+        Me.btnAdd.UseVisualStyleBackColor = False
+        '
+        'btnSave
+        '
+        Me.btnSave.BackColor = System.Drawing.Color.White
+        Me.btnSave.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnSave.FlatAppearance.BorderColor = System.Drawing.Color.Maroon
+        Me.btnSave.FlatAppearance.BorderSize = 2
+        Me.btnSave.FlatAppearance.CheckedBackColor = System.Drawing.Color.DimGray
+        Me.btnSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray
+        Me.btnSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
+        Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnSave.ForeColor = System.Drawing.Color.Maroon
+        Me.btnSave.Image = Global.Monteverde_Administrator.My.Resources.Resources.Imagen23
+        Me.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnSave.Location = New System.Drawing.Point(321, 504)
+        Me.btnSave.Name = "btnSave"
+        Me.btnSave.Size = New System.Drawing.Size(149, 45)
+        Me.btnSave.TabIndex = 46
+        Me.btnSave.Text = "Save"
+        Me.btnSave.UseVisualStyleBackColor = False
+        '
+        'btnEditUser
+        '
+        Me.btnEditUser.BackColor = System.Drawing.Color.White
+        Me.btnEditUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnEditUser.FlatAppearance.BorderColor = System.Drawing.Color.Maroon
+        Me.btnEditUser.FlatAppearance.BorderSize = 2
+        Me.btnEditUser.FlatAppearance.CheckedBackColor = System.Drawing.Color.DimGray
+        Me.btnEditUser.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray
+        Me.btnEditUser.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
+        Me.btnEditUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnEditUser.ForeColor = System.Drawing.Color.Maroon
+        Me.btnEditUser.Image = Global.Monteverde_Administrator.My.Resources.Resources.Imagen16
+        Me.btnEditUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnEditUser.Location = New System.Drawing.Point(150, 290)
+        Me.btnEditUser.Name = "btnEditUser"
+        Me.btnEditUser.Size = New System.Drawing.Size(131, 45)
+        Me.btnEditUser.TabIndex = 26
+        Me.btnEditUser.Text = "Edit User     "
+        Me.btnEditUser.UseVisualStyleBackColor = False
+        '
+        'btnRemoveUser
+        '
+        Me.btnRemoveUser.BackColor = System.Drawing.Color.White
+        Me.btnRemoveUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnRemoveUser.FlatAppearance.BorderColor = System.Drawing.Color.Maroon
+        Me.btnRemoveUser.FlatAppearance.BorderSize = 2
+        Me.btnRemoveUser.FlatAppearance.CheckedBackColor = System.Drawing.Color.DimGray
+        Me.btnRemoveUser.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray
+        Me.btnRemoveUser.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
+        Me.btnRemoveUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnRemoveUser.ForeColor = System.Drawing.Color.Maroon
+        Me.btnRemoveUser.Image = Global.Monteverde_Administrator.My.Resources.Resources.Imagen1
+        Me.btnRemoveUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnRemoveUser.Location = New System.Drawing.Point(624, 290)
+        Me.btnRemoveUser.Name = "btnRemoveUser"
+        Me.btnRemoveUser.Size = New System.Drawing.Size(148, 45)
+        Me.btnRemoveUser.TabIndex = 27
+        Me.btnRemoveUser.Text = "Remove User  "
+        Me.btnRemoveUser.UseVisualStyleBackColor = False
+        '
+        'btnAddUser
+        '
+        Me.btnAddUser.BackColor = System.Drawing.Color.White
+        Me.btnAddUser.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnAddUser.FlatAppearance.BorderColor = System.Drawing.Color.Maroon
+        Me.btnAddUser.FlatAppearance.BorderSize = 2
+        Me.btnAddUser.FlatAppearance.CheckedBackColor = System.Drawing.Color.DimGray
+        Me.btnAddUser.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray
+        Me.btnAddUser.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
+        Me.btnAddUser.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnAddUser.ForeColor = System.Drawing.Color.Maroon
+        Me.btnAddUser.Image = Global.Monteverde_Administrator.My.Resources.Resources.Imagen14
+        Me.btnAddUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnAddUser.Location = New System.Drawing.Point(12, 290)
+        Me.btnAddUser.Name = "btnAddUser"
+        Me.btnAddUser.Size = New System.Drawing.Size(132, 45)
+        Me.btnAddUser.TabIndex = 25
+        Me.btnAddUser.Text = "    Add New User"
+        Me.btnAddUser.UseVisualStyleBackColor = False
         '
         'frmUserManagement
         '

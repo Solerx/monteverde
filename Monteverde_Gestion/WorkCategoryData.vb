@@ -4,6 +4,8 @@ Public Class WorkCategoryData
 
     Dim strConexion As String = "Data Source=SOLERPC\MONTEVERDE;Initial Catalog=Monteverdedb;Integrated Security=True"
 
+    'Dim strConexion As String = "Data Source=(LocalDB)\v11.0;AttachDbFilename=|DataDirectory|\MonteverdeDataBase.mdf;Integrated Security=True;Connect Timeout=30"
+
     Dim connection As New SqlConnection(strConexion)
 
     Dim dataTableCategories As New DataTable

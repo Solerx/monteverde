@@ -64,6 +64,8 @@ Partial Class frmProjectManagement
         Me.btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
         Me.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAdd.ForeColor = System.Drawing.Color.Maroon
+        Me.btnAdd.Image = Global.Monteverde_Administrator.My.Resources.Resources.Imagen2
+        Me.btnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnAdd.Location = New System.Drawing.Point(315, 504)
         Me.btnAdd.Name = "btnAdd"
         Me.btnAdd.Size = New System.Drawing.Size(149, 45)
@@ -196,11 +198,13 @@ Partial Class frmProjectManagement
         Me.btnEditProject.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
         Me.btnEditProject.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEditProject.ForeColor = System.Drawing.Color.Maroon
-        Me.btnEditProject.Location = New System.Drawing.Point(157, 290)
+        Me.btnEditProject.Image = Global.Monteverde_Administrator.My.Resources.Resources.Imagen16
+        Me.btnEditProject.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnEditProject.Location = New System.Drawing.Point(148, 290)
         Me.btnEditProject.Name = "btnEditProject"
-        Me.btnEditProject.Size = New System.Drawing.Size(121, 45)
+        Me.btnEditProject.Size = New System.Drawing.Size(130, 45)
         Me.btnEditProject.TabIndex = 56
-        Me.btnEditProject.Text = "Edit Selected Project"
+        Me.btnEditProject.Text = "Edit Project"
         Me.btnEditProject.UseVisualStyleBackColor = False
         '
         'btnRemoveProject
@@ -214,11 +218,14 @@ Partial Class frmProjectManagement
         Me.btnRemoveProject.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
         Me.btnRemoveProject.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnRemoveProject.ForeColor = System.Drawing.Color.Maroon
+        Me.btnRemoveProject.Image = Global.Monteverde_Administrator.My.Resources.Resources.Imagen1
+        Me.btnRemoveProject.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnRemoveProject.Location = New System.Drawing.Point(594, 290)
         Me.btnRemoveProject.Name = "btnRemoveProject"
         Me.btnRemoveProject.Size = New System.Drawing.Size(178, 45)
         Me.btnRemoveProject.TabIndex = 57
-        Me.btnRemoveProject.Text = "Remove Selected Project"
+        Me.btnRemoveProject.Text = "Remove Selected Project   "
+        Me.btnRemoveProject.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnRemoveProject.UseVisualStyleBackColor = False
         '
         'btnBack
@@ -228,6 +235,8 @@ Partial Class frmProjectManagement
         Me.btnBack.FlatAppearance.BorderSize = 2
         Me.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnBack.ForeColor = System.Drawing.Color.Maroon
+        Me.btnBack.Image = Global.Monteverde_Administrator.My.Resources.Resources.Sin_título
+        Me.btnBack.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnBack.Location = New System.Drawing.Point(12, 12)
         Me.btnBack.Name = "btnBack"
         Me.btnBack.Size = New System.Drawing.Size(266, 45)
@@ -246,15 +255,19 @@ Partial Class frmProjectManagement
         Me.btnAddProject.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
         Me.btnAddProject.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAddProject.ForeColor = System.Drawing.Color.Maroon
+        Me.btnAddProject.Image = Global.Monteverde_Administrator.My.Resources.Resources.Imagen14
+        Me.btnAddProject.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnAddProject.Location = New System.Drawing.Point(12, 290)
         Me.btnAddProject.Name = "btnAddProject"
-        Me.btnAddProject.Size = New System.Drawing.Size(121, 45)
+        Me.btnAddProject.Size = New System.Drawing.Size(130, 45)
         Me.btnAddProject.TabIndex = 55
-        Me.btnAddProject.Text = "Add New Project"
+        Me.btnAddProject.Text = "Add New Project "
+        Me.btnAddProject.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnAddProject.UseVisualStyleBackColor = False
         '
         'dgvProjects
         '
+        Me.dgvProjects.BackgroundColor = System.Drawing.Color.Maroon
         Me.dgvProjects.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvProjects.Location = New System.Drawing.Point(12, 63)
         Me.dgvProjects.Name = "dgvProjects"

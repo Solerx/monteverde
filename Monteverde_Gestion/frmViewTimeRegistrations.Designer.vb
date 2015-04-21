@@ -27,16 +27,16 @@ Partial Class frmViewTimeRegistrations
         Me.lblUsers = New System.Windows.Forms.Label()
         Me.cbxProject = New System.Windows.Forms.ComboBox()
         Me.lblProjects = New System.Windows.Forms.Label()
-        Me.btnBack = New System.Windows.Forms.Button()
         Me.cbxWorkCategories = New System.Windows.Forms.ComboBox()
         Me.lblWorkCategory = New System.Windows.Forms.Label()
-        Me.btnFilter = New System.Windows.Forms.Button()
-        Me.btnResetFilter = New System.Windows.Forms.Button()
         Me.lblFilters = New System.Windows.Forms.Label()
         Me.lblUserWorkedHours = New System.Windows.Forms.Label()
         Me.txtUserWorkedHours = New System.Windows.Forms.MaskedTextBox()
         Me.btnEdit = New System.Windows.Forms.Button()
         Me.btnSave = New System.Windows.Forms.Button()
+        Me.btnResetFilter = New System.Windows.Forms.Button()
+        Me.btnFilter = New System.Windows.Forms.Button()
+        Me.btnBack = New System.Windows.Forms.Button()
         CType(Me.dgvWorkedTime, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
@@ -92,20 +92,6 @@ Partial Class frmViewTimeRegistrations
         Me.lblProjects.TabIndex = 80
         Me.lblProjects.Text = "Project: "
         '
-        'btnBack
-        '
-        Me.btnBack.BackColor = System.Drawing.Color.White
-        Me.btnBack.FlatAppearance.BorderColor = System.Drawing.Color.Maroon
-        Me.btnBack.FlatAppearance.BorderSize = 2
-        Me.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnBack.ForeColor = System.Drawing.Color.Maroon
-        Me.btnBack.Location = New System.Drawing.Point(12, 12)
-        Me.btnBack.Name = "btnBack"
-        Me.btnBack.Size = New System.Drawing.Size(266, 45)
-        Me.btnBack.TabIndex = 82
-        Me.btnBack.Text = "Back to Main Menu"
-        Me.btnBack.UseVisualStyleBackColor = False
-        '
         'cbxWorkCategories
         '
         Me.cbxWorkCategories.BackColor = System.Drawing.Color.Maroon
@@ -127,42 +113,6 @@ Partial Class frmViewTimeRegistrations
         Me.lblWorkCategory.Size = New System.Drawing.Size(104, 16)
         Me.lblWorkCategory.TabIndex = 83
         Me.lblWorkCategory.Text = "Work Category: "
-        '
-        'btnFilter
-        '
-        Me.btnFilter.BackColor = System.Drawing.Color.White
-        Me.btnFilter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnFilter.FlatAppearance.BorderColor = System.Drawing.Color.Maroon
-        Me.btnFilter.FlatAppearance.BorderSize = 2
-        Me.btnFilter.FlatAppearance.CheckedBackColor = System.Drawing.Color.DimGray
-        Me.btnFilter.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray
-        Me.btnFilter.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
-        Me.btnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnFilter.ForeColor = System.Drawing.Color.Maroon
-        Me.btnFilter.Location = New System.Drawing.Point(12, 198)
-        Me.btnFilter.Name = "btnFilter"
-        Me.btnFilter.Size = New System.Drawing.Size(149, 45)
-        Me.btnFilter.TabIndex = 85
-        Me.btnFilter.Text = "Filter"
-        Me.btnFilter.UseVisualStyleBackColor = False
-        '
-        'btnResetFilter
-        '
-        Me.btnResetFilter.BackColor = System.Drawing.Color.White
-        Me.btnResetFilter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
-        Me.btnResetFilter.FlatAppearance.BorderColor = System.Drawing.Color.Maroon
-        Me.btnResetFilter.FlatAppearance.BorderSize = 2
-        Me.btnResetFilter.FlatAppearance.CheckedBackColor = System.Drawing.Color.DimGray
-        Me.btnResetFilter.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray
-        Me.btnResetFilter.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
-        Me.btnResetFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnResetFilter.ForeColor = System.Drawing.Color.Maroon
-        Me.btnResetFilter.Location = New System.Drawing.Point(167, 198)
-        Me.btnResetFilter.Name = "btnResetFilter"
-        Me.btnResetFilter.Size = New System.Drawing.Size(149, 45)
-        Me.btnResetFilter.TabIndex = 86
-        Me.btnResetFilter.Text = "Reset Filter"
-        Me.btnResetFilter.UseVisualStyleBackColor = False
         '
         'lblFilters
         '
@@ -232,6 +182,62 @@ Partial Class frmViewTimeRegistrations
         Me.btnSave.TabIndex = 91
         Me.btnSave.Text = "Save"
         Me.btnSave.UseVisualStyleBackColor = False
+        '
+        'btnResetFilter
+        '
+        Me.btnResetFilter.BackColor = System.Drawing.Color.White
+        Me.btnResetFilter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnResetFilter.FlatAppearance.BorderColor = System.Drawing.Color.Maroon
+        Me.btnResetFilter.FlatAppearance.BorderSize = 2
+        Me.btnResetFilter.FlatAppearance.CheckedBackColor = System.Drawing.Color.DimGray
+        Me.btnResetFilter.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray
+        Me.btnResetFilter.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
+        Me.btnResetFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnResetFilter.ForeColor = System.Drawing.Color.Maroon
+        Me.btnResetFilter.Image = Global.Monteverde_Administrator.My.Resources.Resources.Imagen30
+        Me.btnResetFilter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnResetFilter.Location = New System.Drawing.Point(167, 198)
+        Me.btnResetFilter.Name = "btnResetFilter"
+        Me.btnResetFilter.Size = New System.Drawing.Size(149, 45)
+        Me.btnResetFilter.TabIndex = 86
+        Me.btnResetFilter.Text = "Reset Filter"
+        Me.btnResetFilter.UseVisualStyleBackColor = False
+        '
+        'btnFilter
+        '
+        Me.btnFilter.BackColor = System.Drawing.Color.White
+        Me.btnFilter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None
+        Me.btnFilter.FlatAppearance.BorderColor = System.Drawing.Color.Maroon
+        Me.btnFilter.FlatAppearance.BorderSize = 2
+        Me.btnFilter.FlatAppearance.CheckedBackColor = System.Drawing.Color.DimGray
+        Me.btnFilter.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkGray
+        Me.btnFilter.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
+        Me.btnFilter.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnFilter.ForeColor = System.Drawing.Color.Maroon
+        Me.btnFilter.Image = Global.Monteverde_Administrator.My.Resources.Resources.Imagen6
+        Me.btnFilter.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnFilter.Location = New System.Drawing.Point(12, 198)
+        Me.btnFilter.Name = "btnFilter"
+        Me.btnFilter.Size = New System.Drawing.Size(149, 45)
+        Me.btnFilter.TabIndex = 85
+        Me.btnFilter.Text = "Filter"
+        Me.btnFilter.UseVisualStyleBackColor = False
+        '
+        'btnBack
+        '
+        Me.btnBack.BackColor = System.Drawing.Color.White
+        Me.btnBack.FlatAppearance.BorderColor = System.Drawing.Color.Maroon
+        Me.btnBack.FlatAppearance.BorderSize = 2
+        Me.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnBack.ForeColor = System.Drawing.Color.Maroon
+        Me.btnBack.Image = Global.Monteverde_Administrator.My.Resources.Resources.Sin_título
+        Me.btnBack.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnBack.Location = New System.Drawing.Point(12, 12)
+        Me.btnBack.Name = "btnBack"
+        Me.btnBack.Size = New System.Drawing.Size(266, 45)
+        Me.btnBack.TabIndex = 82
+        Me.btnBack.Text = "Back to Main Menu"
+        Me.btnBack.UseVisualStyleBackColor = False
         '
         'frmViewTimeRegistrations
         '

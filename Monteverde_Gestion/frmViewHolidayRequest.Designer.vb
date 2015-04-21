@@ -24,13 +24,14 @@ Partial Class frmViewHolidayRequest
     Private Sub InitializeComponent()
         Me.dgvHolidaysRequest = New System.Windows.Forms.DataGridView()
         Me.btnAcceptRequest = New System.Windows.Forms.Button()
-        Me.btnRejectRequest = New System.Windows.Forms.Button()
         Me.btnBack = New System.Windows.Forms.Button()
+        Me.btnRejectRequest = New System.Windows.Forms.Button()
         CType(Me.dgvHolidaysRequest, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'dgvHolidaysRequest
         '
+        Me.dgvHolidaysRequest.BackgroundColor = System.Drawing.Color.Maroon
         Me.dgvHolidaysRequest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvHolidaysRequest.Location = New System.Drawing.Point(51, 110)
         Me.dgvHolidaysRequest.Name = "dgvHolidaysRequest"
@@ -48,12 +49,30 @@ Partial Class frmViewHolidayRequest
         Me.btnAcceptRequest.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
         Me.btnAcceptRequest.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAcceptRequest.ForeColor = System.Drawing.Color.Maroon
+        Me.btnAcceptRequest.Image = Global.Monteverde_Administrator.My.Resources.Resources.Imagen31
+        Me.btnAcceptRequest.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnAcceptRequest.Location = New System.Drawing.Point(579, 456)
         Me.btnAcceptRequest.Name = "btnAcceptRequest"
         Me.btnAcceptRequest.Size = New System.Drawing.Size(149, 45)
         Me.btnAcceptRequest.TabIndex = 66
         Me.btnAcceptRequest.Text = "Accept Request"
         Me.btnAcceptRequest.UseVisualStyleBackColor = False
+        '
+        'btnBack
+        '
+        Me.btnBack.BackColor = System.Drawing.Color.White
+        Me.btnBack.FlatAppearance.BorderColor = System.Drawing.Color.Maroon
+        Me.btnBack.FlatAppearance.BorderSize = 2
+        Me.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat
+        Me.btnBack.ForeColor = System.Drawing.Color.Maroon
+        Me.btnBack.Image = Global.Monteverde_Administrator.My.Resources.Resources.Sin_título
+        Me.btnBack.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnBack.Location = New System.Drawing.Point(12, 12)
+        Me.btnBack.Name = "btnBack"
+        Me.btnBack.Size = New System.Drawing.Size(266, 45)
+        Me.btnBack.TabIndex = 68
+        Me.btnBack.Text = "Back to Main Menu"
+        Me.btnBack.UseVisualStyleBackColor = False
         '
         'btnRejectRequest
         '
@@ -66,26 +85,14 @@ Partial Class frmViewHolidayRequest
         Me.btnRejectRequest.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
         Me.btnRejectRequest.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnRejectRequest.ForeColor = System.Drawing.Color.Maroon
+        Me.btnRejectRequest.Image = Global.Monteverde_Administrator.My.Resources.Resources.Imagen22
+        Me.btnRejectRequest.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnRejectRequest.Location = New System.Drawing.Point(388, 456)
         Me.btnRejectRequest.Name = "btnRejectRequest"
         Me.btnRejectRequest.Size = New System.Drawing.Size(149, 45)
         Me.btnRejectRequest.TabIndex = 67
         Me.btnRejectRequest.Text = "Reject Request"
         Me.btnRejectRequest.UseVisualStyleBackColor = False
-        '
-        'btnBack
-        '
-        Me.btnBack.BackColor = System.Drawing.Color.White
-        Me.btnBack.FlatAppearance.BorderColor = System.Drawing.Color.Maroon
-        Me.btnBack.FlatAppearance.BorderSize = 2
-        Me.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat
-        Me.btnBack.ForeColor = System.Drawing.Color.Maroon
-        Me.btnBack.Location = New System.Drawing.Point(12, 12)
-        Me.btnBack.Name = "btnBack"
-        Me.btnBack.Size = New System.Drawing.Size(266, 45)
-        Me.btnBack.TabIndex = 68
-        Me.btnBack.Text = "Back to Main Menu"
-        Me.btnBack.UseVisualStyleBackColor = False
         '
         'frmViewHolidayRequest
         '

@@ -13,7 +13,7 @@
     <MyType>WindowsForms</MyType>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>C:\Users\Jorge Soler\Desktop\Nueva carpeta\</PublishUrl>
+    <PublishUrl>C:\Users\Jorge Soler\Desktop\MonteverdeSetup\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -23,7 +23,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationRevision>1</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -77,6 +77,10 @@
     <ApplicationManifest>My Project\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="itextsharp, Version=4.1.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Deployment" />
@@ -101,6 +105,10 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmReports.Designer.vb">
+      <DependentUpon>frmReports.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmReports.vb" />
     <Compile Include="frmViewHolidayRequest.Designer.vb">
       <DependentUpon>frmViewHolidayRequest.vb</DependentUpon>
     </Compile>
@@ -153,6 +161,7 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="HolidaysData.vb" />
+    <Compile Include="Page.vb" />
     <Compile Include="UserTimeRegistration.vb" />
     <Compile Include="UserTimeRegistrationData.vb" />
     <Compile Include="WorkCategoryData.vb" />
@@ -205,6 +214,9 @@
   <ItemGroup>
     <EmbeddedResource Include="frmNewTimeRegistration.resx">
       <DependentUpon>frmNewTimeRegistration.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReports.resx">
+      <DependentUpon>frmReports.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRequestHolidays.resx">
       <DependentUpon>frmRequestHolidays.vb</DependentUpon>
@@ -275,6 +287,32 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.SqlServer.SqlLocalDB.11.1">
+      <Visible>False</Visible>
+      <ProductName>SQL Server 2012 Express LocalDB</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.4.5">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 4.5</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Imagen31.png" />
+    <None Include="Resources\Imagen30.png" />
+    <None Include="Resources\Imagen6.png" />
+    <None Include="Resources\Imagen12.png" />
+    <None Include="Resources\Nueva imagen de mapa de bits.bmp" />
+    <None Include="Resources\Imagen25.png" />
+    <None Include="Resources\Imagen23.png" />
+    <None Include="Resources\Imagen22.png" />
+    <None Include="Resources\Imagen16.png" />
+    <None Include="Resources\Imagen14.png" />
+    <None Include="Resources\Imagen3.png" />
+    <None Include="Resources\Imagen2.png" />
+    <None Include="Resources\Imagen1.png" />
+    <None Include="Resources\Sin título.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -22,6 +22,7 @@ Partial Class frmRequestHolidays
     'Do not modify it using the code editor.
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
+        Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmRequestHolidays))
         Me.btnRequest = New System.Windows.Forms.Button()
         Me.lblUserHolidays = New System.Windows.Forms.Label()
         Me.txtUserHolidays = New System.Windows.Forms.MaskedTextBox()
@@ -51,6 +52,8 @@ Partial Class frmRequestHolidays
         Me.btnRequest.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
         Me.btnRequest.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnRequest.ForeColor = System.Drawing.Color.Maroon
+        Me.btnRequest.Image = CType(resources.GetObject("btnRequest.Image"), System.Drawing.Image)
+        Me.btnRequest.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnRequest.Location = New System.Drawing.Point(137, 474)
         Me.btnRequest.Name = "btnRequest"
         Me.btnRequest.Size = New System.Drawing.Size(149, 45)
@@ -86,6 +89,8 @@ Partial Class frmRequestHolidays
         Me.btnBack.FlatAppearance.BorderSize = 2
         Me.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnBack.ForeColor = System.Drawing.Color.Maroon
+        Me.btnBack.Image = Global.Monteverde_Administrator.My.Resources.Resources.Sin_título
+        Me.btnBack.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnBack.Location = New System.Drawing.Point(12, 12)
         Me.btnBack.Name = "btnBack"
         Me.btnBack.Size = New System.Drawing.Size(266, 45)
@@ -160,6 +165,7 @@ Partial Class frmRequestHolidays
         '
         'dgvHolidaysRequest
         '
+        Me.dgvHolidaysRequest.BackgroundColor = System.Drawing.Color.Maroon
         Me.dgvHolidaysRequest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvHolidaysRequest.Location = New System.Drawing.Point(437, 124)
         Me.dgvHolidaysRequest.Name = "dgvHolidaysRequest"
@@ -188,11 +194,13 @@ Partial Class frmRequestHolidays
         Me.btnCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
         Me.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnCancel.ForeColor = System.Drawing.Color.Maroon
+        Me.btnCancel.Image = Global.Monteverde_Administrator.My.Resources.Resources.Imagen1
+        Me.btnCancel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnCancel.Location = New System.Drawing.Point(521, 474)
         Me.btnCancel.Name = "btnCancel"
         Me.btnCancel.Size = New System.Drawing.Size(149, 45)
         Me.btnCancel.TabIndex = 66
-        Me.btnCancel.Text = "Remove Request"
+        Me.btnCancel.Text = "    Remove Request"
         Me.btnCancel.UseVisualStyleBackColor = False
         '
         'lblToDate

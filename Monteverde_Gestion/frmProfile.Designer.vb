@@ -41,6 +41,8 @@ Partial Class frmProfile
         Me.btnBack.FlatAppearance.BorderSize = 2
         Me.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnBack.ForeColor = System.Drawing.Color.Maroon
+        Me.btnBack.Image = Global.Monteverde_Administrator.My.Resources.Resources.Sin_título
+        Me.btnBack.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
         Me.btnBack.Location = New System.Drawing.Point(12, 12)
         Me.btnBack.Name = "btnBack"
         Me.btnBack.Size = New System.Drawing.Size(266, 45)
@@ -139,11 +141,14 @@ Partial Class frmProfile
         Me.btnSave.FlatAppearance.BorderSize = 2
         Me.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnSave.ForeColor = System.Drawing.Color.Maroon
-        Me.btnSave.Location = New System.Drawing.Point(659, 504)
+        Me.btnSave.Image = Global.Monteverde_Administrator.My.Resources.Resources.Imagen23
+        Me.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
+        Me.btnSave.Location = New System.Drawing.Point(651, 504)
         Me.btnSave.Name = "btnSave"
-        Me.btnSave.Size = New System.Drawing.Size(113, 45)
+        Me.btnSave.Size = New System.Drawing.Size(121, 45)
         Me.btnSave.TabIndex = 71
         Me.btnSave.Text = "Save Changes"
+        Me.btnSave.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnSave.UseVisualStyleBackColor = False
         '
         'frmProfile

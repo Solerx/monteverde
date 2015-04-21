@@ -15,6 +15,62 @@ Monteverde_Administrator
   Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 </summary>
+</member><member name="P:Monteverde_Administrator.My.Resources.Resources.Imagen1">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Monteverde_Administrator.My.Resources.Resources.Imagen12">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Monteverde_Administrator.My.Resources.Resources.Imagen14">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Monteverde_Administrator.My.Resources.Resources.Imagen16">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Monteverde_Administrator.My.Resources.Resources.Imagen2">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Monteverde_Administrator.My.Resources.Resources.Imagen22">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Monteverde_Administrator.My.Resources.Resources.Imagen23">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Monteverde_Administrator.My.Resources.Resources.Imagen25">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Monteverde_Administrator.My.Resources.Resources.Imagen3">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Monteverde_Administrator.My.Resources.Resources.Imagen30">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Monteverde_Administrator.My.Resources.Resources.Imagen31">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Monteverde_Administrator.My.Resources.Resources.Imagen6">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Monteverde_Administrator.My.Resources.Resources.Nueva_imagen_de_mapa_de_bits">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
+</member><member name="P:Monteverde_Administrator.My.Resources.Resources.Sin_título">
+	<summary>
+  Looks up a localized resource of type System.Drawing.Bitmap.
+</summary>
 </member><member name="T:Monteverde_Administrator.My.Resources.Resources">
 	<summary>
   A strongly-typed resource class, for looking up localized strings, etc.

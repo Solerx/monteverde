@@ -23,7 +23,6 @@ Partial Class frmHome
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmHome))
-        Me.pbLogo = New System.Windows.Forms.PictureBox()
         Me.lblUserRole = New System.Windows.Forms.Label()
         Me.lblUserName = New System.Windows.Forms.Label()
         Me.lblUserEmail = New System.Windows.Forms.Label()
@@ -45,26 +44,18 @@ Partial Class frmHome
         Me.msHome = New System.Windows.Forms.MenuStrip()
         Me.lblHolidayRequest = New System.Windows.Forms.Label()
         Me.lblRequests = New System.Windows.Forms.Label()
-        CType(Me.pbLogo, System.ComponentModel.ISupportInitialize).BeginInit()
+        Me.ReportsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.pbLogo = New System.Windows.Forms.PictureBox()
         Me.msHome.SuspendLayout()
+        CType(Me.pbLogo, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
-        '
-        'pbLogo
-        '
-        Me.pbLogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.pbLogo.Image = CType(resources.GetObject("pbLogo.Image"), System.Drawing.Image)
-        Me.pbLogo.Location = New System.Drawing.Point(326, 97)
-        Me.pbLogo.Name = "pbLogo"
-        Me.pbLogo.Size = New System.Drawing.Size(112, 94)
-        Me.pbLogo.TabIndex = 17
-        Me.pbLogo.TabStop = False
         '
         'lblUserRole
         '
         Me.lblUserRole.AutoSize = True
         Me.lblUserRole.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblUserRole.ForeColor = System.Drawing.Color.Maroon
-        Me.lblUserRole.Location = New System.Drawing.Point(304, 348)
+        Me.lblUserRole.Location = New System.Drawing.Point(13, 256)
         Me.lblUserRole.Name = "lblUserRole"
         Me.lblUserRole.Size = New System.Drawing.Size(102, 25)
         Me.lblUserRole.TabIndex = 22
@@ -76,7 +67,7 @@ Partial Class frmHome
         Me.lblUserName.AutoSize = True
         Me.lblUserName.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblUserName.ForeColor = System.Drawing.Color.Maroon
-        Me.lblUserName.Location = New System.Drawing.Point(303, 233)
+        Me.lblUserName.Location = New System.Drawing.Point(12, 141)
         Me.lblUserName.Name = "lblUserName"
         Me.lblUserName.Size = New System.Drawing.Size(158, 31)
         Me.lblUserName.TabIndex = 8
@@ -88,7 +79,7 @@ Partial Class frmHome
         Me.lblUserEmail.AutoSize = True
         Me.lblUserEmail.Font = New System.Drawing.Font("Microsoft Sans Serif", 15.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.lblUserEmail.ForeColor = System.Drawing.Color.Maroon
-        Me.lblUserEmail.Location = New System.Drawing.Point(304, 296)
+        Me.lblUserEmail.Location = New System.Drawing.Point(13, 204)
         Me.lblUserEmail.Name = "lblUserEmail"
         Me.lblUserEmail.Size = New System.Drawing.Size(117, 25)
         Me.lblUserEmail.TabIndex = 24
@@ -228,7 +219,7 @@ Partial Class frmHome
         'msHome
         '
         Me.msHome.BackColor = System.Drawing.Color.Maroon
-        Me.msHome.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.msiManagement, Me.TimeRegistrationToolStripMenuItem, Me.HolidaysToolStripMenuItem})
+        Me.msHome.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.msiManagement, Me.TimeRegistrationToolStripMenuItem, Me.HolidaysToolStripMenuItem, Me.ReportsToolStripMenuItem})
         Me.msHome.Location = New System.Drawing.Point(0, 0)
         Me.msHome.Name = "msHome"
         Me.msHome.Size = New System.Drawing.Size(784, 24)
@@ -260,6 +251,23 @@ Partial Class frmHome
         Me.lblRequests.Text = "0"
         Me.lblRequests.TextAlign = System.Drawing.ContentAlignment.TopCenter
         '
+        'ReportsToolStripMenuItem
+        '
+        Me.ReportsToolStripMenuItem.ForeColor = System.Drawing.Color.White
+        Me.ReportsToolStripMenuItem.Name = "ReportsToolStripMenuItem"
+        Me.ReportsToolStripMenuItem.Size = New System.Drawing.Size(59, 20)
+        Me.ReportsToolStripMenuItem.Text = "Reports"
+        '
+        'pbLogo
+        '
+        Me.pbLogo.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
+        Me.pbLogo.Image = CType(resources.GetObject("pbLogo.Image"), System.Drawing.Image)
+        Me.pbLogo.Location = New System.Drawing.Point(660, 40)
+        Me.pbLogo.Name = "pbLogo"
+        Me.pbLogo.Size = New System.Drawing.Size(112, 94)
+        Me.pbLogo.TabIndex = 17
+        Me.pbLogo.TabStop = False
+        '
         'frmHome
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -279,9 +287,9 @@ Partial Class frmHome
         Me.Name = "frmHome"
         Me.RightToLeft = System.Windows.Forms.RightToLeft.No
         Me.Text = "Welcome!"
-        CType(Me.pbLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.msHome.ResumeLayout(False)
         Me.msHome.PerformLayout()
+        CType(Me.pbLogo, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -308,4 +316,5 @@ Partial Class frmHome
     Friend WithEvents msHome As System.Windows.Forms.MenuStrip
     Friend WithEvents lblHolidayRequest As System.Windows.Forms.Label
     Friend WithEvents lblRequests As System.Windows.Forms.Label
+    Friend WithEvents ReportsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
 End Class

@@ -106,11 +106,12 @@ Partial Class frmUserToProjects
         Me.btnAddUserToProject.FlatAppearance.BorderSize = 2
         Me.btnAddUserToProject.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnAddUserToProject.ForeColor = System.Drawing.Color.Maroon
+        Me.btnAddUserToProject.Image = Global.Monteverde_Administrator.My.Resources.Resources.Nueva_imagen_de_mapa_de_bits
         Me.btnAddUserToProject.Location = New System.Drawing.Point(462, 407)
         Me.btnAddUserToProject.Name = "btnAddUserToProject"
         Me.btnAddUserToProject.Size = New System.Drawing.Size(232, 89)
         Me.btnAddUserToProject.TabIndex = 49
-        Me.btnAddUserToProject.Text = "Add User to Selected Project"
+        Me.btnAddUserToProject.Text = "" & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & Global.Microsoft.VisualBasic.ChrW(13) & Global.Microsoft.VisualBasic.ChrW(10) & "Add User to Selected Project"
         Me.btnAddUserToProject.UseVisualStyleBackColor = False
         '
         'btnEdit
@@ -120,11 +121,14 @@ Partial Class frmUserToProjects
         Me.btnEdit.FlatAppearance.BorderSize = 2
         Me.btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnEdit.ForeColor = System.Drawing.Color.Maroon
+        Me.btnEdit.Image = Global.Monteverde_Administrator.My.Resources.Resources.Imagen16
+        Me.btnEdit.ImageAlign = System.Drawing.ContentAlignment.TopCenter
         Me.btnEdit.Location = New System.Drawing.Point(677, 124)
         Me.btnEdit.Name = "btnEdit"
-        Me.btnEdit.Size = New System.Drawing.Size(97, 45)
+        Me.btnEdit.Size = New System.Drawing.Size(97, 65)
         Me.btnEdit.TabIndex = 48
         Me.btnEdit.Text = "Edit User Work Time"
+        Me.btnEdit.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnEdit.UseVisualStyleBackColor = False
         '
         'btnRemoveProject
@@ -134,11 +138,14 @@ Partial Class frmUserToProjects
         Me.btnRemoveProject.FlatAppearance.BorderSize = 2
         Me.btnRemoveProject.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.btnRemoveProject.ForeColor = System.Drawing.Color.Maroon
-        Me.btnRemoveProject.Location = New System.Drawing.Point(677, 260)
+        Me.btnRemoveProject.Image = Global.Monteverde_Administrator.My.Resources.Resources.Imagen1
+        Me.btnRemoveProject.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnRemoveProject.Location = New System.Drawing.Point(677, 195)
         Me.btnRemoveProject.Name = "btnRemoveProject"
-        Me.btnRemoveProject.Size = New System.Drawing.Size(97, 45)
+        Me.btnRemoveProject.Size = New System.Drawing.Size(97, 65)
         Me.btnRemoveProject.TabIndex = 47
         Me.btnRemoveProject.Text = "Remove User From Project"
+        Me.btnRemoveProject.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnRemoveProject.UseVisualStyleBackColor = False
         '
         'lblProjectToAdd
