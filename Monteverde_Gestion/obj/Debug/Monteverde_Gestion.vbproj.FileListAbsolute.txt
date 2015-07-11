@@ -62,3 +62,23 @@ C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Mo
 C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Monteverde_Administrator.exe
 C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Monteverde_Administrator.xml
 C:\Users\Jorge Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Monteverde_Administrator.pdb
+C:\Users\Soler\Documents\GitHub\monteverde\Monteverde_Gestion\bin\Debug\Monteverde_Administrator.exe.config
+C:\Users\Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Monteverde_Administrator.exe
+C:\Users\Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Monteverde_Administrator.xml
+C:\Users\Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Monteverde_Administrator.pdb
+C:\Users\Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Monteverde_Gestion.vbprojResolveAssemblyReference.cache
+C:\Users\Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Monteverde_Administrator.frmNewTimeRegistration.resources
+C:\Users\Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Monteverde_Administrator.frmReports.resources
+C:\Users\Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Monteverde_Administrator.frmRequestHolidays.resources
+C:\Users\Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Monteverde_Administrator.frmUserToProjects.resources
+C:\Users\Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Monteverde_Administrator.frmProfile.resources
+C:\Users\Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Monteverde_Administrator.frmProjectsToUsers.resources
+C:\Users\Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Monteverde_Administrator.frmViewHolidayRequest.resources
+C:\Users\Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Monteverde_Administrator.frmViewTimeRegistrations.resources
+C:\Users\Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Monteverde_Administrator.frmWorkCategoryManagement.resources
+C:\Users\Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Monteverde_Administrator.frmLogin.resources
+C:\Users\Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Monteverde_Administrator.frmHome.resources
+C:\Users\Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Monteverde_Administrator.frmProjectManagement.resources
+C:\Users\Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Monteverde_Administrator.frmUserManagement.resources
+C:\Users\Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Monteverde_Administrator.Resources.resources
+C:\Users\Soler\Documents\GitHub\monteverde\Monteverde_Gestion\obj\Debug\Monteverde_Gestion.vbproj.GenerateResource.Cache
